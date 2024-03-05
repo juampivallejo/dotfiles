@@ -4,6 +4,7 @@ let
 in
 {
   imports = [
+    ./utils.nix
     ./neofetch.nix
   ];
 
