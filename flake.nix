@@ -12,7 +12,7 @@
     };
 
     ## Outputs = built and working system configuration
-    outputs = {home-manager, nixpkgs, ...}:
+    outputs = {home-manager, nixpkgs, ...}@inputs:
         let
             username = "juampi";
             hostname = "nixos";
@@ -24,7 +24,13 @@
         in {
         nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
+            specialArgs = { inherit inputs username hostname; };
             modules = [ ./nixos/configuration.nix ];
+        };
+        homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+            specialArgs = { inherit inputs username hostname; };
+            modules = [ ./home-manager/home.nix ];
         };
     };
 
