@@ -5,7 +5,6 @@ in
 {
   imports = [
     ./neofetch.nix
-    ./wezterm.nix
   ];
 
   targets.genericLinux.enable = true;

@@ -123,7 +123,6 @@
   unzip
 
   # -- Development --
-  wezterm
   kitty
   tmux
   neovim
