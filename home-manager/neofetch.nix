@@ -44,5 +44,5 @@
     crop_mode="normal" # normal fit fill
     crop_offset="center" # northwest north northeast west center east southwest south southeast
     gap=1 # num -num
-'';
+  '';
 }
