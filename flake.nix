@@ -5,14 +5,16 @@
 
     inputs = {
         nixpkgs.url = "nixpkgs/nixos-23.11";  # longer format is github:NixOS/nixpkgs/nixos-XX.XX
+
+        # Note: Used home-manager standalone install instructions (nix-shell '<home-manager>' -A install)
         home-manager = {
-            url = "github:nix-community/home-manager";
+            url = "github:nix-community/home-manager/release-23.11";
             inputs.nixpkgs.follows = "nixpkgs";
         };
     };
 
     ## Outputs = built and working system configuration
-    outputs = {home-manager, nixpkgs, ...}@inputs:
+    outputs = {home-manager, nixpkgs, ...}:
         let
             username = "juampi";
             hostname = "nixos";
@@ -24,13 +26,12 @@
         in {
         nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
-            specialArgs = { inherit inputs username hostname; };
             modules = [ ./nixos/configuration.nix ];
         };
         homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
             inherit pkgs;
-            specialArgs = { inherit inputs username hostname; };
             modules = [ ./home-manager/home.nix ];
+            extraSpecialArgs = { inherit username hostname; };
         };
     };
 
