@@ -25,7 +25,7 @@ in
       QT_XCB_GL_INTEGRATION = "none"; # kde-connect
       NIXPKGS_ALLOW_UNFREE = "1";
       GOPATH = "${homeDirectory}/.local/share/go";
-      GOMODCACHE="${homeDirectory}/.cache/go/pkg/mod";
+      GOMODCACHE = "${homeDirectory}/.cache/go/pkg/mod";
     };
 
     sessionPath = [
