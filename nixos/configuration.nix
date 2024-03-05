@@ -6,7 +6,8 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
 
@@ -55,7 +56,7 @@
   services.xserver = {
     enable = true;
     # Setting nvidia driver for Hyprland
-    videoDrivers = ["nvidia"];
+    videoDrivers = [ "nvidia" ];
   };
 
   # Enable the GNOME Desktop Environment.
@@ -103,7 +104,7 @@
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       firefox
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
@@ -113,49 +114,58 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
 
-  # -- Basic Packages --
-  vim
-  wget
-  gcc
-  gnumake
-  unzip
+    # -- Basic Packages --
+    vim
+    wget
+    gcc
+    gnumake
+    unzip
 
-  # -- Development --
-  kitty
-  tmux
-  neovim
-  git
-  docker
-  python3Full
-  python3Packages.pip
-  pyenv
-  go
-  cargo
-  lazygit
-  nodePackages.cspell
-  insomnia
+    # -- Development --
+    kitty
+    tmux
+    neovim
+    git
+    docker
+    python3Full
+    python3Packages.pip
+    pyenv
+    go
+    cargo
+    lazygit
+    nodePackages.cspell
+    insomnia
 
-  # For Hyprland
-  libva  # Required for Nvidia
-  dunst  # Notifications
-  rofi-wayland  # App launcher
-  waybar  # Bar
-  networkmanagerapplet  # Idk
-  hyprpaper # Wallpaper
+    nodejs_21 # Requirement to install pyright (mason)
+    lua-language-server # Lua LSP
+    stylua # Lua formatter
+    ruff # Python formatter
+    isort # Python Sort
+    nil # Nix LSP
+    nixpkgs-fmt # Nix format
+    prettierd # Formatter
 
-  # Some eww dependencies for the installed theme
+    # For Hyprland
+    libva # Required for Nvidia
+    dunst # Notifications
+    rofi-wayland # App launcher
+    waybar # Bar
+    networkmanagerapplet # Idk
+    hyprpaper # Wallpaper
 
-  # Gnome
-  gnome.adwaita-icon-theme
-  gnome.gnome-themes-extra
-  xdg-desktop-portal  # To set dark theme on hyrpland
-  xdg-desktop-portal-gtk  # To set dark theme on hyrpland
- 
-  # Software
-  appimage-run  # Run programs shipped as AppImage e.g. Obsidian
-  slack
+    # Some eww dependencies for the installed theme
+
+    # Gnome
+    gnome.adwaita-icon-theme
+    gnome.gnome-themes-extra
+    xdg-desktop-portal # To set dark theme on hyrpland
+    xdg-desktop-portal-gtk # To set dark theme on hyrpland
+
+    # Software
+    appimage-run # Run programs shipped as AppImage e.g. Obsidian
+    slack
 
   ];
 
@@ -210,7 +220,8 @@
   users.extraGroups.docker.members = [ "juampi" ];
   virtualisation.docker = {
     enable = true;
-    rootless = {  # Use docker without root
+    rootless = {
+      # Use docker without root
       enable = true;
       setSocketVariable = true;
     };
@@ -247,6 +258,6 @@
   system.stateVersion = "23.11"; # Did you read the comment?
 
   # -- Custom Nix settings --
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
 }
