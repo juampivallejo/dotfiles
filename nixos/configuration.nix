@@ -136,17 +136,6 @@
   lazygit
   nodePackages.cspell
   insomnia
- 
-  # -- Tooling --
-  ripgrep
-  tldr
-  btop
-  eza
-  bat
-  fzf
-  jq
-  rq
-  fd
 
   # For Hyprland
   libva  # Required for Nvidia
