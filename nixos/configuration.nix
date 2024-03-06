@@ -138,8 +138,9 @@
     nodePackages.cspell
     insomnia
 
-    nodejs_21 # Requirement to install pyright (mason)
-    lua-language-server # Lua LSP
+    nodePackages.pyright
+    nodePackages.vscode-json-languageserver
+    lua-language-server
     stylua # Lua formatter
     ruff # Python formatter
     isort # Python Sort
