@@ -3,6 +3,12 @@
     # Wallpapers
     swww
 
-   # TODO: Move packages
+    # Software
+    obsidian
+
+    # Virtualization
+    virtualbox
+
+    # TODO: Move packages
   ];
 }

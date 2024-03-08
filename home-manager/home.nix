@@ -47,6 +47,11 @@ in
     "file://${homeDirectory}/.config Config"
   ];
 
+  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-25.9.0"
+  ];
+
   programs.home-manager.enable = true;
   home.stateVersion = "21.11";
 }

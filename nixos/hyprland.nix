@@ -2,7 +2,7 @@
 
 {
   # Enable Hyprland
- 
+
   programs.hyprland = {
     enable = true;
     enableNvidiaPatches = true;
@@ -25,6 +25,10 @@
     # For Hyprland
     libva # Required for Nvidia
     dunst # Notifications
-    imv # Image terminal viewer
+    imv # Imdateage terminal viewer
+    wf-recorder # Recorder screen
+    wl-clipboard # Clipboard for wayland -> used with wl-copy & wl-paste cli
+    wayshot # screenshot CLI
+    swappy # snapshot
   ];
 }
