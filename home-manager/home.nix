@@ -7,6 +7,7 @@ in
     ./utils.nix
     ./neofetch.nix
     ./config.nix
+    ./packages.nix
   ];
 
   targets.genericLinux.enable = true;

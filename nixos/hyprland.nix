@@ -25,7 +25,6 @@
     # For Hyprland
     libva # Required for Nvidia
     dunst # Notifications
-    hyprpaper # Wallpaper
     imv # Image terminal viewer
   ];
 }
