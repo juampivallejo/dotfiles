@@ -9,6 +9,13 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./auto-upgrade.nix
+      ./gnome.nix
+      ./hyprland.nix
+      ./i18n.nix
+      ./sound.nix
+      ./bluetooth.nix
+      ./theme.nix
     ];
 
   # Bootloader.
@@ -34,24 +41,6 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # Set your time zone.
-  time.timeZone = "America/Argentina/Mendoza";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "es_AR.UTF-8";
-    LC_IDENTIFICATION = "es_AR.UTF-8";
-    LC_MEASUREMENT = "es_AR.UTF-8";
-    LC_MONETARY = "es_AR.UTF-8";
-    LC_NAME = "es_AR.UTF-8";
-    LC_NUMERIC = "es_AR.UTF-8";
-    LC_PAPER = "es_AR.UTF-8";
-    LC_TELEPHONE = "es_AR.UTF-8";
-    LC_TIME = "es_AR.UTF-8";
-  };
-
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
@@ -59,40 +48,8 @@
     videoDrivers = [ "nvidia" ];
   };
 
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "us";
-    xkbVariant = "";
-  };
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
-  # Enable Bluetooth
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
-  services.blueman.enable = true;
-
-  # Enable sound with pipewire.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -148,22 +105,6 @@
     nixpkgs-fmt # Nix format
     prettierd # Formatter
 
-    # For Hyprland
-    libva # Required for Nvidia
-    dunst # Notifications
-    rofi-wayland # App launcher
-    waybar # Bar
-    networkmanagerapplet # Idk
-    hyprpaper # Wallpaper
-
-    # Some eww dependencies for the installed theme
-
-    # Gnome
-    gnome.adwaita-icon-theme
-    gnome.gnome-themes-extra
-    xdg-desktop-portal # To set dark theme on hyrpland
-    xdg-desktop-portal-gtk # To set dark theme on hyrpland
-
     # Software
     appimage-run # Run programs shipped as AppImage e.g. Obsidian
     slack
@@ -179,26 +120,6 @@
   # };
 
   # -- Programs Config --
-
-  # Hyprland
-  programs.hyprland = {
-    enable = true;
-    enableNvidiaPatches = true;
-    xwayland.enable = true;
-  };
-  environment.sessionVariables = {
-    # If your cursor becomes invisible
-    WLR_NO_HARDWARE_CURSORS = "1";
-    # Hint electron apps to use wayland
-    NIXOS_OZONE_WL = "1";
-  };
-  hardware = {
-    # OpenGL
-    opengl.enable = true;
-    # Most wayland compositors need this
-    nvidia.modesetting.enable = true;
-  };
-
 
   # Fonts
   fonts.packages = with pkgs; [
