@@ -77,8 +77,6 @@
     vim
     wget
     gcc
-    gnumake
-    unzip
 
     # -- Development --
     kitty
@@ -88,7 +86,6 @@
     docker
     python3Full
     python3Packages.pip
-    pyenv
     go
     cargo
     lazygit
@@ -106,7 +103,6 @@
     prettierd # Formatter
 
     # Software
-    appimage-run # Run programs shipped as AppImage e.g. Obsidian
     slack
 
   ];
@@ -148,17 +144,6 @@
       setSocketVariable = true;
     };
   };
-
-  # Obsidian
-  # This didn't work but the idea is that it would donwload the Obsidian AppImage automatically, then I need to add it to the desktop
-  # appimageTools.wrapType2 = { # or wrapType1
-  #   name = "Obsidian";
-  #   src = fetchurl {
-  #     url = "https://github.com/obsidianmd/obsidian-releases/releases/download/v1.5.8/Obsidian-1.5.8.AppImage";
-  #     # hash = "sha256-OqTitCeZ6xmWbqYTXp8sDrmVgTNjPZNW0hzUPW++mq4=";
-  #   };
-  #   extraPkgs = pkgs: with pkgs; [ ];
-  # }
 
   # List services that you want to enable:
 
