@@ -4,7 +4,9 @@
     swww
 
     # Software
+    rofi-wayland  # Alternative App launcher
     obsidian
+    calibre
 
     # Virtualization
     virtualbox
