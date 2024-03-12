@@ -8,9 +8,6 @@
     obsidian
     calibre
 
-    # Virtualization
-    virtualbox
-
     # TODO: Move packages
   ];
 }
