@@ -6,8 +6,9 @@ in
   imports = [
     ./utils.nix
     ./neofetch.nix
-    ./config.nix
+    ./home-folders.nix
     ./packages.nix
+    ./kitty.nix
   ];
 
   targets.genericLinux.enable = true;
