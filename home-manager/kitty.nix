@@ -15,7 +15,7 @@
     confirm_os_window_close = 0;
 
     # Appearance
-    background_opacity = ".55";
+    background_opacity = ".75";
 
    # Performance
     repaint_delay = 8;
@@ -25,5 +25,5 @@
   programs.kitty.shellIntegration.mode = "";
 
   # Theme
-  programs.kitty.theme = "Catppuccin-Mocha";
+  programs.kitty.theme = "PaperColor Dark";
 }
