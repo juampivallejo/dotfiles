@@ -10,11 +10,11 @@
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./auto-upgrade.nix
+      ./bluetooth.nix
       ./gnome.nix
       ./hyprland.nix
       ./i18n.nix
       ./sound.nix
-      ./bluetooth.nix
     ];
 
   # Bootloader.
