@@ -1,5 +1,8 @@
 { pkgs, ... }:
 {
+  home.sessionVariables = {
+      GTK_THEME="Arc-Dark";
+  };
   gtk = {
     enable = true;
     iconTheme = {
@@ -10,18 +13,6 @@
     theme = {
       name = "Arc-Dark";
       package = pkgs.arc-theme;
-    };
-
-    gtk3.extraConfig = {
-      Settings = ''
-        gtk-application-prefer-dark-theme=1
-      '';
-    };
-
-    gtk4.extraConfig = {
-      Settings = ''
-        gtk-application-prefer-dark-theme=1
-      '';
     };
   };
 }

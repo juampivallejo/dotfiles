@@ -13,8 +13,6 @@
     enableAutosuggestions = true;
     syntaxHighlighting.enable = true;
 
-    defaultKeymap = "viins";
-
     shellAliases = {
       nix-rebuild = "sudo nixos-rebuild switch --flake .";
       home-update = "home-manager switch --flake .";
@@ -50,5 +48,6 @@
       }
     ];
 
+    defaultKeymap = "viins";
   };
 }
