@@ -1,5 +1,5 @@
 # My personal dotfiles
 
-## TODO
+# TODO:
 
-- Fix GTK dark theme not working on gnome apps
+- Test VM setup from 0
