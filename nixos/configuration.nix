@@ -15,7 +15,6 @@
       ./i18n.nix
       ./sound.nix
       ./bluetooth.nix
-      ./theme.nix
     ];
 
   # Bootloader.
@@ -71,40 +70,11 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-
     # -- Basic Packages --
     vim
+    git
     wget
     gcc
-
-    # -- Development --
-    kitty
-    tmux
-    neovim
-    git
-    docker
-    python3Full
-    python3Packages.pip
-    go
-    cargo
-    lazygit
-    nodePackages.cspell
-    insomnia
-
-    nodePackages.pyright
-    nodePackages.vscode-json-languageserver
-    lua-language-server
-    stylua # Lua formatter
-    ruff # Python formatter
-    isort # Python Sort
-    nil # Nix LSP
-    nixpkgs-fmt # Nix format
-    prettierd # Formatter
-
-    # Software
-    slack
-
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

@@ -17,7 +17,7 @@
     # Appearance
     background_opacity = ".75";
 
-   # Performance
+    # Performance
     repaint_delay = 8;
   };
 
