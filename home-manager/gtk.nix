@@ -1,8 +1,5 @@
 { pkgs, ... }:
 {
-  home.sessionVariables = {
-      GTK_THEME="Arc-Dark";
-  };
   gtk = {
     enable = true;
     iconTheme = {

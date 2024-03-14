@@ -5,6 +5,7 @@
     btop
     eza
     bat
+    gnumake # for fzf-native
     fzf
     jq
     rq
