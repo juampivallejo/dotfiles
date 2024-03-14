@@ -9,6 +9,7 @@ in
     ./home-folders.nix
     ./packages.nix
     ./kitty.nix
+    ./gtk.nix
   ];
 
   targets.genericLinux.enable = true;
@@ -35,18 +36,6 @@ in
       "$HOME/.local/bin"
     ];
   };
-
-  gtk.gtk3.bookmarks = [
-    "file://${homeDirectory}/Documents"
-    "file://${homeDirectory}/Music"
-    "file://${homeDirectory}/Pictures"
-    "file://${homeDirectory}/Videos"
-    "file://${homeDirectory}/Downloads"
-    "file://${homeDirectory}/Desktop"
-    "file://${homeDirectory}/Projects"
-    "file://${homeDirectory}/Vault"
-    "file://${homeDirectory}/.config Config"
-  ];
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [
