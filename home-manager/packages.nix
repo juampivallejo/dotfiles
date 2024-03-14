@@ -6,9 +6,9 @@
 
     # Software
     rofi-wayland # Alternative App launcher
-    slack  # Messaging
-    obsidian  # Notes
-    calibre  # e-Books
+    slack # Messaging
+    obsidian # Notes
+    calibre # e-Books
     insomnia # Postman alternative
 
     # -- Development --

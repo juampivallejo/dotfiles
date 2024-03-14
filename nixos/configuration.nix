@@ -92,15 +92,8 @@
     (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
   ];
 
-  # Zsh
-  programs.zsh = {
-    # Your zsh config
-    enable = true;
-    ohMyZsh = {
-      enable = true;
-      plugins = [ "git" "python" "docker" ];
-    };
-  };
+  # Zsh as default user shell
+  programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
 
   # Docker

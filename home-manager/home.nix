@@ -4,12 +4,13 @@ let
 in
 {
   imports = [
-    ./utils.nix
-    ./neofetch.nix
-    ./home-folders.nix
-    ./packages.nix
-    ./kitty.nix
     ./gtk.nix
+    ./home-folders.nix
+    ./kitty.nix
+    ./neofetch.nix
+    ./packages.nix
+    ./utils.nix
+    ./zsh.nix
   ];
 
   targets.genericLinux.enable = true;
