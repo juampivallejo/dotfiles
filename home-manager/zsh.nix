@@ -7,7 +7,7 @@
     enable = true;
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "python" "docker" ];
+      plugins = [ "git" "python" "docker" "vi-mode" ];
     };
     enableCompletion = true;
     enableAutosuggestions = true;
