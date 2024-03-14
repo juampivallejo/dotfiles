@@ -35,4 +35,6 @@
     prettierd # Formatter
     shfmt # Shell formatter
   ];
+
+  programs.neovim.defaultEditor = true;
 }

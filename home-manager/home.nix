@@ -27,6 +27,7 @@ in
     inherit username homeDirectory;
 
     sessionVariables = {
+      EDITOR = "nvim";
       QT_XCB_GL_INTEGRATION = "none"; # kde-connect
       NIXPKGS_ALLOW_UNFREE = "1";
       GOPATH = "${homeDirectory}/.local/share/go";
