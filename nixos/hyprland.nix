@@ -5,7 +5,7 @@
 
   programs.hyprland = {
     enable = true;
-    enableNvidiaPatches = true;
+    # enableNvidiaPatches = true;
     xwayland.enable = true;
   };
   environment.sessionVariables = {
@@ -18,11 +18,11 @@
     # OpenGL
     opengl.enable = true;
     # Most wayland compositors need this
-    nvidia.modesetting.enable = true;
+    # nvidia.modesetting.enable = true;
     # Enable settings menu
-    nvidia.nvidiaSettings = true;
+    # nvidia.nvidiaSettings = true;
     # Enabling this to fix suspend issues
-    nvidia.powerManagement.enable = true;
+    # nvidia.powerManagement.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
