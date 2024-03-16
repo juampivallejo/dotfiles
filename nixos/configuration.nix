@@ -18,17 +18,9 @@
     ];
 
   # Bootloader.
-  boot.loader = {
-    grub = {
-      enable = true;
-      device = "nodev";
-      efiSupport = true;
-      useOSProber = true;
-    };
-    efi = {
-      canTouchEfiVariables = true;
-    };
-  };
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "/dev/sda";
+  boot.loader.grub.useOSProber = true;
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -44,7 +36,7 @@
   services.xserver = {
     enable = true;
     # Setting nvidia driver for Hyprland
-    videoDrivers = [ "nvidia" ];
+    # videoDrivers = [ "nvidia" ];
   };
 
   # Enable CUPS to print documents.
