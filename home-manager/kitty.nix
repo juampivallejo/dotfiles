@@ -15,6 +15,7 @@
     confirm_os_window_close = 0;
 
     # Appearance
+    hide_window_decorations = true;
     background_opacity = ".75";
 
     # Performance

@@ -10,6 +10,7 @@ in
     ./kitty.nix
     ./neofetch.nix
     ./packages.nix
+    ./tmux.nix
     ./utils.nix
     ./zsh.nix
   ];
