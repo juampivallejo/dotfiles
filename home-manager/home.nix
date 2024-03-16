@@ -4,6 +4,7 @@ let
 in
 {
   imports = [
+    ./git.nix
     ./gtk.nix
     ./home-folders.nix
     ./kitty.nix
