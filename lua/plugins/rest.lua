@@ -1,4 +1,7 @@
-return {
+
+-- Disable because rest.nvim was updated with extra dependencies
+-- And I don't even use it
+local rest_config = {
   "rest-nvim/rest.nvim",
   dependencies = { { "nvim-lua/plenary.nvim" } },
   config = function()
@@ -47,3 +50,4 @@ return {
     })
   end,
 }
+return {}

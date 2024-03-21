@@ -36,6 +36,7 @@ return {
         markdown = { "prettierd" },
         graphql = { "prettierd" },
         python = { "isort", "ruff_format" },
+        go = { "gofmt" },
       },
     }
     return opts
