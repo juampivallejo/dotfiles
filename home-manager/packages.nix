@@ -10,6 +10,9 @@
     obsidian # Notes
     calibre # e-Books
     insomnia # Postman alternative
+    stremio # streaming
+    spotify
+    discord
 
     # -- Development --
     kitty
@@ -23,6 +26,10 @@
     cargo
     lazygit
     nodePackages.cspell
+
+    # Golang Dev
+    gopls
+    sqlc
 
     nodePackages.pyright
     nodePackages.vscode-json-languageserver
