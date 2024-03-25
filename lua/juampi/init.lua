@@ -8,7 +8,7 @@ require("juampi.set")
 -- local client = vim.lsp.start_client {
 --   name = "basiclsp",
 --   cmd = {"/home/juampi/projects/basic-lsp/main"},
---   on_attach = require("lazyvim.util").on_attach,
+--   on_attach = require("lazyvim.util").lsp.on_attach,
 --  }
 -- if not client then
 --   vim.notify "Hey, you did not setup the basiclsp client well"
