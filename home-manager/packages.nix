@@ -19,9 +19,11 @@
     tmux
     neovim
     git
+    gh
     docker
     python3Full
     python3Packages.pip
+    awscli2
     go
     cargo
     lazygit
