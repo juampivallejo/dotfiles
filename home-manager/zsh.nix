@@ -1,6 +1,5 @@
 { pkgs, ... }:
 {
-
   # Zsh
   programs.zsh = {
     # Your zsh config

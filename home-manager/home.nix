@@ -4,6 +4,7 @@ let
 in
 {
   imports = [
+    ./desktop-apps.nix
     ./git.nix
     ./gtk.nix
     ./home-folders.nix
@@ -40,6 +41,9 @@ in
       "$HOME/.local/bin"
     ];
   };
+
+  desktopApps.enable = true;
+  neofetch.enable = true;
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [

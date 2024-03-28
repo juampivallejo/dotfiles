@@ -1,4 +1,7 @@
-{ ... }: {
+{ pkgs, ... }: {
+  home.packages = with pkgs; [
+    kitty # Terminal
+  ];
 
   programs.kitty.enable = true;
   programs.kitty.font.name = "FiraCode Nerd Font";
