@@ -6,16 +6,8 @@
 
     # Software
     rofi-wayland # Alternative App launcher
-    slack # Messaging
-    obsidian # Notes
-    calibre # e-Books
-    insomnia # Postman alternative
-    stremio # streaming
-    spotify
-    discord
 
     # -- Development --
-    kitty
     tmux
     neovim
     git
