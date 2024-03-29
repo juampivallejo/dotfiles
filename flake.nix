@@ -42,7 +42,6 @@
         inherit pkgs;
         modules = [
           ./home-manager/home.nix
-          ./nixos
         ];
         extraSpecialArgs = { inherit username; };
       };
