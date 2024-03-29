@@ -17,7 +17,6 @@
   outputs = { home-manager, nixpkgs, ... }:
     let
       username = "juampi";
-      vm-user = "juampi@vm";
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
@@ -39,14 +38,15 @@
           ./nixos
         ];
       };
-      homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations."juampi@desktop" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
-          ./home-manager/home.nix
+          ./hosts/desktop/home.nix
+          ./home-manager
         ];
         extraSpecialArgs = { inherit username; };
       };
-      homeConfigurations.${vm-user} = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations."juampi@vm" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
           ./hosts/vm/home.nix
