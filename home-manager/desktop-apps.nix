@@ -6,13 +6,13 @@
 
   config = lib.mkIf config.desktopApps.enable {
     home.packages = with pkgs; [
-        slack # Messaging
-        obsidian # Notes
-        calibre # e-Books
-        insomnia # Postman alternative
-        stremio # streaming
-        spotify
-        discord
+      slack # Messaging
+      obsidian # Notes
+      calibre # e-Books
+      insomnia # Postman alternative
+      stremio # streaming
+      spotify
+      discord
     ];
   };
 }

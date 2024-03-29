@@ -7,7 +7,7 @@
   services.xserver.desktopManager.gnome.enable = true;
 
   environment.sessionVariables = {
-      GTK_THEME="Arc-Dark";
+    GTK_THEME = "Arc-Dark";
   };
   # Gnome Exclude Packages
   # environment.gnome.excludePackages = (with pkgs; [
