@@ -11,6 +11,10 @@
       ./hardware-configuration.nix
     ];
 
+  # Modules
+  hyprland.enable = true;
+  nvidia.enable = true;
+
   # Bootloader.
   boot.loader = {
     grub = {
@@ -24,7 +28,7 @@
     };
   };
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "desktop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -37,8 +41,6 @@
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
-    # Setting nvidia driver for Hyprland
-    videoDrivers = [ "nvidia" ];
   };
 
   # Enable CUPS to print documents.

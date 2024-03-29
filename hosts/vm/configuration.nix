@@ -29,8 +29,6 @@
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
-    # Setting nvidia driver for Hyprland
-    # videoDrivers = [ "nvidia" ];
   };
 
   # Enable CUPS to print documents.

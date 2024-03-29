@@ -1,5 +1,10 @@
 { pkgs, ... }:
 {
+  home.file."./.config/tmux/" = {
+    source = ./tmux;
+    recursive = true;
+  };
+
   programs.tmux = {
     enable = true;
     terminal = "tmux-256color";

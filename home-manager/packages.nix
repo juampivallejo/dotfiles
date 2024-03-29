@@ -1,12 +1,5 @@
 { pkgs, ... }: {
   home.packages = with pkgs; [
-    # Wallpapers
-    swww
-    arc-theme # gtk theme
-
-    # Software
-    rofi-wayland # Alternative App launcher
-
     # -- Development --
     tmux
     neovim

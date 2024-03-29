@@ -8,6 +8,7 @@
       ./gnome.nix
       ./hyprland.nix
       ./i18n.nix
+      ./nvidia.nix
       ./sound.nix
     ];
 }
