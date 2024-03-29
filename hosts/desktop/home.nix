@@ -7,9 +7,10 @@ in
     ./desktop-apps.nix
     ./git.nix
     ./gtk.nix
-    ./home-folders.nix
+    ./hyprland.nix
     ./kitty.nix
     ./neofetch.nix
+    ./nvim.nix
     ./packages.nix
     ./tmux.nix
     ./utils.nix
@@ -43,6 +44,7 @@ in
   };
 
   desktopApps.enable = true;
+  hyprland.enable = true;
   neofetch.enable = true;
 
   nixpkgs.config.allowUnfree = true;
