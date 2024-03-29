@@ -26,7 +26,17 @@
     {
       nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [ ./hosts/desktop/configuration.nix ];
+        modules = [
+          ./hosts/desktop/configuration.nix
+          ./nixos
+        ];
+      };
+      nixosConfigurations.vm = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/vm/configuration.nix
+          ./nixos
+        ];
       };
       homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
