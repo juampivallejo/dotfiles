@@ -17,7 +17,6 @@
   outputs = { home-manager, nixpkgs, ... }:
     let
       username = "juampi";
-      hostname = "nixos";
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
@@ -25,14 +24,35 @@
       };
     in
     {
-      nixosConfigurations.${hostname} = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [ ./nixos/configuration.nix ];
+        modules = [
+          ./hosts/desktop/configuration.nix
+          ./nixos
+        ];
       };
-      homeConfigurations.${username} = home-manager.lib.homeManagerConfiguration {
+      nixosConfigurations.vm = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./hosts/vm/configuration.nix
+          ./nixos
+        ];
+      };
+      homeConfigurations."juampi@desktop" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        modules = [ ./home-manager/home.nix ];
-        extraSpecialArgs = { inherit username hostname; };
+        modules = [
+          ./hosts/desktop/home.nix
+          ./home-manager
+        ];
+        extraSpecialArgs = { inherit username; };
+      };
+      homeConfigurations."juampi@vm" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [
+          ./hosts/vm/home.nix
+          ./home-manager
+        ];
+        extraSpecialArgs = { inherit username; };
       };
     };
 
