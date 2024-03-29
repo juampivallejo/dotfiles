@@ -1,4 +1,4 @@
-{...}:
+{ ... }:
 {
   imports = [
     ./desktop-apps.nix
@@ -13,4 +13,4 @@
     ./utils.nix
     ./zsh.nix
   ];
-  }
+}
