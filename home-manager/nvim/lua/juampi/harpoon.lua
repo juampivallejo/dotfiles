@@ -18,6 +18,21 @@ local function toggle_telescope(harpoon_files)
       }),
       previewer = conf.file_previewer({}),
       sorter = conf.generic_sorter({}),
+      attach_mappings = function(prompt_buffer_number, map)
+        map(
+          "i",
+          "<leader>d", -- your mapping here
+          function()
+            local state = require("telescope.actions.state")
+            local selected_entry = state.get_selected_entry()
+            local current_picker = state.get_current_picker(prompt_buffer_number)
+
+            harpoon:list():remove_at(selected_entry.index)
+            current_picker:refresh(toggle_telescope(harpoon:list()))
+          end
+        )
+        return true
+      end
     })
     :find()
 end
@@ -27,13 +42,12 @@ vim.keymap.set("n", "<leader>he", function()
 end, { desc = "Harpoon Menu" })
 
 -- Telescope is not working fine, since I cannot edit the list
---
--- vim.keymap.set("n", "<leader>ae", function()
---  toggle_telescope(harpoon:list())
--- end, { desc = "Open harpoon window" })
+vim.keymap.set("n", "<leader>H", function()
+ toggle_telescope(harpoon:list())
+end, { desc = "Open harpoon window" })
 
 vim.keymap.set("n", "<leader>hh", function()
-  harpoon:list():append()
+  harpoon:list():add()
 end, { desc = "Harpoon Add File" })
 
 vim.keymap.set("n", "<leader>1", function()
