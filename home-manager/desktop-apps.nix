@@ -11,6 +11,7 @@
       calibre # e-Books
       insomnia # Postman alternative
       stremio # streaming
+      dbeaver # DB connections
       spotify
       discord
     ];
