@@ -9,8 +9,10 @@
       plugins = [ "git" "python" "docker" "vi-mode" ];
     };
     enableCompletion = true;
-    enableAutosuggestions = true;
     syntaxHighlighting.enable = true;
+    autosuggestion = {
+      enable = true;
+    };
 
     shellAliases = {
       nix-rebuild = "sudo nixos-rebuild switch --flake .";

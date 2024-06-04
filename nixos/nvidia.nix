@@ -18,9 +18,6 @@
     services.xserver = {
       videoDrivers = [ "nvidia" ];
     };
-    programs.hyprland = lib.mkIf config.hyprland.enable {
-      enableNvidiaPatches = true;
-    };
     environment.systemPackages = with pkgs; [
       libva # Required for Nvidia
     ];

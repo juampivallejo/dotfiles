@@ -3,9 +3,9 @@
 {
 
   # Configure keymap in X11  [Default config]
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "us";
-    xkbVariant = "";
+    variant = "";
   };
   # Set your time zone.
   time.timeZone = "America/Argentina/Mendoza";

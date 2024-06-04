@@ -4,11 +4,11 @@
 
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-23.11"; # longer format is github:NixOS/nixpkgs/nixos-XX.XX
+    nixpkgs.url = "nixpkgs/nixos-24.05"; # longer format is github:NixOS/nixpkgs/nixos-XX.XX
 
     # Note: Used home-manager standalone install instructions (nix-shell '<home-manager>' -A install)
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.11";
+      url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
