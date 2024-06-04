@@ -10,5 +10,6 @@
     jq
     rq
     fd
+    nh # Nix cli tool
   ];
 }
