@@ -6,7 +6,7 @@
     enable = true;
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "python" "docker" "vi-mode" ];
+      plugins = [ "git" "python" "docker" "vi-mode" "fzf" ];
     };
     enableCompletion = true;
     syntaxHighlighting.enable = true;
