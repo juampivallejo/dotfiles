@@ -18,6 +18,10 @@
     gopls
     sqlc
 
+    # Beanstalk CLI
+    awsebcli
+
+    # Neovim LSPs & Formatters
     nodePackages.pyright
     nodePackages.vscode-json-languageserver
     lua-language-server
