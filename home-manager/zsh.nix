@@ -49,6 +49,52 @@
       }
     ];
 
+    initExtra = ''
+      # FZF-TAB Config
+      source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
+
+      # disable sort when completing `git checkout`
+      zstyle ':completion:*:git-checkout:*' sort false
+
+      # set descriptions format to enable group support
+      # NOTE: dont use escape sequences here, fzf-tab will ignore them
+      zstyle ':completion:*:descriptions' format '[%d]'
+
+      # force zsh not to show completion menu, which allows fzf-tab to capture the unambiguous prefix
+      zstyle ':completion:*' menu no
+
+      # switch group using `<` and `>`
+      zstyle ':fzf-tab:*' switch-group '<' '>'
+
+      # preview directory's content with eza when completing cd
+      zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+
+      # give a preview of commandline arguments when completing `kill`
+      zstyle ':completion:*:*:*:*:processes' command "ps -u $USER -o pid,user,comm -w -w"
+      zstyle ':fzf-tab:complete:(kill|ps):argument-rest' fzf-preview \
+        '[[ $group == "[process ID]" ]] && ps --pid=$word -o cmd --no-headers -w -w'
+      zstyle ':fzf-tab:complete:(kill|ps):argument-rest' fzf-flags --preview-window=down:3:wrap
+
+      # Preview Environment variables
+      zstyle ':fzf-tab:complete:(-command-|-parameter-|-brace-parameter-|export|unset|expand):*' fzf-preview 'echo ''${(P)word}'
+
+      # Preview systemctl status
+      zstyle ':fzf-tab:complete:systemctl-*:*' fzf-preview 'SYSTEMD_COLORS=1 systemctl status $word'
+
+      # Preview files depending on type
+      zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ''${(Q)realpath}'
+      export LESSOPEN='|~/.config/.lessfilter %s'
+    '';
+
     defaultKeymap = "viins";
   };
+
+  home.file."./.config/.lessfilter" = {
+    source = ./lessfilter.sh;
+    executable = true;
+  };
+  home.packages = with pkgs; [
+    file # Required for lessfilter
+    lesspipe # Required for lessfilter
+  ];
 }
