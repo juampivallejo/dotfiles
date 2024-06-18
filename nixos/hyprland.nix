@@ -15,6 +15,8 @@
     programs.hyprlock = {
       enable = true;
     };
+    services.hypridle.enable = true;
+
     environment.sessionVariables = {
       # If your cursor becomes invisible
       WLR_NO_HARDWARE_CURSORS = "1";
