@@ -12,6 +12,9 @@
       enable = true;
       xwayland.enable = true;
     };
+    programs.hyprlock = {
+      enable = true;
+    };
     environment.sessionVariables = {
       # If your cursor becomes invisible
       WLR_NO_HARDWARE_CURSORS = "1";
@@ -31,6 +34,7 @@
       wl-clipboard # Clipboard for wayland -> used with wl-copy & wl-paste cli
       wayshot # screenshot CLI
       swappy # snapshot
+      hyprlock # Lock screen
     ];
   };
 }
