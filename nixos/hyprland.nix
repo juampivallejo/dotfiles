@@ -13,9 +13,9 @@
       xwayland.enable = true;
     };
     programs.hyprlock = {
-      enable = true;
+      enable = true;  # Enable Lock-screen for hyprland
     };
-    services.hypridle.enable = true;
+    services.hypridle.enable = true;  # Enable idle service to lock or turn off screen after timeout
 
     environment.sessionVariables = {
       # If your cursor becomes invisible

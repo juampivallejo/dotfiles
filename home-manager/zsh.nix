@@ -19,6 +19,7 @@
       home-update = "home-manager switch --flake .";
       zshconfig = "vim ~/.zshrc";
       ohmyzsh = "vim ~/.oh-my-zsh";
+      th = "tmux new -s home";
 
       # NeoVim default
       vim = "nvim";
