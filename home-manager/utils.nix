@@ -10,6 +10,8 @@
     jq
     rq
     fd
+    zip
+    dig # DNS tool
     nh # Nix cli tool
   ];
 }
