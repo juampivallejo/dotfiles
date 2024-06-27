@@ -12,6 +12,7 @@
       insomnia # Postman alternative
       stremio # streaming
       dbeaver-bin # DB connections
+      vlc
       spotify
       discord
     ];
