@@ -6,17 +6,16 @@
   };
 
   config = {
-    home.packages = with pkgs; [
-      kitty # Terminal
-    ];
+    home.packages = with pkgs;
+      [
+        kitty # Terminal
+      ];
 
     programs.kitty.enable = true;
     programs.kitty.font.name = "FiraCode Nerd Font";
     programs.kitty.font.size = 12;
 
-    programs.kitty.keybindings = {
-      "ctrl+c" = "copy_or_interrupt";
-    };
+    programs.kitty.keybindings = { "ctrl+c" = "copy_or_interrupt"; };
 
     programs.kitty.settings = {
       # Usage
@@ -27,7 +26,9 @@
       hide_window_decorations = true;
 
       # There may be a better way to do a conditional
-      ${if config.kitty.transparency.enable then "background_opacity" else null} = "0.75";
+      ${
+        if config.kitty.transparency.enable then "background_opacity" else null
+      } = "0.75";
 
       # Performance
       repaint_delay = 8;

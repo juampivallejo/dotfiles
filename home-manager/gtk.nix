@@ -1,8 +1,8 @@
-{ pkgs, ... }:
-{
-  home.packages = with pkgs; [
-    arc-theme # gtk theme
-  ];
+{ pkgs, ... }: {
+  home.packages = with pkgs;
+    [
+      arc-theme # gtk theme
+    ];
   gtk = {
     enable = true;
     iconTheme = {

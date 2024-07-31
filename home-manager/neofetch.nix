@@ -1,8 +1,6 @@
 { pkgs, lib, config, ... }: {
 
-  options = {
-    neofetch.enable = lib.mkEnableOption "Enables desktop Apps";
-  };
+  options = { neofetch.enable = lib.mkEnableOption "Enables desktop Apps"; };
 
   config = lib.mkIf config.neofetch.enable {
     home.packages = [ pkgs.neofetch ];

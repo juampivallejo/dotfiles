@@ -5,11 +5,10 @@
 { pkgs, ... }:
 
 {
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.grub.enable = true;
@@ -27,9 +26,7 @@
   networking.networkmanager.enable = true;
 
   # Enable the X11 windowing system.
-  services.xserver = {
-    enable = true;
-  };
+  services.xserver = { enable = true; };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -42,10 +39,11 @@
     isNormalUser = true;
     description = "juampi";
     extraGroups = [ "networkmanager" "wheel" "docker" ];
-    packages = with pkgs; [
-      firefox
-      #  thunderbird
-    ];
+    packages = with pkgs;
+      [
+        firefox
+        #  thunderbird
+      ];
   };
 
   # Allow unfree packages
@@ -72,9 +70,8 @@
   # -- Programs Config --
 
   # Fonts
-  fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
-  ];
+  fonts.packages = with pkgs;
+    [ (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; }) ];
 
   # Zsh as default user shell
   programs.zsh.enable = true;

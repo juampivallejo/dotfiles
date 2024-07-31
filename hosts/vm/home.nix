@@ -1,8 +1,6 @@
 { pkgs, username, ... }:
-let
-  homeDirectory = "/home/${username}";
-in
-{
+let homeDirectory = "/home/${username}";
+in {
   targets.genericLinux.enable = true;
 
   nix = {
@@ -24,9 +22,7 @@ in
       GOMODCACHE = "${homeDirectory}/.cache/go/pkg/mod";
     };
 
-    sessionPath = [
-      "$HOME/.local/bin"
-    ];
+    sessionPath = [ "$HOME/.local/bin" ];
   };
 
   desktopApps.enable = true;

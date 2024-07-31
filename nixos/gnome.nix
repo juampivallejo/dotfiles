@@ -6,9 +6,7 @@
   services.xserver.displayManager.gdm.enable = true; # GDM login screen
   services.xserver.desktopManager.gnome.enable = true;
 
-  environment.sessionVariables = {
-    GTK_THEME = "Arc-Dark";
-  };
+  environment.sessionVariables = { GTK_THEME = "Arc-Dark"; };
   # Gnome Exclude Packages
   # environment.gnome.excludePackages = (with pkgs; [
   #   gnome-tour
