@@ -7,7 +7,8 @@
   # I recommend running `topgrade` once a week or at least once a month)
   system.autoUpgrade = {
     enable = true;
-    operation = "boot"; # If you don't want to apply updates immediately, only after rebooting, use `boot` option in this case
+    operation =
+      "boot"; # If you don't want to apply updates immediately, only after rebooting, use `boot` option in this case
     flake = "~/.config/.dotfiles";
     flags = [ "--update-input" "nixpkgs" "--commit-lock-file" ];
     dates = "weekly";

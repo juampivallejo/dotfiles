@@ -30,7 +30,7 @@
     ruff # Python formatter
     isort # Python Sort
     nil # Nix LSP
-    nixpkgs-fmt # Nix format
+    nixfmt # Nix format
     prettierd # Formatter
     shfmt # Shell formatter
   ];

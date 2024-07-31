@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{ pkgs, ... }: {
   # Zsh
   programs.zsh = {
     # Your zsh config
@@ -10,9 +9,7 @@
     };
     enableCompletion = true;
     syntaxHighlighting.enable = true;
-    autosuggestion = {
-      enable = true;
-    };
+    autosuggestion = { enable = true; };
 
     shellAliases = {
       nix-rebuild = "sudo nixos-rebuild switch --flake .";
