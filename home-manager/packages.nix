@@ -20,7 +20,7 @@
 
     # Beanstalk CLI
     awsebcli
-    ssm-session-manager-plugin  # For ECS ssh
+    ssm-session-manager-plugin # For ECS ssh
 
     # Neovim LSPs & Formatters
     nodePackages.pyright
