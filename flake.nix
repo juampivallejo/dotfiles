@@ -5,6 +5,7 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-24.05"; # longer format is github:NixOS/nixpkgs/nixos-XX.XX
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Note: Used home-manager standalone install instructions (nix-shell '<home-manager>' -A install)
     home-manager = {
@@ -14,11 +15,15 @@
   };
 
   ## Outputs = built and working system configuration
-  outputs = { home-manager, nixpkgs, ... }:
+  outputs = { home-manager, nixpkgs, nixpkgs-unstable, ... }:
     let
       username = "juampi";
       system = "x86_64-linux";
       pkgs = import nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
+      pkgs-unstable = import nixpkgs-unstable {
         inherit system;
         config.allowUnfree = true;
       };
@@ -44,7 +49,7 @@
           ./hosts/desktop/home.nix
           ./home-manager
         ];
-        extraSpecialArgs = { inherit username; };
+        extraSpecialArgs = { inherit username; inherit pkgs-unstable; };
       };
       homeConfigurations."juampi@vm" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;

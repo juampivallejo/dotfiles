@@ -1,8 +1,8 @@
-{ pkgs, ... }: {
+{ pkgs, pkgs-unstable, ... }: {
   home.packages = with pkgs; [
     # -- Development --
     tmux
-    neovim
+    pkgs-unstable.neovim
     git
     gh
     docker
