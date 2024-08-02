@@ -22,6 +22,8 @@ require("lazy").setup({
 
     -- add none-ls extra for Cspell
     { import = "lazyvim.plugins.extras.lsp.none-ls" },
+    -- Add Rest extra
+    { import = "lazyvim.plugins.extras.util.rest" },
 
     -- add any tools you want to have installed below
     -- import/override with your plugins
