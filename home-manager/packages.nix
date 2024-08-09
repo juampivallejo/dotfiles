@@ -13,10 +13,14 @@
     cargo
     lazygit
     nodePackages.cspell
+    openssl
 
     # Golang Dev
     gopls
     sqlc
+
+    # R studio
+    rstudioWrapper
 
     # Beanstalk CLI
     awsebcli

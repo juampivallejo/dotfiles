@@ -21,7 +21,7 @@
       # NeoVim default
       vim = "nvim";
       # Eza replace ls
-      ls = "eza";
+      ls = "eza --group-directories-first";
       l = "eza -lbF";
       ll = "eza -lbGF";
       llm = "eza -lbGd --sort=modified";
