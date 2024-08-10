@@ -30,6 +30,7 @@ return {
         typescript = { "prettierd" },
         css = { "prettierd" },
         html = { "prettierd" },
+        htmldjango = { "djlint" },
         json = { "prettierd" },
         yaml = { "prettierd" },
         markdown = { "prettierd" },
