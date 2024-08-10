@@ -23,3 +23,6 @@ vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
+
+-- Set a keymap to change the filetype to htmldjango
+vim.api.nvim_set_keymap('n', '<leader>ct', ':set filetype=htmldjango<CR>', { noremap = true, silent = true })

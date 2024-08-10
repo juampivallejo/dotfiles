@@ -14,6 +14,7 @@
     lazygit
     nodePackages.cspell
     openssl
+    docker-compose
 
     # Golang Dev
     gopls
@@ -37,6 +38,7 @@
     nixfmt # Nix format
     prettierd # Formatter
     shfmt # Shell formatter
+    djlint # Django linter and formatter
   ];
 
   programs.neovim.defaultEditor = true;

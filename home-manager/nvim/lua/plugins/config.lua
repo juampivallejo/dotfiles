@@ -49,6 +49,7 @@ return {
       vim.list_extend(opts.ensure_installed, {
         "bash",
         "html",
+        "htmldjango",
         "http",
         "javascript",
         "json",
