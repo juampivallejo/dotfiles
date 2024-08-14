@@ -36,6 +36,7 @@
       wayshot # screenshot CLI
       swappy # snapshot
       hyprlock # Lock screen
+      hyprdim # Automatically dims windows when switching between them
     ];
   };
 }

@@ -21,7 +21,7 @@
     sqlc
 
     # R studio
-    rstudioWrapper
+    rstudio
 
     # Beanstalk CLI
     awsebcli
