@@ -7,6 +7,7 @@
     ./hyprland.nix
     ./i18n.nix
     ./nvidia.nix
+    ./services.nix
     ./sound.nix
   ];
 }
