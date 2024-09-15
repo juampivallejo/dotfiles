@@ -11,5 +11,6 @@
     ./tmux.nix
     ./utils.nix
     ./zsh.nix
+    ./direnv.nix
   ];
 }
