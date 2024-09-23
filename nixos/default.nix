@@ -9,5 +9,6 @@
     ./nvidia.nix
     ./services.nix
     ./sound.nix
+    ./vpn.nix
   ];
 }
