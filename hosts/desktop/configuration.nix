@@ -27,6 +27,23 @@
 
   networking.hostName = "desktop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  networking.extraHosts = ''
+    127.0.0.1 local.reputationinstitute.com
+    127.0.0.1 local.reptrak.io
+    127.0.0.1 local-demo.reptrak.io
+  '';
+
+  xdg = {
+    portal = {
+      enable = true;
+      extraPortals = with pkgs;
+        [
+          xdg-desktop-portal-wlr
+          # xdg-desktop-portal-gtk
+        ];
+      gtkUsePortal = true;
+    };
+  };
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";

@@ -39,6 +39,9 @@
     prettierd # Formatter
     shfmt # Shell formatter
     djlint # Django linter and formatter
+
+    # Reptrak
+    aws-azure-login
   ];
 
   programs.neovim.defaultEditor = true;
