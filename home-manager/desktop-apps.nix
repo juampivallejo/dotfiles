@@ -13,6 +13,7 @@
       vlc
       spotify
       discord
+      postman # mostly for reptrak
     ];
   };
 }
