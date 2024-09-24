@@ -25,13 +25,11 @@
     efi = { canTouchEfiVariables = true; };
   };
 
+  # Allow running reptrak docker-compose host binded to port 80
+  boot.kernel.sysctl."net.ipv4.ip_unprivileged_port_start" = 0;
+
   networking.hostName = "desktop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  networking.extraHosts = ''
-    127.0.0.1 local.reputationinstitute.com
-    127.0.0.1 local.reptrak.io
-    127.0.0.1 local-demo.reptrak.io
-  '';
 
   xdg = {
     portal = {
@@ -115,6 +113,7 @@
       enable = true;
       setSocketVariable = true;
     };
+    daemon.settings = { userland-proxy = false; };
   };
 
   # List services that you want to enable:
