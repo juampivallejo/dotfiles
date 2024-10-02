@@ -15,21 +15,33 @@ return {
       },
     },
   },
+  {
+    "folke/tokyonight.nvim",
+    lazy = true,
+    opts = {
+      transparent = true,
+      style = "night",
+      styles = {
+        sidebars = "transparent",
+        floats = "transparent",
+      },
+    },
+  },
   -- Configure LazyVim to load catppuccin
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin",
+      colorscheme = "tokyonight",
     },
   },
   -- Make transparent
-  {
-    "catppuccin",
-    opts = {
-      transparent_background = true,
-      flavour = "frappe",
-    },
-  },
+  -- {
+  --   "catppuccin",
+  --   opts = {
+  --     transparent_background = true,
+  --     flavour = "frappe",
+  --   },
+  -- },
   -- add symbols-outline
   {
     "simrat39/symbols-outline.nvim",
