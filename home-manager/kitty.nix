@@ -28,7 +28,7 @@
       # There may be a better way to do a conditional
       ${
         if config.kitty.transparency.enable then "background_opacity" else null
-      } = "0.75";
+      } = "0.35";
 
       # Performance
       repaint_delay = 8;
