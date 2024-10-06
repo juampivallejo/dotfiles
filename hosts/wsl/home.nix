@@ -1,4 +1,4 @@
-{ pkgs, username, ... }:
+{ p kgs, username, ... }:
 let homeDirectory = "/home/${username}";
 in {
   targets.genericLinux.enable = true;
@@ -28,8 +28,6 @@ in {
   desktopApps.enable = false;
   hyprland.enable = false;
   neofetch.enable = true;
-
-  nixpkgs.config.allowUnfree = true;
 
   programs.home-manager.enable = true;
   home.stateVersion = "24.05";
