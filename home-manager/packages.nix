@@ -20,9 +20,6 @@
     gopls
     sqlc
 
-    # R studio
-    rstudio
-
     # Beanstalk CLI
     awsebcli
     ssm-session-manager-plugin # For ECS ssh
