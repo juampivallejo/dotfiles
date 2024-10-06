@@ -6,6 +6,7 @@
     nixpkgs.url =
       "nixpkgs/nixos-24.05"; # longer format is github:NixOS/nixpkgs/nixos-XX.XX
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixos-wsl.url = "github:nix-community/nixos-wsl";
 
     # Note: Used home-manager standalone install instructions (nix-shell '<home-manager>' -A install)
     home-manager = {
@@ -15,7 +16,7 @@
   };
 
   ## Outputs = built and working system configuration
-  outputs = { home-manager, nixpkgs, nixpkgs-unstable, ... }:
+  outputs = { home-manager, nixpkgs, nixpkgs-unstable, nixos-wsl, ... }:
     let
       username = "juampi";
       system = "x86_64-linux";
@@ -36,6 +37,13 @@
         system = "x86_64-linux";
         modules = [ ./hosts/vm/configuration.nix ./nixos ];
       };
+      nixosConfigurations.wsl = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [ 
+          nixos-wsl.nixosModules.wsl
+          ./hosts/wsl/configuration.nix
+        ];
+      };
       homeConfigurations."juampi@desktop" =
         home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
@@ -50,6 +58,12 @@
           inherit pkgs;
           modules = [ ./hosts/vm/home.nix ./home-manager ];
           extraSpecialArgs = { inherit username; };
+        };
+      homeConfigurations."juampi@wsl" =
+        home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [ ./hosts/wsl/home.nix ./home-manager ];
+          extraSpecialArgs = { inherit username; inherit pkgs-unstable; };
         };
     };
 
