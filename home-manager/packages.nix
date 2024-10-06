@@ -25,7 +25,7 @@
     ssm-session-manager-plugin # For ECS ssh
 
     # Neovim LSPs & Formatters
-    nodePackages.pyright
+    pyright
     nodePackages.vscode-json-languageserver
     lua-language-server
     stylua # Lua formatter

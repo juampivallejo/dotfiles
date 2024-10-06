@@ -5,7 +5,7 @@
     kitty.transparency.enable = lib.mkEnableOption "Enables Kitty transparency";
   };
 
-  config = {
+  config = lib.mkIf config.desktopApps.enable {
     home.packages = with pkgs;
       [
         kitty # Terminal
