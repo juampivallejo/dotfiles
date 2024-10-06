@@ -16,7 +16,7 @@
   };
 
   ## Outputs = built and working system configuration
-  outputs = { home-manager, nixpkgs, nixpkgs-unstable, nixos-wsl, ... }:
+  outputs = { home-manager, nixpkgs, nixos-wsl, ... }@inputs:
     let
       username = "juampi";
       system = "x86_64-linux";
@@ -24,11 +24,12 @@
         inherit system;
         config.allowUnfree = true;
       };
-      pkgs-unstable = import nixpkgs-unstable {
+      pkgs-unstable = import inputs.nixpkgs-unstable {
         inherit system;
         config.allowUnfree = true;
       };
     in {
+      # NixOS Configs
       nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [ ./hosts/desktop/configuration.nix ./nixos ];
@@ -39,11 +40,14 @@
       };
       nixosConfigurations.wsl = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [ 
-          nixos-wsl.nixosModules.wsl
-          ./hosts/wsl/configuration.nix
-        ];
+        modules = [ nixos-wsl.nixosModules.wsl ./hosts/wsl/configuration.nix ];
       };
+      nixosConfigurations.wsl-desktop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [ nixos-wsl.nixosModules.wsl ./hosts/wsl/configuration.nix ];
+      };
+
+      # Home Manager Configs
       homeConfigurations."juampi@desktop" =
         home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
@@ -63,7 +67,19 @@
         home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [ ./hosts/wsl/home.nix ./home-manager ];
-          extraSpecialArgs = { inherit username; inherit pkgs-unstable; };
+          extraSpecialArgs = {
+            inherit username;
+            inherit pkgs-unstable;
+          };
+        };
+      homeConfigurations."juampi@wsl-desktop" =
+        home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [ ./hosts/wsl/home.nix ./home-manager ];
+          extraSpecialArgs = {
+            inherit username;
+            inherit pkgs-unstable;
+          };
         };
     };
 
