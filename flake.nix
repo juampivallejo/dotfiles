@@ -13,6 +13,10 @@
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    home-manager-unstable = {
+      url = "github:nix-community/home-manager/";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
   };
 
   ## Outputs = built and working system configuration
@@ -56,10 +60,7 @@
         "juampi@desktop" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [ ./hosts/desktop/home.nix ./home-manager ];
-          extraSpecialArgs = {
-            inherit username;
-            inherit pkgs-unstable;
-          };
+          extraSpecialArgs = { inherit username pkgs-unstable; };
         };
         "juampi@vm" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
@@ -69,19 +70,17 @@
         "juampi@wsl" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [ ./hosts/wsl/home.nix ./home-manager ];
-          extraSpecialArgs = {
-            inherit username;
-            inherit pkgs-unstable;
-          };
+          extraSpecialArgs = { inherit username pkgs-unstable; };
         };
-        "juampi@wsl-desktop" = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          modules = [ ./hosts/wsl/home.nix ./home-manager ];
-          extraSpecialArgs = {
-            inherit username;
-            inherit pkgs-unstable;
+        "juampi@wsl-desktop" =
+          inputs.home-manager-unstable.lib.homeManagerConfiguration {
+            pkgs = pkgs-unstable;
+            modules = [ ./hosts/wsl/home.nix ./home-manager ];
+            extraSpecialArgs = {
+              inherit username
+                pkgs-unstable; # This is the same as doing pkgs-unstable=pkgs-unstable
+            };
           };
-        };
       };
     };
 }
