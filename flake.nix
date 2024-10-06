@@ -30,26 +30,30 @@
       };
     in {
       # NixOS Configs
-      nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [ ./hosts/desktop/configuration.nix ./nixos ];
-      };
-      nixosConfigurations.vm = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [ ./hosts/vm/configuration.nix ./nixos ];
-      };
-      nixosConfigurations.wsl = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [ nixos-wsl.nixosModules.wsl ./hosts/wsl/configuration.nix ];
-      };
-      nixosConfigurations.wsl-desktop = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [ nixos-wsl.nixosModules.wsl ./hosts/wsl/configuration.nix ];
+      nixosConfigurations = {
+        desktop = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [ ./hosts/desktop/configuration.nix ./nixos ];
+        };
+        vm = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [ ./hosts/vm/configuration.nix ./nixos ];
+        };
+        wsl = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules =
+            [ nixos-wsl.nixosModules.wsl ./hosts/wsl/configuration.nix ];
+        };
+        wsl-desktop = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules =
+            [ nixos-wsl.nixosModules.wsl ./hosts/wsl/configuration.nix ];
+        };
       };
 
       # Home Manager Configs
-      homeConfigurations."juampi@desktop" =
-        home-manager.lib.homeManagerConfiguration {
+      homeConfigurations = {
+        "juampi@desktop" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [ ./hosts/desktop/home.nix ./home-manager ];
           extraSpecialArgs = {
@@ -57,14 +61,12 @@
             inherit pkgs-unstable;
           };
         };
-      homeConfigurations."juampi@vm" =
-        home-manager.lib.homeManagerConfiguration {
+        "juampi@vm" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [ ./hosts/vm/home.nix ./home-manager ];
           extraSpecialArgs = { inherit username; };
         };
-      homeConfigurations."juampi@wsl" =
-        home-manager.lib.homeManagerConfiguration {
+        "juampi@wsl" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [ ./hosts/wsl/home.nix ./home-manager ];
           extraSpecialArgs = {
@@ -72,8 +74,7 @@
             inherit pkgs-unstable;
           };
         };
-      homeConfigurations."juampi@wsl-desktop" =
-        home-manager.lib.homeManagerConfiguration {
+        "juampi@wsl-desktop" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [ ./hosts/wsl/home.nix ./home-manager ];
           extraSpecialArgs = {
@@ -81,6 +82,6 @@
             inherit pkgs-unstable;
           };
         };
+      };
     };
-
 }

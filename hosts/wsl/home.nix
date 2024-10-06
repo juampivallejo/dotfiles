@@ -1,4 +1,4 @@
-{ p kgs, username, ... }:
+{ pkgs, username, ... }:
 let homeDirectory = "/home/${username}";
 in {
   targets.genericLinux.enable = true;
