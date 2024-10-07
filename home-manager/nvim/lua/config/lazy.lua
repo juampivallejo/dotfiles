@@ -25,7 +25,10 @@ require("lazy").setup({
     -- Add Rest extra
     { import = "lazyvim.plugins.extras.util.rest" },
 
-    -- add any tools you want to have installed below
+    -- DAP Core for debugging
+    { import = "lazyvim.plugins.extras.test.core" },
+    -- { import = "lazyvim.plugins.extras.dap.core" },
+
     -- import/override with your plugins
     { import = "plugins" },
   },
