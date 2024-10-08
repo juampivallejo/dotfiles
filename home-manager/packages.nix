@@ -1,22 +1,29 @@
 { pkgs, pkgs-unstable, ... }: {
   home.packages = with pkgs; [
-    # -- Development --
-    tmux
-    pkgs-unstable.neovim
+
+    # -- General Development --
     git
     gh
     docker
+    docker-compose
+    awscli2
+    cargo
+    openssl
+
+    # -- IDE --
+    pkgs-unstable.neovim
+    tmux
+
+    # -- Python --
     python3Full
     python3Packages.pip
-    awscli2
-    go
-    cargo
+
+    # Dev Tools
     lazygit
-    nodePackages.cspell
-    openssl
-    docker-compose
+    lazydocker
 
     # Golang Dev
+    go
     gopls
     sqlc
 
@@ -26,8 +33,8 @@
 
     # Neovim LSPs & Formatters
     pyright
-    nodePackages.vscode-json-languageserver
-    lua-language-server
+    lua-language-server # Lua LSP
+    nodePackages.cspell # Spelling Linter
     stylua # Lua formatter
     ruff # Python formatter
     isort # Python Sort
