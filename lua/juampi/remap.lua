@@ -2,8 +2,11 @@ local builtin = require("telescope.builtin")
 
 vim.keymap.set("n", "<C-p>", builtin.find_files, {})
 vim.keymap.set("n", "<leader>fp", function()
-  builtin.grep_string({ search = vim.fn.input("Grep > ") })
+	builtin.grep_string({ search = vim.fn.input("Grep > ") })
 end, { desc = "Project Search Word" })
+vim.keymap.set("n", "<leader>/", function()
+	builtin.live_grep({ root = false })
+end, { desc = "Grep (All cwd)" })
 
 -- Keep buffer after pasting and replacing something
 vim.keymap.set("n", "<leader>p", '"_dP', { desc = "Paste special" })
@@ -25,4 +28,4 @@ vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 -- Set a keymap to change the filetype to htmldjango
-vim.api.nvim_set_keymap('n', '<leader>ct', ':set filetype=htmldjango<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>ct", ":set filetype=htmldjango<CR>", { noremap = true, silent = true })
