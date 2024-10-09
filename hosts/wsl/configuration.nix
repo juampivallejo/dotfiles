@@ -6,6 +6,7 @@
 {
   wsl.enable = true;
   wsl.defaultUser = "juampi";
+  wsl.docker-desktop.enable = true;
   networking.hostName = "wsl";
 
   environment.systemPackages = with pkgs; [
