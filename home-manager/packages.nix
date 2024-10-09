@@ -33,8 +33,8 @@
 
     # Neovim LSPs & Formatters
     pyright
-    lua-language-server # Lua LSP
     nodePackages.cspell # Spelling Linter
+    lua-language-server # Lua LSP
     stylua # Lua formatter
     ruff # Python formatter
     isort # Python Sort
