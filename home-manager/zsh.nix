@@ -32,6 +32,9 @@
       # BAT
       bat = "bat -p";
       cat = "bat -p";
+      # Lazy
+      ld = "lazydocker";
+      lg = "lazygit";
     };
 
     plugins = [
