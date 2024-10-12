@@ -21,6 +21,7 @@
     # Dev Tools
     lazygit
     lazydocker
+    nushell # testing out nu shell
 
     # Golang Dev
     go
