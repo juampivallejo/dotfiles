@@ -69,7 +69,6 @@ local nvim_dap = {
         { text = sign[1], texthl = sign[2] or "DiagnosticInfo", linehl = sign[3], numhl = sign[3] }
       )
     end
-
   end,
 }
 
@@ -78,21 +77,21 @@ return {
   dap_ui,
   nvim_dap,
   {
-  "mfussenegger/nvim-dap",
-  dependencies = {
-    "mfussenegger/nvim-dap-python",
+    "mfussenegger/nvim-dap",
+    dependencies = {
+      "mfussenegger/nvim-dap-python",
     -- stylua: ignore
     keys = {
       { "<leader>dPt", function() require('dap-python').test_method() end, desc = "Debug Method", ft = "python" },
       { "<leader>dPc", function() require('dap-python').test_class() end, desc = "Debug Class", ft = "python" },
       { "<leader>dPs", function() require('dap-python').debug_selection() end, desc = "Debug Selection", ft = "python" },
     },
-    config = function()
-      require("dap-python").setup("python")
-      require("dap-python").test_runner = 'pytest'
-      -- BUG: Important, DAP does not work if running with --cov (coverage report)
-      -- https://github.com/microsoft/debugpy/issues/863
-    end,
+      config = function()
+        require("dap-python").setup("python")
+        require("dap-python").test_runner = "pytest"
+        -- BUG: Important, DAP does not work if running with --cov (coverage report)
+        -- https://github.com/microsoft/debugpy/issues/863
+      end,
+    },
   },
-}
 }
