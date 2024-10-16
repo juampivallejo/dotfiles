@@ -10,6 +10,7 @@
       insomnia # Postman alternative
       stremio # streaming
       dbeaver-bin # DB connections
+      mongodb-compass # Mongo Explorer
       vlc
       spotify
       discord
