@@ -11,6 +11,7 @@ return {
           require("copilot.command").disable()
         end
       end,
+      -- LazyVim toggle does not work, but status line has an Icon when enabled at right bottom
       desc = "Toggle (Copilot)",
     },
   },
