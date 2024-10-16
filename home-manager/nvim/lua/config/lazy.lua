@@ -25,9 +25,14 @@ require("lazy").setup({
     -- Add Rest extra
     { import = "lazyvim.plugins.extras.util.rest" },
 
-    -- DAP Core for debugging
+    -- NeoTest extra
     { import = "lazyvim.plugins.extras.test.core" },
+    -- DAP: ../plugins/dap.lua used instead because of issues with Mason
     -- { import = "lazyvim.plugins.extras.dap.core" },
+
+    -- Copilot and Chat
+    { import = "lazyvim.plugins.extras.coding.copilot" },
+    { import = "lazyvim.plugins.extras.coding.copilot-chat" },
 
     -- import/override with your plugins
     { import = "plugins" },
