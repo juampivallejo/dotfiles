@@ -15,3 +15,9 @@ vim.opt.incsearch = true
 vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 8
+
+vim.filetype.add({
+  extension = {
+    ["http"] = "http",
+  },
+})
