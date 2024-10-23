@@ -15,7 +15,6 @@
       spotify
       discord
       postman # mostly for reptrak
-      rstudio # R studio
     ];
   };
 }

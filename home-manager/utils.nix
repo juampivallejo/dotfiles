@@ -3,6 +3,7 @@
     ripgrep
     tldr
     btop
+    htop
     eza
     bat
     gnumake # for fzf-native
