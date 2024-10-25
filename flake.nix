@@ -17,6 +17,8 @@
       url = "github:nix-community/home-manager/";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
+    rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
   };
 
   ## Outputs = built and working system configuration
@@ -38,6 +40,7 @@
         desktop = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [ ./hosts/desktop/configuration.nix ./nixos ];
+          specialArgs = { rose-pine-hyprcursor = inputs.rose-pine-hyprcursor; };
         };
         vm = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";

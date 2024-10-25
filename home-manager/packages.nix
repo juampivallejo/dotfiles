@@ -42,7 +42,7 @@
     ruff # Python formatter
     isort # Python Sort
     nil # Nix LSP
-    nixfmt # Nix format
+    nixfmt-classic # Nix format
     prettierd # Formatter
     shfmt # Shell formatter
     djlint # Django linter and formatter

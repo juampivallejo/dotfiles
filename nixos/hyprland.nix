@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, rose-pine-hyprcursor, ... }:
 
 {
   options = { hyprland.enable = lib.mkEnableOption "Enables Hyprland WM"; };
@@ -40,6 +40,7 @@
       hyprlock # Lock screen
       hyprdim # Automatically dims windows when switching between them
       hyprpicker # color picker
+      rose-pine-hyprcursor.packages.${pkgs.system}.default # Cursor theme
     ];
   };
 }
