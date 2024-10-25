@@ -9,6 +9,11 @@
       source = ./hypr;
       recursive = true;
     };
+    home.file."./.config/scripts/" = {
+      source = ./scripts;
+      recursive = true;
+      executable = true;
+    };
     home.packages = with pkgs; [
       swww # Wallpapers
       rofi-wayland # Alternative App launcher
