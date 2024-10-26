@@ -27,7 +27,10 @@
       opengl.enable = true;
     };
 
-    security = { polkit.enable = true; };
+    security = {
+      polkit.enable = true;
+      pam.services.hyprland.enableGnomeKeyring = true;
+    };
 
     systemd = {
       user.services.polkit-gnome-authentication-agent-1 = {
