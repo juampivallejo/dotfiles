@@ -17,7 +17,9 @@
 
     home.packages = with pkgs; [
       swww # Wallpapers
-      rofi-wayland # Alternative App launcher
+      rofi-wayland # App launcher
+      libnotify
+      slurp # for screenshots
     ];
   };
 }
