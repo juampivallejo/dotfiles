@@ -69,10 +69,6 @@
 
   # -- Programs Config --
 
-  # Fonts
-  fonts.packages = with pkgs;
-    [ (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; }) ];
-
   # Zsh as default user shell
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
