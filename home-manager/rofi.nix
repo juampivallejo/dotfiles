@@ -11,7 +11,7 @@
     ];
 
     extraConfig = {
-      modi = "drun,calc,window,emoji,run";
+      modi = "drun,calc,window,emoji";
       sidebar-mode = true;
       terminal = "kitty";
       show-icons = true;
