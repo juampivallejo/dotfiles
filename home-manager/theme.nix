@@ -88,5 +88,21 @@ in {
         gtk-application-prefer-dark-theme = 1;
       };
     };
+
+    # Configure ~/config/xsettingsd/xsettingsd.conf themes
+    services.xsettingsd = {
+      enable = true;
+      settings = {
+        "Net/ThemeName" = theme.name;
+        "Net/IconThemeName" = iconTheme.name;
+        "Gtk/CursorThemeName" = cursorTheme.name;
+        "Net/EnableEventSounds" = 1;
+        "EnableInputFeedbackSounds" = 0;
+        "Xft/Antialias" = 1;
+        "Xft/Hinting" = 1;
+        "Xft/HintStyle" = "hintslight";
+        "Xft/RGBA" = "rgb";
+      };
+    };
   };
 }
