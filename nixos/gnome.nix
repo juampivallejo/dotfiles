@@ -7,9 +7,12 @@
   services.xserver.desktopManager.gnome.enable = true;
 
   environment.sessionVariables = {
-    GTK_THEME = "rose-pine-gtk";
-    XCURSOR_THEME = "rose-pine-cursor";
-    XCURSOR_SIZE = "16";
+    GTK_THEME = "Adw-gtk3-dark:dark";
+    GTK_ICON_THEME = "MoreWaita";
+    GTK_CURSOR_THEME = "BreezeX-RosePine-Linux";
+    GTK_COLOR_SCHEME = "prefer-dark";
+    XCURSOR_THEME = "BreezeX-RosePine-Linux";
+    XCURSOR_SIZE = "24";
   };
   # Gnome Exclude Packages
   # environment.gnome.excludePackages = (with pkgs; [

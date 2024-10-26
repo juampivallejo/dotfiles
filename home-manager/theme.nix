@@ -4,8 +4,8 @@ let
     fonts = [ "0xProto" "DroidSansMono" "FiraCode" ];
   };
   theme = {
-    name = "rose-pine-gtk";
-    package = pkgs.rose-pine-gtk-theme;
+    name = "Adw-gtk3-dark";
+    package = pkgs.adw-gtk3;
   };
   font = {
     name = "FiraCode Nerd Font";
@@ -13,13 +13,13 @@ let
     size = 11;
   };
   cursorTheme = {
-    name = "rose-pine-cursor";
-    size = 16;
+    name = "BreezeX-RosePine-Linux";
+    size = 24;
     package = pkgs.rose-pine-cursor;
   };
   iconTheme = {
-    name = "rose-pine-icons";
-    package = pkgs.rose-pine-icon-theme;
+    name = "MoreWaita";
+    package = pkgs.morewaita-icon-theme;
   };
 in {
 
@@ -47,6 +47,15 @@ in {
         gtk.enable = true;
         x11.enable = true;
       };
+      file = {
+        ".config/gtk-4.0/gtk.css".text = ''
+          window.messagedialog .response-area > button,
+          window.dialog.message .dialog-action-area > button,
+          .background.csd{
+            border-radius: 0;
+          }
+        '';
+      };
     };
 
     fonts.fontconfig.enable = true;
@@ -54,6 +63,30 @@ in {
       inherit font cursorTheme iconTheme;
       theme.name = theme.name;
       enable = true;
+      gtk3 = {
+        extraConfig = {
+          gtk-cursor-theme-name = cursorTheme.name;
+          gtk-cursor-theme-size = cursorTheme.size;
+          gtk-font-name = "${font.name} ${toString font.size}";
+          gtk-icon-theme-name = iconTheme.name;
+          gtk-theme-name = theme.name;
+          gtk-application-prefer-dark-theme = 1;
+        };
+        extraCss = ''
+          headerbar, .titlebar,
+          .csd:not(.popup):not(tooltip):not(messagedialog) decoration{
+            border-radius: 0;
+          }
+        '';
+      };
+      gtk4.extraConfig = {
+        gtk-cursor-theme-name = cursorTheme.name;
+        gtk-cursor-theme-size = cursorTheme.size;
+        gtk-font-name = "${font.name} ${toString font.size}";
+        gtk-icon-theme-name = iconTheme.name;
+        gtk-theme-name = theme.name;
+        gtk-application-prefer-dark-theme = 1;
+      };
     };
   };
 }
