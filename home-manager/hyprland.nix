@@ -17,7 +17,6 @@
 
     home.packages = with pkgs; [
       swww # Wallpapers
-      rofi-wayland # App launcher
       libnotify
       slurp # for screenshots
     ];
