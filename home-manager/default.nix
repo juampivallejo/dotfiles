@@ -2,7 +2,7 @@
   imports = [
     ./desktop-apps.nix
     ./git.nix
-    ./gtk.nix
+    ./theme.nix
     ./hyprland.nix
     ./kitty.nix
     ./neofetch.nix
