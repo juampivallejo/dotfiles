@@ -4,8 +4,8 @@ let
     fonts = [ "0xProto" "DroidSansMono" "FiraCode" ];
   };
   theme = {
-    name = "adw-gtk3-dark";
-    package = pkgs.adw-gtk3;
+    name = "rose-pine-gtk";
+    package = pkgs.rose-pine-gtk-theme;
   };
   font = {
     name = "FiraCode Nerd Font";
@@ -13,12 +13,12 @@ let
     size = 11;
   };
   cursorTheme = {
-    name = "Rose-Pine";
-    size = 24;
+    name = "rose-pine-cursor";
+    size = 16;
     package = pkgs.rose-pine-cursor;
   };
   iconTheme = {
-    name = "Rose-Pine";
+    name = "rose-pine-icons";
     package = pkgs.rose-pine-icon-theme;
   };
 in {
@@ -40,7 +40,13 @@ in {
         XCURSOR_THEME = cursorTheme.name;
         XCURSOR_SIZE = "${toString cursorTheme.size}";
       };
-      pointerCursor = cursorTheme // { gtk.enable = true; };
+      pointerCursor = {
+        name = cursorTheme.name;
+        package = cursorTheme.package;
+        size = cursorTheme.size;
+        gtk.enable = true;
+        x11.enable = true;
+      };
     };
 
     fonts.fontconfig.enable = true;
