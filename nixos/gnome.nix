@@ -1,10 +1,21 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   # Enable Gnome
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true; # GDM login screen
   services.xserver.desktopManager.gnome.enable = true;
+
+  # Enable Gnome Keyring
+  services.gnome.gnome-keyring.enable = true;
+  environment.systemPackages =
+    [ pkgs.libsecret ]; # libsecret API (use secret-tool from the cli)
+  environment.variables.XDG_RUNTIME_DIR = "/run/user/$UID";
+  security = {
+    pam.services.hyprland.enableGnomeKeyring = true;
+    pam.services.gdm.enableGnomeKeyring = true;
+    pam.services.gnome-keyring.enable = true;
+  };
 
   environment.sessionVariables = {
     GTK_THEME = "Nordic";

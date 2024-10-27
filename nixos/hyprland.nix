@@ -27,10 +27,7 @@
       opengl.enable = true;
     };
 
-    security = {
-      polkit.enable = true;
-      pam.services.hyprland.enableGnomeKeyring = true;
-    };
+    security = { polkit.enable = true; };
 
     systemd = {
       user.services.polkit-gnome-authentication-agent-1 = {
@@ -64,14 +61,6 @@
       hyprpicker # color picker
       rose-pine-hyprcursor.packages.${pkgs.system}.default # Cursor theme
     ];
-
-    services = {
-      gnome = {
-        glib-networking.enable = true;
-        gnome-keyring.enable = true;
-        gnome-online-accounts.enable = true;
-      };
-    };
 
   };
 }
