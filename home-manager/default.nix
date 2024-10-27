@@ -2,10 +2,10 @@
   imports = [
     ./desktop-apps.nix
     ./direnv.nix
+    ./fastfetch.nix
     ./git.nix
     ./hyprland.nix
     ./kitty.nix
-    ./neofetch.nix
     ./nvim.nix
     ./packages.nix
     ./rofi.nix

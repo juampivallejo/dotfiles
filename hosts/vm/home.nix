@@ -27,7 +27,6 @@ in {
 
   desktopApps.enable = true;
   hyprland.enable = false;
-  neofetch.enable = true;
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.permittedInsecurePackages = [
