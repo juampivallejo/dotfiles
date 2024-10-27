@@ -7,7 +7,7 @@
   services.xserver.desktopManager.gnome.enable = true;
 
   environment.sessionVariables = {
-    GTK_THEME = "Adw-gtk3-dark";
+    GTK_THEME = "Nordic";
     GTK_ICON_THEME = "MoreWaita";
     GTK_CURSOR_THEME = "BreezeX-RosePine-Linux";
     GTK_COLOR_SCHEME = "prefer-dark";

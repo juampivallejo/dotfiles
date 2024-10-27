@@ -36,7 +36,7 @@
 
     # Neovim LSPs & Formatters
     pyright
-    nodePackages.cspell # Spelling Linter
+    pkgs-unstable.nodePackages.cspell # Spelling Linter
     lua-language-server # Lua LSP
     stylua # Lua formatter
     ruff # Python formatter
