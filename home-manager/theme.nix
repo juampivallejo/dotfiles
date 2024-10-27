@@ -4,8 +4,8 @@ let
     fonts = [ "0xProto" "DroidSansMono" "FiraCode" ];
   };
   theme = {
-    name = "Adw-gtk3-dark";
-    package = pkgs.adw-gtk3;
+    name = "Nordic";
+    package = pkgs.nordic;
   };
   font = {
     name = "FiraCode Nerd Font";
@@ -94,6 +94,7 @@ in {
     home.file.".local/share/flatpak/overrides/global".text = let
       dirs = [
         "/nix/store:ro"
+        "~/.themes:ro"
         "xdg-config/gtk-3.0:ro"
         "xdg-config/gtk-4.0:ro"
         "${config.xdg.dataHome}/icons:ro"
