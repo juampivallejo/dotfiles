@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }: {
+{ pkgs, lib, config, pkgs-unstable, ... }: {
 
   options = { hyprland.enable = lib.mkEnableOption "Enables Hyprland config"; };
 
@@ -16,6 +16,8 @@
     };
 
     home.packages = with pkgs; [
+      pkgs-unstable.waybar
+      pavucontrol # Audio control with waybar
       swww # Wallpapers
       libnotify
       slurp # for screenshots
