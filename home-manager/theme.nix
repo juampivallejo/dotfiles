@@ -47,15 +47,6 @@ in {
         gtk.enable = true;
         x11.enable = true;
       };
-      file = {
-        ".config/gtk-4.0/gtk.css".text = ''
-          window.messagedialog .response-area > button,
-          window.dialog.message .dialog-action-area > button,
-          .background.csd{
-            border-radius: 0;
-          }
-        '';
-      };
     };
 
     fonts.fontconfig.enable = true;
@@ -72,12 +63,6 @@ in {
           gtk-theme-name = theme.name;
           gtk-application-prefer-dark-theme = 1;
         };
-        extraCss = ''
-          headerbar, .titlebar,
-          .csd:not(.popup):not(tooltip):not(messagedialog) decoration{
-            border-radius: 0;
-          }
-        '';
       };
       gtk4.extraConfig = {
         gtk-cursor-theme-name = cursorTheme.name;
