@@ -27,7 +27,7 @@ in {
 
   desktopApps.enable = true;
   hyprland.enable = true;
-  neofetch.enable = true;
+  fastfetch.enable = true;
   kitty.transparency.enable = true;
 
   nixpkgs.config.allowUnfree = true;

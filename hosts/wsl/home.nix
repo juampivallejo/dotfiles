@@ -27,7 +27,6 @@ in {
 
   desktopApps.enable = false;
   hyprland.enable = false;
-  neofetch.enable = true;
 
   programs.home-manager.enable = true;
   home.stateVersion = "24.05";
