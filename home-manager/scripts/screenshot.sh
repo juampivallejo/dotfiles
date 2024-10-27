@@ -7,9 +7,9 @@ TARGET="$SCREENSHOTS/$NOW.png"
 mkdir -p $SCREENSHOTS
 
 if [[ -n "$1" ]]; then
-	wayshot -f $TARGET
+	wayshot -f $TARGET || exit 1
 else
-	wayshot -f $TARGET -s "$(slurp)"
+	wayshot -f $TARGET -s "$(slurp)" || exit 1
 fi
 
 wl-copy <$TARGET
