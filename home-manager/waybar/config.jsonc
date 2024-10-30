@@ -47,10 +47,10 @@
     "orientation": "horizontal",
     "modules": [
       "cpu",
-      "temperature",
-      "memory",
-      "disk",
       "network",
+      "disk",
+      "memory",
+      "temperature",
     ],
     "drawer": {
       "transition-left-to-right": false,

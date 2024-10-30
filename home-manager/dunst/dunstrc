@@ -8,7 +8,14 @@
     show_age_threshold = 60
     word_wrap = yes
     ignore_newline = no
-    geometry = "200x5-6+30"
+
+    width = (100,400)
+    height = 70
+    offset = (10, 100)  # horizontal, vertical
+    progress_bar = true
+    show_indicators = true  # Shows an (A) to indicate it has actions. Use middle click to open dmenu
+    dmenu = rofi -dmenu -i
+
     transparency = 0
     # Don't timeout notification is user is idle for this amount of time, potentially useful
     idle_threshold = 0
@@ -26,7 +33,7 @@
 
     width = 400
     alignment = center
-    corner_radius = 5
+    corner_radius = 10
     startup_notification = true
     separator_color = frame
     frame_color = "#4d9bdb"

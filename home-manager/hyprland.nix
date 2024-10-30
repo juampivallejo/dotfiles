@@ -28,6 +28,7 @@
       killall # Used in some scripts
       pavucontrol # Audio control with waybar
       dunst # notifications
+      dmenu # notification actions
       networkmanagerapplet # (nm-applet) Network and wifi sys tray
       swww # Wallpapers
       libnotify
