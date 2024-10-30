@@ -48,8 +48,6 @@
 
     environment.systemPackages = with pkgs; [
       # For Hyprland
-      killall # Used in some scripts
-      dunst # Notifications
       imv # Imdateage terminal viewer
       wf-recorder # Recorder screen
       wl-clipboard # Clipboard for wayland -> used with wl-copy & wl-paste cli
