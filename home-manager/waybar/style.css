@@ -8,8 +8,8 @@
 
 * {
   min-height: 0;
-  font-family: "FiraCode Nerd Font", Roboto, Helvetica, Arial, sans-serif;
-  font-size: 12px;
+  font-family: "0xProto Nerd Font", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 13px;
 }
 
 window#waybar {
@@ -17,7 +17,7 @@ window#waybar {
   background: @bg;
   transition-property: background-color;
   transition-duration: 0.5s;
-  border: 0.2px solid @bordercolor;
+  border: 0px solid @bordercolor;
 }
 
 button {
@@ -44,40 +44,11 @@ button:hover {
   color: @alert;
 }
 #workspaces button.empty {
-  color: @bordercolor;
+  color: @disabled;
 }
 
 #workspaces button.active {
-  color: @highlight;
-}
-
-/*River Tags/Workspaces*/
-#tags {
-  background-color: transparent;
-  border-radius: 0px;
-  padding: 0px 5px;
-}
-
-#tags button {
   color: @bordercolor;
-  background: @bg;
-
-  /*If you need round border icons*/
-  border-radius: 0px;
-  padding: 0px 0px;
-  margin: 5px 0px;
-}
-
-#tags button.occupied {
-  color: @fg;
-}
-
-#tags button.focused {
-  color: @highlight;
-}
-
-#tags button.urgent {
-  color: @alert;
 }
 
 #clock,
@@ -111,25 +82,24 @@ button:hover {
 #idle_inhibitor,
 #window,
 #mpd {
-  padding: 0px 5px;
+  padding: 0px 2px;
   margin: 0px 5px;
   color: @bordercolor;
 }
 
 #custom-notification,
 #custom-wifi,
-#custom-kdeconnect,
 #custom-bluetooth,
 #custom-power,
 #idle_inhibitor {
-  color: @bg;
+  color: @bordercolor;
 }
 
 #clock,
 #custom-group {
   color: @bordercolor;
   background-color: @bg;
-  margin: 5px;
+  margin: 2px;
   padding: 0px 5px;
   border-radius: 5px;
 }
@@ -146,8 +116,8 @@ button:hover {
 
 #tray {
   /*background-color: @bordercolor;*/
-  border: 1px solid @bordercolor;
-  margin: 5px;
+  border: 0px solid @bordercolor;
+  margin: 1px;
   padding: 0px 15px;
   border-radius: 5px;
 }

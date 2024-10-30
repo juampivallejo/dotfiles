@@ -5,42 +5,58 @@
   "height": 20,
   "margin-left": 10,
   "margin-right": 10,
-  "margin-top": 1,
+  "margin-top": 4,
   "margin-bottom": 0,
   "spacing": 1,
   "reload_style_on_change": true,
 
   // Choose the order of the modules
 
-  "modules-left": ["tray"],
+  "modules-left": [
+    "cava"
+  ],
 
   "modules-center": [
-    "hyprland/workspaces",
-    "hyprland/window",
+    "hyprland/workspaces"
+    // "hyprland/window",  // current window name by compositor
   ],
-  // "modules-center": ["clock"],
 
   "modules-right": [
-    "network",
-    "cpu",
-    "temperature",
-    "backlight",
+    "tray",
+    "custom/separator",
+    "group/monitoring",
+    // "power-profiles-daemon",
+    "backlight",  // Not shown on destop / unavailable
+    "custom/separator",
     "wireplumber",
+    "idle_inhibitor",
+    "custom/bluetooth",
+    "custom/separator",
     "clock",
-    "custom/separator",
-    "group/custom-group",
-    "custom/separator",
-    "custom/power",
+    "custom/power"
   ],
 
-  "group/custom-group": {
+  // "group/custom-group": {
+  //   "orientation": "horizontal",
+  //   "modules": [
+  //     // "custom/kdeconnect",
+  //   ],
+  // },
+
+  "group/monitoring": {
     "orientation": "horizontal",
     "modules": [
-      "idle_inhibitor",
-      "custom/bluetooth",
-      "custom/kdeconnect",
-      "custom/wifi",
+      "cpu",
+      "temperature",
+      "memory",
+      "disk",
+      "network",
     ],
+    "drawer": {
+      "transition-left-to-right": false,
+      "children-class": "monitors",
+      "click-to-reveal": true,
+    },
   },
 
   // Modules configuration
@@ -76,34 +92,27 @@
     "separate-outputs": true,
   },
 
-  // "river/tags": {
-  //   "num-tags": 7,
-  //   "tag-labels": ["󰈹", "", "", "", "", "", "󰠮", "", "", ""],
-  // },
-
   "tray": {
-    "icon-size": 16,
-    "spacing": 5,
+    "icon-size": 15,
+    "spacing": 10,
     "show-passive-items": true,
+    "reverse-direction": true,
   },
 
   "clock": {
     "interval": 60,
-    "format": "  {:%a %b %d    %I:%M %p}", // %b %d %Y  --Date formatting
+    "format": "  {:%a %b %d %Y    %H:%M}", // %b %d %Y  --Date formatting
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format-alt": "{:%Y-%m-%d %H:%M:%S  }",
+    "timezone": "America/Argentina/Mendoza",
   },
 
-  // "temperature": {
-  //   // "thermal-zone": 2,
-  //   // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-  //   // "format-critical": "{temperatureC}°C {icon}",
-  //   "critical-threshold": 80,
-  //   "interval": 2,
-  //   "format": " {temperatureC:>2}°C",
-  //   "format-icons": ["", "", ""],
-  //   "on-click": "hyprctl dispatcher togglespecialworkspace monitor",
-  // },
+  "temperature": {
+    "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
+    "critical-threshold": 80,
+    "interval": 2,
+    "format": " {temperatureC:>2}°C",
+    "format-icons": ["", "", ""],
+  },
 
   "cpu": {
     "interval": 2,
@@ -114,7 +123,7 @@
 
   "memory": {
     "interval": 2,
-    "format": " {:>2}%",
+    "format": " {:>2}%",
   },
 
   "disk": {
@@ -122,6 +131,19 @@
     "format": "󰋊 {percentage_used:>2}%",
   },
 
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+        "default": "",
+        "performance": "",
+        "balanced": "",
+        "power-saver": ""
+    },
+  },
+
+  // Not Available on desktop
   // "backlight": {
   //   // "device": "acpi_video1",
   //   "format": "{icon} {percent:>2}%",
@@ -131,11 +153,12 @@
   "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface
     "interval": 1,
+    "tooltip": true,
     "format-wifi": "  {bandwidthTotalBytes:>2}", //({essid} {signalStrength}%)
-    "format-ethernet": "{ipaddr}/{cidr} ",
+    "format-ethernet": "{ipaddr}/{cidr}  ",
     "tooltip-format-wifi": " {ipaddr} ({signalStrength}%)",
-    "tooltip-format": "{ifname} via {gwaddr} ",
-    "format-linked": "{ifname} (No IP) ",
+    "tooltip-format": "{ifname} via {gwaddr}  ",
+    "format-linked": "{ifname} (No IP)  ",
     "format-disconnected": "󰀦 Disconnected", //Disconnected ⚠
     "format-alt": "{ifname}: {ipaddr}/{cidr}",
   },
@@ -163,13 +186,13 @@
   "wireplumber": {
     "format": "{icon} {volume:>3}%",
     "format-muted": "󰖁 {volume:>3}%",
-    // "format-bluetooth": "{icon} {volume:>2}% 󰂯", //{format_source}",
-    // "format-bluetooth-muted": "󰖁 {icon} 󰂯", //{format_source}",
+    "format-bluetooth": "{icon} {volume:>2}% 󰂯", //{format_source}",
+    "format-bluetooth-muted": "󰖁 {icon} 󰂯", //{format_source}",
     "format-icons": ["", "", ""],
+    "on-click": "pavucontrol",
   },
 
-  // This waybar build doesn't have support for cava.
-  // Need to edit the PKGBUILD and rebuild with -Dcava=enabled flag
+  // TODO: Setup Cava
   // "cava": {
   //   "cava_config": "$XDG_CONFIG_HOME/cava/config",
   //   "framerate": 30,
@@ -203,9 +226,9 @@
 
   "custom/power": {
     "format": "{icon}",
-    "format-icons": " ", //  
+    "format-icons": " ", //   󱄅
     "exec-on-event": "true",
-    "on-click": "$HOME/scripts/rofi-power",
+    "on-click": "$HOME/.config/scripts/rofi-power.sh",
     "tooltip-format": "Power Menu",
   },
 
@@ -217,13 +240,13 @@
   //   "tooltip-format": "KDE Connect",
   // },
 
-  // "custom/bluetooth": {
-  //   "format": "{icon}",
-  //   "format-icons": "",
-  //   "exec-on-event": "true",
-  //   "on-click": "$HOME/scripts/rofi-bluetooth",
-  //   "tooltip-format": "Bluetooth Menu",
-  // },
+  "custom/bluetooth": {
+    "format": "{icon}",
+    "format-icons": "",
+    "exec-on-event": "true",
+    "on-click": "$HOME/.config/scripts/rofi-bluetooth.sh",
+    "tooltip-format": "Bluetooth Menu",
+  },
   //
   // "custom/wifi": {
   //   "format": "{icon}",
@@ -233,11 +256,11 @@
   //   "tooltip-format": "Wifi Menu",
   // },
   //
-  // "custom/separator": {
-  //   "format": "{icon}",
-  //   "format-icons": "|",
-  //   "tooltip": false,
-  // },
+  "custom/separator": {
+    "format": "{icon}",
+    "format-icons": "|",
+    "tooltip": false,
+  },
   //
   // "custom/pacman": {
   //   "format": "  {}",
@@ -248,26 +271,26 @@
   //   "signal": 8,
   // },
   //
-  // "custom/notification": {
-  //   "tooltip": false,
-  //   "format": "{icon} {}",
-  //   "format-icons": {
-  //     "notification": "<span foreground='red'><sup></sup></span>",
-  //     "none": "",
-  //     "dnd-notification": "<span foreground='red'><sup></sup></span>",
-  //     "dnd-none": "",
-  //     "inhibited-notification": "<span foreground='red'><sup></sup></span>",
-  //     "inhibited-none": "",
-  //     "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
-  //     "dnd-inhibited-none": "",
-  //   },
-  //   "return-type": "json",
-  //   "exec-if": "which swaync-client",
-  //   "exec": "swaync-client -swb",
-  //   "on-click": "swaync-client -t -sw",
-  //   "on-click-right": "swaync-client -d -sw",
-  //   "escape": true,
-  // },
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon} {}",
+    "format-icons": {
+      "notification": "<span foreground='red'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": "",
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true,
+  },
 
   "keyboard-state": {
     "numlock": true,
