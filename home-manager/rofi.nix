@@ -1,6 +1,13 @@
 { config, lib, pkgs, pkgs-unstable, ... }: {
 
   config = lib.mkIf config.hyprland.enable { # Use rofi only on Wayland
+    # Rofi Themes
+    home.file."./.config/rofi" = {
+      source = ./rofi-themes;
+      recursive = true;
+    };
+
+    # Rofi main config
     programs.rofi = {
       enable = true;
       cycle = true;
