@@ -9,6 +9,7 @@
     gnumake # for fzf-native
     fzf
     jq
+    yq # jq for yaml
     rq
     fd
     zip
