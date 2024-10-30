@@ -50,14 +50,14 @@
       in {
         "*" = {
           font = "FiraCode Nerd Font";
-          background = mkLiteral "#181825"; # base01
-          border = mkLiteral "#1E1E2E"; # base00
-          background-alt = mkLiteral "#1E1E2E"; # base00
-          foreground = mkLiteral "#D9E0EE"; # base06
+          background = mkLiteral "#1E2127"; # background
+          border = mkLiteral "#282B31"; # background-alt
+          background-alt = mkLiteral "#282B31"; # background-alt
+          foreground = mkLiteral "#FFFFFF"; # foreground
           foreground-alt = mkLiteral "#45475A"; # base02
-          selected = mkLiteral "#B5E8E0"; # base0C
-          active = mkLiteral "#ABE9B3"; # base0B
-          urgent = mkLiteral "#96CDFB"; # base0D
+          selected = mkLiteral "#61AFEFFF"; # selected
+          active = mkLiteral "#98C379FF"; # active
+          urgent = mkLiteral "#E06C75FF"; # urgent
         };
         "window" = {
           transparency = "real";
