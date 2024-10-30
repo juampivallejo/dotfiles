@@ -33,7 +33,8 @@
       swww # Wallpapers
       libnotify
       slurp # for screenshots
-      mpc-cli # Music Player control cli
+      playerctl # Player control
+      cava # Music visualizer
     ];
   };
 }
