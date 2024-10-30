@@ -1,54 +1,98 @@
 #!/usr/bin/env bash
 
-# Rofi dmenu mode, -i make search case-insensitive, -l is the number of line
-rofi_command() {
-	rofi -dmenu -i -config "$HOME/.config/rofi/power.rasi"
+## Author : Aditya Shakya (adi1090x)
+## Github : @adi1090x
+#
+## Rofi   : Power Menu
+#
+## Available Styles
+#
+## style-1   style-2   style-3   style-4   style-5
+
+# Current Theme
+dir="$HOME/.config/rofi"
+theme='power'
+
+# CMDs
+uptime="$(uptime -p | sed -e 's/up //g')"
+host=$(hostname)
+
+# Options
+shutdown=' Shutdown'
+reboot=' Reboot'
+lock=' Lock'
+suspend=' Suspend'
+logout=' Logout'
+yes=' Yes'
+no=' No'
+
+# Rofi CMD
+rofi_cmd() {
+	rofi -dmenu \
+		-p "$host" \
+		-mesg "Uptime: $uptime" \
+		-theme ${dir}/${theme}.rasi
 }
 
-shutdown="󰐥 | Shutdown"
-reboot=" | Restart"
-lock=" | Lock"
-suspend="󰤄 | Suspend"
-logout="󰍂 | Logout"
+# Confirmation CMD
+confirm_cmd() {
+	rofi -theme-str 'window {location: center; anchor: center; fullscreen: false; width: 250px;}' \
+		-theme-str 'mainbox {children: [ "message", "listview" ];}' \
+		-theme-str 'listview {columns: 2; lines: 1;}' \
+		-theme-str 'element-text {horizontal-align: 0.5;}' \
+		-theme-str 'textbox {horizontal-align: 0.5;}' \
+		-dmenu \
+		-p 'Confirmation' \
+		-mesg 'Are you Sure?' \
+		-theme ${dir}/${theme}.rasi
+}
 
-options="$shutdown\n$reboot\n$logout\n$suspend\n$lock"
+# Ask for confirmation
+confirm_exit() {
+	echo -e "$yes\n$no" | confirm_cmd
+}
 
-chosen="$(echo -e "$options" | rofi_command)"
-echo "$chosen"
-case $chosen in
-"$shutdown")
-	pkill cspell # HACK: to prevent poweroff issues with scpell
-	systemctl poweroff
+# Pass variables to rofi dmenu
+run_rofi() {
+	echo -e "$lock\n$suspend\n$logout\n$reboot\n$shutdown" | rofi_cmd
+}
+
+# Execute Command
+run_cmd() {
+	selected="$(confirm_exit)"
+	if [[ "$selected" == "$yes" ]]; then
+		if [[ $1 == '--shutdown' ]]; then
+			systemctl poweroff
+		elif [[ $1 == '--reboot' ]]; then
+			systemctl reboot
+		elif [[ $1 == '--suspend' ]]; then
+			mpc -q pause
+			amixer set Master mute
+			systemctl suspend
+		elif [[ $1 == '--logout' ]]; then
+			hyprctl dispatch exit
+		fi
+	else
+		exit 0
+	fi
+}
+
+# Actions
+chosen="$(run_rofi)"
+case ${chosen} in
+$shutdown)
+	run_cmd --shutdown
 	;;
-"$reboot")
-	pkill cspell # HACK: to prevent poweroff issues with scpell
-	systemctl reboot
+$reboot)
+	run_cmd --reboot
 	;;
-"$lock")
-	# Install swaylock-effects for better configuration
+$lock)
 	hyprlock
 	;;
-"$suspend")
-	mpc -q pause
-	amixer set Master mute
-	systemctl suspend
+$suspend)
+	run_cmd --suspend
 	;;
-"$logout")
-	# For Hyprland, Use Command for your WM/DE
-	if [[ "$DESKTOP_SESSION" == "hyprland" ]]; then
-		hyprctl dispatch exit
-	elif [[ "$DESKTOP_SESSION" == "sway" ]]; then
-		swaymsg exit
-	elif [[ "$DESKTOP_SESSION" == "i3" ]]; then
-		i3-msg exit
-	elif [[ "$DESKTOP_SESSION" == "river" ]]; then
-		riverctl exit
-	elif [[ "$DESKTOP_SESSION" == "Openbox" ]]; then
-		openbox --exit
-	elif [[ "$DESKTOP_SESSION" == "bspwm" ]]; then
-		bspc quit
-	elif [[ "$DESKTOP_SESSION" == "xfce" ]]; then
-		killall xfce4-session
-	fi
+$logout)
+	run_cmd --logout
 	;;
 esac
