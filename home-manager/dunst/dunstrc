@@ -31,17 +31,18 @@
     icon_position = left
     # icon_folders = ~/.icons/16x16/
 
-    width = 400
+    width = (300, 500)
+    height = 950  # Maximum
     alignment = center
     corner_radius = 10
     startup_notification = true
     separator_color = frame
     frame_color = "#4d9bdb"
+    frame_width = 2
     background = "#1e1e2e"
     foreground = "#cdd6f4"
 
 [frame]
-    width = (0,400)
     color = "#51a4e7"
 
 [urgency_low]
