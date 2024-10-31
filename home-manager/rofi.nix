@@ -49,7 +49,7 @@
       theme = let inherit (config.lib.formats.rasi) mkLiteral;
       in {
         "*" = {
-          font = "FiraCode Nerd Font";
+          font = "JetBrains Mono Nerd Font";
           background = mkLiteral "#1E2127"; # background
           border = mkLiteral "#282B31"; # background-alt
           background-alt = mkLiteral "#282B31"; # background-alt

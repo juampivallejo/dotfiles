@@ -1,7 +1,7 @@
 { lib, config, pkgs, ... }:
 let
   nerdfonts = pkgs.nerdfonts.override {
-    fonts = [ "0xProto" "DroidSansMono" "FiraCode" ];
+    fonts = [ "0xProto" "DroidSansMono" "FiraCode" "JetBrainsMono" ];
   };
   theme = {
     name = "Nordic";
