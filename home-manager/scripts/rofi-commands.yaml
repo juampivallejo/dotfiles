@@ -1,8 +1,18 @@
 - name: "System: Screenshot"
-  command: flameshot gui
+  command: $HOME/.config/scripts/
 
-- name: "System: Force Kill"
-  command: notify-send 'ITS XKILL BOIS!!!' 'Select an app to kill' -i dialog-error && xkill
+- name: "System: Bluetooth"
+  command: $HOME/.config/scripts/rofi-bluetooth.sh
+
+# Only works on xorg and this is a wayland config
+# - name: "System: Force Kill"
+#   command: notify-send 'ITS PKILL BOIS!!!' 'Select an app to kill' -i dialog-error && pkill
+#
+- name: "Audio: HyperX headset"
+  command: pactl set-default-sink alsa_output.usb-Kingston_HyperX_Cloud_Flight_Wireless_Headset-00.iec958-stereo
+
+- name: "Audio: Analog"
+  command: pactl set-default-sink alsa_output.pci-0000_00_1f.3.analog-stereo
 
 - name: "System: Toggle Mic"
   command: amixer set Capture toggle && notify-send "Microphone $(amixer get Capture | grep -m 1 -oE '\[on\]|\[off\]')"
@@ -21,3 +31,6 @@
 - name: Sleep
   confirm: true
   command: systemctl suspend
+
+- name: "Power Menu"
+  command: $HOME/.config/scripts/rofi-power.sh
