@@ -1,8 +1,6 @@
-- name: "System: Screenshot"
-  command: $HOME/.config/scripts/
-
-- name: "System: Bluetooth"
-  command: $HOME/.config/scripts/rofi-bluetooth.sh
+#
+# Work Shortcuts
+#
 
 - name: "Reptrak VPN: Connect"
   command: openvpn3 session-start --config /home/juampi/.config/openvpn/reptrakDevelop.ovpn || notify-send 'VPN Connected'
@@ -16,9 +14,12 @@
     openvpn3 session-start --config /home/juampi/.config/openvpn/reptrakDevelop.ovpn
     notify-send 'VPN Reloaded'
 
-# Only works on xorg and this is a wayland config
-# - name: "System: Force Kill"
-#   command: notify-send 'ITS PKILL BOIS!!!' 'Select an app to kill' -i dialog-error && pkill
+#
+# External Devices Management
+#
+
+- name: "System: Bluetooth"
+  command: $HOME/.config/scripts/rofi-bluetooth.sh
 #
 - name: "Audio: HyperX headset"
   command: pactl set-default-sink alsa_output.usb-Kingston_HyperX_Cloud_Flight_Wireless_Headset-00.iec958-stereo
@@ -28,6 +29,17 @@
 
 - name: "System: Toggle Mic"
   command: amixer set Capture toggle && notify-send "Microphone $(amixer get Capture | grep -m 1 -oE '\[on\]|\[off\]')"
+
+# FIXME: requires hyprland upgrade (at least 44)
+- name: "Keyboard: next layout"
+  command: hyprctl switchxkblayout all next
+
+#
+# Main System Shortcuts
+#
+
+- name: "System: Screenshot"
+  command: $HOME/.config/scripts/
 
 - name: "Dunst: Reload"
   command: pkill dunst && dunst & sleep 1; notify-send 'Dunst reloaded'
