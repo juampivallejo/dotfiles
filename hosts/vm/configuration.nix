@@ -38,7 +38,7 @@
   users.users.juampi = {
     isNormalUser = true;
     description = "juampi";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "input" "uinput" ];
     packages = with pkgs;
       [
         firefox
