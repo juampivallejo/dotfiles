@@ -26,7 +26,7 @@
             )
             (defalias
              caps (tap-hold $tap-time $hold-time esc lmet)
-             ; (tap-hold $tap-time $hold-time ; lmet)
+             ; (tap-hold $tap-time $hold-time ; rmet)
              ;; a (tap-hold $tap-time $hold-time a lmet)
              ;; s (tap-hold $tap-time $hold-time s lalt)
              ;; d (tap-hold $tap-time $hold-time d lsft)
