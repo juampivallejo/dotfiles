@@ -84,14 +84,14 @@
 
       # Preview files depending on type
       zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ''${(Q)realpath}'
-      export LESSOPEN='|~/.config/.lessfilter %s'
+      export LESSOPEN='|~/.config/scripts/.lessfilter %s'
     '';
 
     defaultKeymap = "viins";
   };
 
   home.file."./.config/.lessfilter" = {
-    source = ./lessfilter.sh;
+    source = ./scripts/lessfilter.sh;
     executable = true;
   };
   home.packages = with pkgs; [

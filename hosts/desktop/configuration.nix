@@ -112,6 +112,7 @@
   };
 
   # List services that you want to enable:
+  homeRowMod.enable = true; # Kanata Service
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;

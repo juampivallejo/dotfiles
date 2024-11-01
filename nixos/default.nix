@@ -6,6 +6,7 @@
     ./gnome.nix
     ./hyprland.nix
     ./i18n.nix
+    ./kanata.nix
     ./nvidia.nix
     ./services.nix
     ./sound.nix
