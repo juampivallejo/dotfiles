@@ -1,10 +1,11 @@
-@define-color fg #EEEEEE;
+@define-color fg #FFFFFF; /* Change text color to white */
 @define-color bg #04070F;
 @define-color bordercolor #51A4E7;
 @define-color disabled #323439;
 @define-color alert #E67E80;
 @define-color activegreen #26A65B;
 @define-color highlight #DBBC7F;
+@define-color bluetooth #0082FC;
 
 * {
   min-height: 0;
@@ -14,7 +15,7 @@
 
 window#waybar {
   color: @fg;
-  background: @bg;
+  background: transparent; /* Make background transparent */
   transition-property: background-color;
   transition-duration: 0.5s;
   border: 0px solid @bordercolor;
@@ -67,6 +68,7 @@ button:hover {
 #custom-media,
 #taskbar,
 #tray,
+#bluetooth,
 #tray menu,
 #tray > .needs-attention,
 #tray > .passive,
@@ -76,7 +78,6 @@ button:hover {
 #custom-notification,
 #custom-wifi,
 #custom-kdeconnect,
-#custom-bluetooth,
 #custom-power,
 #custom-separator,
 #idle_inhibitor,
@@ -84,20 +85,33 @@ button:hover {
 #mpd {
   padding: 0px 2px;
   margin: 0px 5px;
-  color: @bordercolor;
+  color: @fg; /* Set icon color to white */
 }
 
 #custom-notification,
 #custom-wifi,
-#custom-bluetooth,
 #custom-power,
 #idle_inhibitor {
-  color: @bordercolor;
+  color: @fg; /* Set icon color to white */
+}
+
+#bluetooth.on,
+#bluetooth.connected {
+  color: @bluetooth; /* Set icon color to blue */
+}
+#bluetooth.discoverable,
+#bluetooth.discovering,
+#bluetooth.pairing {
+  color: @activegreen;
+}
+#bluetooth.off,
+#bluetooth.disabled {
+  color: @disabled;
 }
 
 #clock,
 #custom-group {
-  color: @bordercolor;
+  color: @fg; /* Set icon color to white */
   background-color: @bg;
   margin: 2px;
   padding: 0px 5px;
@@ -115,7 +129,6 @@ button:hover {
 }
 
 #tray {
-  /*background-color: @bordercolor;*/
   border: 0px solid @bordercolor;
   margin: 1px;
   padding: 0px 15px;
