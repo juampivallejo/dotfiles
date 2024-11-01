@@ -30,7 +30,7 @@
     "custom/separator",
     "wireplumber",
     "idle_inhibitor",
-    "custom/bluetooth",
+    "bluetooth",
     "custom/separator",
     "clock",
     "custom/power"
@@ -240,12 +240,16 @@
   //   "tooltip-format": "KDE Connect",
   // },
 
-  "custom/bluetooth": {
+  "bluetooth": {
     "format": "{icon}",
+    "format-connected": "{icon}{num_connections}",
     "format-icons": "",
     "exec-on-event": "true",
     "on-click": "$HOME/.config/scripts/rofi-bluetooth.sh",
-    "tooltip-format": "Bluetooth Menu",
+    "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+	"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
   },
   //
   // "custom/wifi": {
