@@ -18,6 +18,7 @@
     python3Full
     python3Packages.pip
     pkgs-unstable.uv # Testing out uv as replacement of pip, pipenv and pyenv
+    pkgs-unstable.basedpyright
 
     # Dev Tools
     lazygit
