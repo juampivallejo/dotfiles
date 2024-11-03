@@ -59,6 +59,5 @@
       hyprpicker # color picker
       rose-pine-hyprcursor.packages.${pkgs.system}.default # Cursor theme
     ];
-
   };
 }

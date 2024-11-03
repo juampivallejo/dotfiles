@@ -7,7 +7,8 @@ return {
     ---@type lspconfig.options
     ---@diagnostic disable-next-line: missing-fields
     servers = {
-      pyright = {},
+      -- pyright = {},
+      basedpyright = {},
       gopls = {},
       lua_ls = {},
       nil_ls = {},
