@@ -62,14 +62,14 @@
               )
 
               caps (tap-hold $tap-time $hold-time esc lctl)
-              a (tap-hold-release-keys $tap-time $hold-time-slow (multi a @tap) lctl $left-hand-keys)
-              s (tap-hold-release-keys $tap-time $hold-time-slow (multi s @tap) lalt $left-hand-keys)
+              a (tap-hold-release-keys $tap-time $hold-time-slow (multi a @tap) lalt $left-hand-keys)
+              s (tap-hold-release-keys $tap-time $hold-time (multi s @tap) lctl $left-hand-keys)
               d (tap-hold-release-keys $tap-time $hold-time (multi d @tap) lmet $left-hand-keys)
               f (tap-hold-release-keys $tap-time $hold-time (multi f @tap) lsft $left-hand-keys)
               j (tap-hold-release-keys $tap-time $hold-time (multi j @tap) rsft $right-hand-keys)
               k (tap-hold-release-keys $tap-time $hold-time (multi k @tap) rmet $right-hand-keys)
-              l (tap-hold-release-keys $tap-time $hold-time-slow (multi l @tap) ralt $right-hand-keys)
-              ; (tap-hold-release-keys $tap-time $hold-time (multi ; @tap) rctl $right-hand-keys)
+              l (tap-hold-release-keys $tap-time $hold-time (multi l @tap) rctl $right-hand-keys)
+              ; (tap-hold-release-keys $tap-time $hold-time (multi ; @tap) ralt $right-hand-keys)
             )
           '';
         };
