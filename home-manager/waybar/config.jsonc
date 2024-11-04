@@ -13,12 +13,13 @@
   // Choose the order of the modules
 
   "modules-left": [
-    "cava"
+    "hyprland/workspaces",
+    "hyprland/window",  // current window name by compositor
+    "cava",
   ],
 
   "modules-center": [
-    "hyprland/workspaces"
-    // "hyprland/window",  // current window name by compositor
+    "clock",
   ],
 
   "modules-right": [
@@ -32,8 +33,7 @@
     "idle_inhibitor",
     "bluetooth",
     "custom/separator",
-    "clock",
-    "custom/power"
+    "custom/power",
   ],
 
   // "group/custom-group": {
@@ -47,16 +47,16 @@
     "orientation": "horizontal",
     "modules": [
       "cpu",
-      "network",
+      // "network",
       "disk",
       "memory",
       "temperature",
     ],
-    "drawer": {
-      "transition-left-to-right": false,
-      "children-class": "monitors",
-      "click-to-reveal": true,
-    },
+    // "drawer": {
+    //   "transition-left-to-right": false,
+    //   "children-class": "monitors",
+    //   "click-to-reveal": true,
+    // },
   },
 
   // Modules configuration
@@ -88,7 +88,8 @@
   },
 
   "hyprland/window": {
-    "format": "{}",
+    "icon": true,
+    "format": "{class}",
     "separate-outputs": true,
   },
 
@@ -102,8 +103,25 @@
   "clock": {
     "interval": 60,
     "format": "  {:%a %b %d %Y    %H:%M}", // %b %d %Y  --Date formatting
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "timezone": "America/Argentina/Mendoza",
+    "on-click": "gnome-calendar",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#0DB5D2'><b>{}</b></span>",
+        "days": "<span color='#FFCB99'><b>{}</b></span>",
+        "weeks": "<span color='#73DACA'><b>W{}</b></span>", // week W1, W2 ..
+        "weekdays": "<span color='#FF7F00'><b>{}</b></span>",
+        "today": "<span color='#FF7F00'><b><u>{}</u></b></span>" // red
+      },
+    },
+    "actions": {
+      "on-click-right": "mode",
+    },
   },
 
   "temperature": {
