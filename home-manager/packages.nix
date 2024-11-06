@@ -25,6 +25,8 @@
     lazydocker
     nushell # testing out nu shell
     nodejs_22 # Required for Copilot.lua
+    kubectl
+    k9s
 
     # Golang Dev
     go
