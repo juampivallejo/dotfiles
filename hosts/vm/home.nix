@@ -29,9 +29,6 @@ in {
   hyprland.enable = false;
 
   nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-25.9.0" # Required to install Obsidian
-  ];
 
   programs.home-manager.enable = true;
   home.stateVersion = "24.05";
