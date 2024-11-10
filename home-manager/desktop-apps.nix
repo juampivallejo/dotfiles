@@ -5,6 +5,7 @@
   config = lib.mkIf config.desktopApps.enable {
     home.packages = with pkgs; [
       slack # Messaging
+      thunderbird # Email client
       obsidian # Notes
       calibre # e-Books
       insomnia # Postman alternative
