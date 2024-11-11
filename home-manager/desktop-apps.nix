@@ -1,11 +1,11 @@
-{ pkgs, lib, config, ... }: {
+{ pkgs, lib, config, inputs, pkgs-unstable, ... }: {
 
   options = { desktopApps.enable = lib.mkEnableOption "Enables desktop Apps"; };
 
   config = lib.mkIf config.desktopApps.enable {
     home.packages = with pkgs; [
       slack # Messaging
-      thunderbird # Email client
+      pkgs-unstable.thunderbird # Email client
       obsidian # Notes
       calibre # e-Books
       insomnia # Postman alternative
@@ -16,6 +16,7 @@
       spotify
       discord
       postman # mostly for reptrak
+      inputs.zen-browser.packages."${system}".specific
     ];
   };
 }

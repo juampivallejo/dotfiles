@@ -19,6 +19,7 @@
     };
 
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
   };
 
   ## Outputs = built and working system configuration
@@ -40,7 +41,7 @@
         desktop = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [ ./hosts/desktop/configuration.nix ./nixos ];
-          specialArgs = { rose-pine-hyprcursor = inputs.rose-pine-hyprcursor; };
+          specialArgs = { inherit inputs; };
         };
         vm = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
@@ -63,7 +64,7 @@
         "juampi@desktop" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [ ./hosts/desktop/home.nix ./home-manager ];
-          extraSpecialArgs = { inherit username pkgs-unstable; };
+          extraSpecialArgs = { inherit username pkgs-unstable inputs; };
         };
         "juampi@vm" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
