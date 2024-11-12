@@ -8,7 +8,7 @@ let
     package = pkgs.nordic;
   };
   font = {
-    name = "FiraCode Nerd Font";
+    name = "0xProto Nerd Font";
     package = nerdfonts;
     size = 11;
   };
@@ -89,20 +89,5 @@ in {
         "Xft/RGBA" = "rgb";
       };
     };
-
-    # Also Apply theming to Flatpak apps # FIXME
-    home.file.".local/share/flatpak/overrides/global".text = let
-      dirs = [
-        "/nix/store:ro"
-        "~/.themes:ro"
-        "xdg-config/gtk-3.0:ro"
-        "xdg-config/gtk-4.0:ro"
-        "${config.xdg.dataHome}/icons:ro"
-      ];
-    in ''
-      [Context]
-      filesystems=${builtins.concatStringsSep ";" dirs}
-    '';
-
   };
 }
