@@ -57,7 +57,16 @@
       hyprlock # Lock screen
       hyprdim # Automatically dims windows when switching between them
       hyprpicker # color picker
+      gpu-screen-recorder-gtk # Screen recording
       inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default # Cursor theme
     ];
+
+    # Allow gpu-screen-recorder to run as root
+    security.wrappers.gsr-kms-server = {
+      source = "${pkgs.gpu-screen-recorder}/bin/gsr-kms-server";
+      capabilities = "cap_sys_admin+ep";
+      owner = "root";
+      group = "root";
+    };
   };
 }
