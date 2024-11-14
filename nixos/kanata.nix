@@ -50,26 +50,55 @@
               )
             )
 
+            (defalias
+              ;; Useful chords aliases
+              csv C-S-v
+              csc C-S-c
+              tp C-S-tab
+              tn C-tab
+
+              ;; TMUX next previous windows and session
+              tmpw (macro C-b p)
+              tmnw (macro C-b n)
+              tmps (multi (release-key lsft) (macro C-b S-9))
+              tmns (multi (release-key lsft) (macro C-b S-0))
+
+              tmpws (fork @tmpw @tmps (lsft))
+              tmnws (fork @tmnw @tmns (lsft))
+
+              ;; tmux split vertical and horizontal
+              tmv (macro C-b S-5)
+              tmh (multi (release-key lsft) (macro C-b S-') )  ;; release before running macro
+              tms (fork @tmv @tmh (lsft))
+
+              ;; tmux other
+              tmx (macro C-b x)  ;; close
+              tmw (macro C-b w)  ;; sessions list
+              tmf (macro C-b o)  ;; fuzzy
+            )
+
             (deflayer base
               grv   1    2    3    4    5    6    7    8    9    0    -    =    bspc
               tab   q    w    e    r    t    y    u    i    o    p    [    ]    \
-              @caps @a   @s   @d   @f   g    h    @j   @k   @l   @;   '    ret
+              @caps @a   @s   @d   @f   g    h    @j   @k   @l   @;   @'    ret
               lsft  z    x    c    v    b    n    m    ,    .    /    rsft
               lctl  lmet lalt           spc            ralt rmet rctl
             )
             (deflayer nomods
               grv   1    2    3    4    5    6    7    8    9    0    -    =    bspc
               tab   q    w    e    r    t    y    u    i    o    p    [    ]    \
-              @caps a    s    d    f    g    h    j    k    l    ;    '    ret
+              @caps a    s    d    f    g    h    j    k    l    ;    @'   ret
               lsft  z    x    c    v    b    n    m    ,    .    /    rsft
               lctl  lmet lalt           spc            ralt rmet rctl
             )
+
+            ;; _ means transparent, for me no point to remap them since draconic already does
             (deflayer magic
-              grv   f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  bspc
-              tab   q    up   e    r    t    y    u    i    o    p    [    ]    \
-              @caps left down rght _    g    h    j    k    l    ;    '    ret
-              lsft  z    x    @csc @csv C-b  n    m    grv  .    /    rsft
-              lctl  lmet lalt           spc            ralt rmet rctl
+              grv    f1    f2     f3     f4     f5     f6     f7     f8     f9     f10    f11     f12  bspc
+              tab    q     up     e      r      t      y      u      @tn    @tp    _      _       _    @tms
+              @caps  left  down   rght   _      g      @tmpws j      k      @tmnws _      _       ret
+              lsft   z     @tmx   @csc   @csv   C-b    n      m      grv    _      _      rsft
+              lctl   lmet  lalt                 spc                  ralt   rmet   rctl
             )
             (deffakekeys
               to-base (layer-switch base) ;; the to-base key will switch to the base layer (with mods)
@@ -89,10 +118,7 @@
               k (tap-hold-release-keys $tap-time $hold-time (multi k @tap) rmet $right-hand-keys)
               l (tap-hold-release-keys $tap-time $hold-time (multi l @tap) rctl $right-hand-keys)
               ; (tap-hold-release-keys $tap-time $hold-time (multi ; @tap) ralt $right-hand-keys)
-
-              ;; Useful chords aliases
-              csv C-S-v
-              csc C-S-c
+              ' (tap-hold $tap-time $hold-time ' (layer-while-held magic))
             )
           '';
         };
