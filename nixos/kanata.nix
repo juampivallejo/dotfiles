@@ -60,21 +60,27 @@
               ;; TMUX next previous windows and session
               tmpw (macro C-b p)
               tmnw (macro C-b n)
-              tmps (multi (release-key lsft) (macro C-b S-9))
-              tmns (multi (release-key lsft) (macro C-b S-0))
+              tmps (macro C-b S-9)
+              tmns (macro C-b S-0)
 
-              tmpws (fork @tmpw @tmps (lsft))
-              tmnws (fork @tmnw @tmns (lsft))
+              tmpws (fork @tmpw @tmps (left))
+              tmnws (fork @tmnw @tmns (left))
 
               ;; tmux split vertical and horizontal
               tmv (macro C-b S-5)
-              tmh (multi (release-key lsft) (macro C-b S-') )  ;; release before running macro
-              tms (fork @tmv @tmh (lsft))
+              tmh (macro C-b S-')
+              tms (fork @tmv @tmh (left))
+
+              ;; tmux closing
+              tmx  (macro C-b x)             ;; close
+              tmxx  (macro C-b S-x)          ;; close without confirm
+              tmq  (fork @tmx @tmxx (left))
 
               ;; tmux other
-              tmx (macro C-b x)  ;; close
-              tmw (macro C-b w)  ;; sessions list
-              tmf (macro C-b o)  ;; fuzzy
+              tmc  (macro C-b c)  ;; new window
+              tmw  (macro C-b w)  ;; sessions list
+              tmf  (macro C-b o)  ;; fuzzy
+              tmgo (fork @tmf @tmw (left))
             )
 
             (deflayer base
@@ -96,17 +102,17 @@
             (deflayer magic
               grv    f1    f2     f3     f4     f5     f6     f7     f8     f9     f10    f11     f12  bspc
               tab    q     up     e      r      t      y      u      @tn    @tp    _      _       _    @tms
-              @caps  left  down   rght   _      g      @tmpws j      k      @tmnws _      _       ret
-              lsft   z     @tmx   @csc   @csv   C-b    n      m      grv    _      _      rsft
+              @caps  left  down   rght   lctl   @tmgo  @tmpws j      k      @tmnws _      _       ret
+              lsft   z     @tmq   @csc   @csv   C-b    @tmc      m      grv    _      _      rsft
               lctl   lmet  lalt                 spc                  ralt   rmet   rctl
             )
-            (deffakekeys
+            (defvirtualkeys
               to-base (layer-switch base) ;; the to-base key will switch to the base layer (with mods)
             )
             (defalias
               tap (multi
                 (layer-switch nomods)  ;; each tap deactivates mods
-                (on-idle-fakekey to-base tap 20) ;; When kanata has ben idle for 20ms, "tap" (action) the "to-base" virtual (fake) key
+                (on-idle-fakekey to-base tap 20) ;; When kanata has ben idle for 20ms, "tap" (action) the "to-base" virtual (fake) key (key, action, idle-time)
               )
 
               caps (tap-hold $tap-time $hold-time esc (layer-while-held magic))
@@ -119,6 +125,8 @@
               l (tap-hold-release-keys $tap-time $hold-time (multi l @tap) rctl $right-hand-keys)
               ; (tap-hold-release-keys $tap-time $hold-time (multi ; @tap) ralt $right-hand-keys)
               ' (tap-hold $tap-time $hold-time ' (layer-while-held magic))
+              mbck (tap-hold $tap-time $hold-time mbck lctl)
+              mfwd (tap-hold $tap-time $hold-time mfwd lmet)
             )
           '';
         };

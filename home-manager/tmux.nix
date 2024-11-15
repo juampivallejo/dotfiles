@@ -38,15 +38,22 @@
     extraConfig = ''
       # Clear
       bind C-l send-keys 'C-l'
+
       # Shift alt to navigate windows
       bind -n M-H previous-window
       bind -n M-L next-window
+
       # Open panes in CWD
       bind '"' split-window -v -c "#{pane_current_path}"
       bind % split-window -h -c "#{pane_current_path}"
+
+      # kill pane without confirm
+      bind X kill-pane
+
       # Key bindings
       bind-key -r i run-shell "tmux neww ~/.config/tmux/tmux-cht.sh"
       bind-key -r o run-shell "tmux neww ~/.config/tmux/sessionizer.sh"
+
       # Enable scrolling
       set -g mouse
       set-window-option -g mode-keys vi
