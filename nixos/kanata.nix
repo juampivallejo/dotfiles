@@ -100,10 +100,10 @@
 
             ;; _ means transparent, for me no point to remap them since draconic already does
             (deflayer magic
-              grv    f1    f2     f3     f4     f5     f6     f7     f8     f9     f10    f11     f12  bspc
-              tab    q     up     e      r      t      y      u      @tn    @tp    _      _       _    @tms
-              @caps  left  down   rght   lctl   @tmgo  @tmpws j      k      @tmnws _      _       ret
-              lsft   z     @tmq   @csc   @csv   C-b    @tmc      m      grv    _      _      rsft
+              grv    f1    f2     f3     f4     f5     f6      f7    f8     f9     f10    f11     f12  bspc
+              tab    q     up     e      r      t      y       u     @tn    @tp    _      _       _    @tms
+              @caps  left  down   rght   _      @tmgo  @tmpws  j     k      @tmnws _      _       ret
+              lsft   z     @tmq   @csc   @csv   C-b    @tmc    m     grv    _      _      rsft
               lctl   lmet  lalt                 spc                  ralt   rmet   rctl
             )
             (defvirtualkeys
