@@ -10,7 +10,7 @@
       calibre # e-Books
       insomnia # Postman alternative
       stremio # streaming
-      dbeaver-bin # DB connections
+      pkgs-unstable.dbeaver-bin # DB connections
       mongodb-compass # Mongo Explorer
       vlc
       spotify
