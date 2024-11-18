@@ -23,6 +23,7 @@
     # Dev Tools
     lazygit
     lazydocker
+    onefetch # git info
     nushell # testing out nu shell
     nodejs_22 # Required for Copilot.lua
     kubectl
