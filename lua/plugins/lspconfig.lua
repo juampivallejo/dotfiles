@@ -7,7 +7,7 @@ return {
     ---@type lspconfig.options
     ---@diagnostic disable-next-line: missing-fields
     servers = {
-      pyright = { settings = { python = { analysis = { typeCheckingMode = "standard" } } } },
+      basedpyright = { settings = { python = { analysis = { typeCheckingMode = "standard" } } } },
       gopls = {},
       lua_ls = {},
       nil_ls = {},
