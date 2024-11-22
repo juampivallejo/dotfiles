@@ -11,7 +11,7 @@
       insomnia # Postman alternative
       stremio # streaming
       dbeaver-bin # DB connections
-      mongodb-compass
+      mongodb-compass-overlay
       vlc
       spotify
       discord

@@ -27,11 +27,18 @@
         config.allowUnfree = true;
         overlays = [
           (final: prev: {
-            mongodb-compass = prev.mongodb-compass.overrideAttrs (oldAttrs: {
-              postInstall = (oldAttrs.postInstall or "") + ''
-                wrapProgram $out/bin/mongodb-compass --set XDG_CURRENT_DESKTOP GNOME
-              '';
-            });
+            mongodb-compass-overlay = prev.mongodb-compass.overrideAttrs
+              (oldAttrs: {
+                buildInputs = oldAttrs.buildInputs or [ ]
+                  ++ [ final.makeWrapper ];
+                buildCommand = ''
+                  ${oldAttrs.buildCommand or ""}
+
+                  # Custom wrapProgram invocation to include XDG_CURRENT_DESKTOP
+                  wrapProgram $out/bin/mongodb-compass \
+                    --set XDG_CURRENT_DESKTOP GNOME
+                '';
+              });
           })
         ];
       };
