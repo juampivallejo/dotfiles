@@ -2,7 +2,6 @@ local harpoon = require("harpoon")
 harpoon:setup({})
 
 -- basic telescope configuration
--- BUG: Cannot remove files from list
 local conf = require("telescope.config").values
 local function toggle_telescope(harpoon_files)
   local file_paths = {}
@@ -32,7 +31,7 @@ local function toggle_telescope(harpoon_files)
           end
         )
         return true
-      end
+      end,
     })
     :find()
 end
@@ -43,7 +42,7 @@ end, { desc = "Harpoon Menu" })
 
 -- Telescope is not working fine, since I cannot edit the list
 vim.keymap.set("n", "<leader>H", function()
- toggle_telescope(harpoon:list())
+  toggle_telescope(harpoon:list())
 end, { desc = "Open harpoon window" })
 
 vim.keymap.set("n", "<leader>hh", function()
