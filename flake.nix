@@ -33,8 +33,6 @@
                   ++ [ final.makeWrapper ];
                 buildCommand = ''
                   ${oldAttrs.buildCommand or ""}
-
-                  # Custom wrapProgram invocation to include XDG_CURRENT_DESKTOP
                   wrapProgram $out/bin/mongodb-compass \
                     --set XDG_CURRENT_DESKTOP GNOME
                 '';
