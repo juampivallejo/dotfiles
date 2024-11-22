@@ -25,6 +25,7 @@
 
     home.packages = with pkgs; [
       waybar
+      alsa-utils # amixer volume control
       killall # Used in some scripts
       pavucontrol # Audio control with waybar
       dunst # notifications

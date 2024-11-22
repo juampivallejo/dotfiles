@@ -25,6 +25,15 @@
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
+        overlays = [
+          (final: prev: {
+            mongodb-compass = prev.mongodb-compass.overrideAttrs (oldAttrs: {
+              postInstall = (oldAttrs.postInstall or "") + ''
+                wrapProgram $out/bin/mongodb-compass --set XDG_CURRENT_DESKTOP GNOME
+              '';
+            });
+          })
+        ];
       };
     in {
       # NixOS Configs
