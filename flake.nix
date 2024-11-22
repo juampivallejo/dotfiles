@@ -5,6 +5,7 @@
   inputs = {
     nixpkgs.url =
       "nixpkgs/nixos-unstable"; # longer format is github:NixOS/nixpkgs/nixos-XX.XX
+    nixpkgs-old.url = "nixpkgs/nixos-24.05";
     nixos-wsl.url = "github:nix-community/nixos-wsl";
 
     # Note: Used home-manager standalone install instructions (nix-shell '<home-manager>' -A install)
@@ -40,13 +41,14 @@
           })
         ];
       };
+      pkgs-old = import inputs.nixpkgs-old { inherit system; };
     in {
       # NixOS Configs
       nixosConfigurations = {
         desktop = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [ ./hosts/desktop/configuration.nix ./nixos ];
-          specialArgs = { inherit inputs; };
+          specialArgs = { inherit inputs pkgs-old; };
         };
         vm = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
