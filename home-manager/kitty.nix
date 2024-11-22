@@ -38,6 +38,6 @@
     programs.kitty.shellIntegration.mode = "";
 
     # Theme
-    programs.kitty.theme = "Tokyo Night";
+    programs.kitty.themeFile = "tokyo_night_night";
   };
 }

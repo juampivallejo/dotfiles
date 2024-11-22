@@ -34,7 +34,7 @@
       libnotify
       slurp # for screenshots
       playerctl # Player control
-      cava # Music visualizer
+      # cava # Music visualizer
       pulseaudio # installs pactl useful to swithc audio devices
     ];
   };
