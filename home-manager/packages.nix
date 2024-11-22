@@ -1,4 +1,4 @@
-{ pkgs, pkgs-unstable, ... }: {
+{ pkgs, ... }: {
   home.packages = with pkgs; [
 
     # -- General Development --
@@ -11,14 +11,14 @@
     openssl
 
     # -- IDE --
-    pkgs-unstable.neovim
+    neovim
     tmux
 
     # -- Python --
     python3Full
     python3Packages.pip
-    pkgs-unstable.uv # Testing out uv as replacement of pip, pipenv and pyenv
-    pkgs-unstable.basedpyright
+    uv # Testing out uv as replacement of pip, pipenv and pyenv
+    basedpyright
 
     # Dev Tools
     lazygit
@@ -40,7 +40,7 @@
 
     # Neovim LSPs & Formatters
     pyright
-    pkgs-unstable.nodePackages.cspell # Spelling Linter
+    nodePackages.cspell # Spelling Linter
     lua-language-server # Lua LSP
     stylua # Lua formatter
     ruff # Python formatter

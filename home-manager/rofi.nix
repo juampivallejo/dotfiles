@@ -1,4 +1,4 @@
-{ config, lib, pkgs, pkgs-unstable, ... }: {
+{ config, lib, pkgs, ... }: {
 
   config = lib.mkIf config.hyprland.enable { # Use rofi only on Wayland
     # Rofi Themes
@@ -12,7 +12,7 @@
       enable = true;
       cycle = true;
       package = pkgs.rofi-wayland;
-      plugins = with pkgs-unstable; [
+      plugins = with pkgs; [
         rofi-emoji-wayland
         (rofi-calc.override {
           rofi-unwrapped = rofi-wayland-unwrapped;

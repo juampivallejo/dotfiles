@@ -4,18 +4,13 @@
 
   inputs = {
     nixpkgs.url =
-      "nixpkgs/nixos-24.05"; # longer format is github:NixOS/nixpkgs/nixos-XX.XX
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+      "nixpkgs/nixos-unstable"; # longer format is github:NixOS/nixpkgs/nixos-XX.XX
     nixos-wsl.url = "github:nix-community/nixos-wsl";
 
     # Note: Used home-manager standalone install instructions (nix-shell '<home-manager>' -A install)
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.05";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    home-manager-unstable = {
       url = "github:nix-community/home-manager/";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
@@ -28,10 +23,6 @@
       username = "juampi";
       system = "x86_64-linux";
       pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
-      pkgs-unstable = import inputs.nixpkgs-unstable {
         inherit system;
         config.allowUnfree = true;
       };
@@ -64,7 +55,7 @@
         "juampi@desktop" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [ ./hosts/desktop/home.nix ./home-manager ];
-          extraSpecialArgs = { inherit username pkgs-unstable inputs; };
+          extraSpecialArgs = { inherit username inputs; };
         };
         "juampi@vm" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
@@ -74,16 +65,13 @@
         "juampi@wsl" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [ ./hosts/wsl/home.nix ./home-manager ];
-          extraSpecialArgs = { inherit username pkgs-unstable; };
+          extraSpecialArgs = { inherit username; };
         };
         "juampi@wsl-desktop" =
-          inputs.home-manager-unstable.lib.homeManagerConfiguration {
-            pkgs = pkgs-unstable;
+          inputs.home-manager.lib.homeManagerConfiguration {
+            pkgs = pkgs; # Same as inherit pkgs;
             modules = [ ./hosts/wsl/home.nix ./home-manager ];
-            extraSpecialArgs = {
-              inherit username
-                pkgs-unstable; # This is the same as doing pkgs-unstable=pkgs-unstable
-            };
+            extraSpecialArgs = { inherit username; };
           };
       };
     };

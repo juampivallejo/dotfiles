@@ -22,10 +22,6 @@
       # Hint electron apps to use wayland
       NIXOS_OZONE_WL = "1";
     };
-    hardware = {
-      # OpenGL
-      opengl.enable = true;
-    };
 
     security = { polkit.enable = true; };
 

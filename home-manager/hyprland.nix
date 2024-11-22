@@ -1,4 +1,4 @@
-{ pkgs, lib, config, pkgs-unstable, ... }: {
+{ pkgs, lib, config, ... }: {
 
   options = { hyprland.enable = lib.mkEnableOption "Enables Hyprland config"; };
 
@@ -24,7 +24,7 @@
     };
 
     home.packages = with pkgs; [
-      pkgs-unstable.waybar
+      waybar
       killall # Used in some scripts
       pavucontrol # Audio control with waybar
       dunst # notifications
