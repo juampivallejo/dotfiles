@@ -9,6 +9,7 @@
     gnumake # for fzf-native
     fzf
     jq
+    jqp # playground for jq
     yq # jq for yaml
     rq
     fd

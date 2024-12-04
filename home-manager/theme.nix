@@ -1,15 +1,12 @@
 { lib, config, pkgs, ... }:
 let
-  nerdfonts = pkgs.nerdfonts.override {
-    fonts = [ "0xProto" "DroidSansMono" "FiraCode" "JetBrainsMono" ];
-  };
   theme = {
     name = "Nordic";
     package = pkgs.nordic;
   };
   font = {
     name = "0xProto Nerd Font";
-    package = nerdfonts;
+    package = pkgs.nerd-fonts._0xproto;
     size = 11;
   };
   cursorTheme = {
@@ -28,7 +25,6 @@ in {
       packages = with pkgs; [
         # Inputs
         theme.package
-        font.package
         cursorTheme.package
         iconTheme.package
         # Extras

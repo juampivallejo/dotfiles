@@ -12,7 +12,7 @@
       ];
 
     programs.kitty.enable = true;
-    programs.kitty.font.name = "FiraCode Nerd Font";
+    programs.kitty.font.name = "0xProto Nerd Font";
     programs.kitty.font.size = 12;
 
     programs.kitty.keybindings = { "ctrl+c" = "copy_or_interrupt"; };
