@@ -12,6 +12,7 @@
       stremio # streaming
       dbeaver-bin # DB connections
       mongodb-compass-overlay
+      google-chrome
       vlc
       spotify
       discord
