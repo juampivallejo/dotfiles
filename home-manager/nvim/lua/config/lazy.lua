@@ -20,6 +20,8 @@ require("lazy").setup({
     -- It is imported with as vscode-json-languageserver instead of vscode-json-language-server
     -- { import = "lazyvim.plugins.extras.lang.json" },
 
+    -- Blink completions
+    { import = "lazyvim.plugins.extras.coding.blink" },
     -- add none-ls extra for Cspell
     { import = "lazyvim.plugins.extras.lsp.none-ls" },
     -- Add Rest extra
