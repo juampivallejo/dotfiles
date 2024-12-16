@@ -1,12 +1,7 @@
-local builtin = require("telescope.builtin")
+local fzf_lua = require("fzf-lua")
 
-vim.keymap.set("n", "<C-p>", builtin.find_files, {})
-vim.keymap.set("n", "<leader>fp", function()
-	builtin.grep_string({ search = vim.fn.input("Grep > ") })
-end, { desc = "Project Search Word" })
-vim.keymap.set("n", "<leader>/", function()
-	builtin.live_grep({ root = false })
-end, { desc = "Grep (All cwd)" })
+vim.keymap.set("n", "<C-p>", fzf_lua.files, { desc = "Fzf Files" })
+vim.keymap.set("n", "<leader>r", fzf_lua.resume, { desc = "Resume Fzf" })
 
 -- Keep buffer after pasting and replacing something
 vim.keymap.set("n", "<leader>p", '"_dP', { desc = "Paste special" })
