@@ -13,12 +13,12 @@ vim.keymap.set("v", "<leader>y", '"+y', { desc = "Yank +" }) -- Visual Mode
 vim.keymap.set("n", "<leader>Y", '"+Y', { desc = "Yank EOL +" })
 
 -- Keep cursor on middle of screen when scrolling
-vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Scroll down custom" })
-vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll up custom" })
+-- vim.keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Scroll down custom" })
+-- vim.keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll up custom" })
 
 -- Naviate quickfix list
-vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>zz")
+vim.keymap.set("n", "<C-A-j>", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "<C-A-k>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
