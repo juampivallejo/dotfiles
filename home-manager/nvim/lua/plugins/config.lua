@@ -80,6 +80,17 @@ return {
     end,
   },
 
+  -- Blinck autocomplete settings, better keymaps
+  {
+    "saghen/blink.cmp",
+    opts = {
+      keymap = {
+        preset = "super-tab",
+        ["<C-y>"] = { "select_and_accept" },
+      },
+    },
+  },
+
   -- disable mason
   { "williamboman/mason.nvim", enabled = false },
   -- Replace to enable
