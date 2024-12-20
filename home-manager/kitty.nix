@@ -15,7 +15,12 @@
     programs.kitty.font.name = "FiraCode Nerd Font";
     programs.kitty.font.size = 12;
 
-    programs.kitty.keybindings = { "ctrl+c" = "copy_or_interrupt"; };
+    programs.kitty.keybindings = {
+      "ctrl+c" = "copy_or_interrupt";
+      "kitty_mod+h" = "kitty_scrollback_nvim";
+      "kitty_mod+g" =
+        "kitty_scrollback_nvim --config ksb_builtin_last_cmd_output";
+    };
 
     programs.kitty.settings = {
       # Usage
@@ -32,6 +37,14 @@
 
       # Performance
       repaint_delay = 8;
+
+      # Nvim Scrollback with ctrl+shift+h
+      allow_remote_control = "yes";
+      listen_on = "unix:/tmp/kitty";
+      shell_integration = "enabled";
+      # kitty-scrollback.nvim Kitten alias
+      action_alias =
+        "kitty_scrollback_nvim kitten /home/juampi/.local/share/nvim/lazy/kitty-scrollback.nvim/python/kitty_scrollback_nvim.py";
     };
 
     programs.kitty.shellIntegration.enableZshIntegration = true;
