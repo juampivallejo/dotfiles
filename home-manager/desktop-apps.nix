@@ -17,7 +17,7 @@
       spotify
       discord
       postman # mostly for reptrak
-      inputs.zen-browser.packages."${system}"
+      inputs.zen-browser.packages."${system}".default
     ];
   };
 }
