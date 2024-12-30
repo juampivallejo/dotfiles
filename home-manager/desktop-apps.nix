@@ -13,6 +13,7 @@
       dbeaver-bin # DB connections
       mongodb-compass-overlay
       google-chrome
+      ghostty
       vlc
       spotify
       discord
