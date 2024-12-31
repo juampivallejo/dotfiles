@@ -34,6 +34,11 @@
     gopls
     sqlc
 
+    # Rust Dev
+    rustc
+    rust-analyzer
+    rustfmt
+
     # Beanstalk CLI
     awsebcli
     ssm-session-manager-plugin # For ECS ssh
