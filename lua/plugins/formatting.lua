@@ -22,6 +22,7 @@ local opts = function()
       python = { "isort", "ruff_format" },
       go = { "gofmt" },
       nix = { "nixfmt" },
+      rust = { "rustfmt" },
     },
     ---@type table<string, conform.FormatterConfigOverride|fun(bufnr: integer): nil|conform.FormatterConfigOverride>
     formatters = {
