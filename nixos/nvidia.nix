@@ -24,8 +24,8 @@
         # Select Nvidia Package Version
         # nvidia.package = config.boot.kernelPackages.nvidiaPackages.production;
         # nvidia.package = config.boot.kernelPackages.nvidiaPackages.latest;
-        # nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
-        package = config.boot.kernelPackages.nvidiaPackages.stable;
+        package = config.boot.kernelPackages.nvidiaPackages.beta;
+        # package = config.boot.kernelPackages.nvidiaPackages.stable;
       };
     };
   };
