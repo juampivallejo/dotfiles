@@ -16,6 +16,9 @@ vim.opt.termguicolors = true
 
 vim.opt.scrolloff = 8
 
+-- Unix files -> use LF instead of windows CRLF line ending
+vim.opt.fileformat = "unix"
+
 vim.filetype.add({
   extension = {
     ["http"] = "http",

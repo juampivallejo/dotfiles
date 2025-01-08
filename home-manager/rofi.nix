@@ -22,7 +22,7 @@
       extraConfig = {
         modi = "drun,calc,window,emoji";
         sidebar-mode = true;
-        terminal = "kitty";
+        terminal = "ghostty";
         show-icons = true;
         kb-remove-char-back = "BackSpace";
         kb-accept-entry = "Control+m,Return,KP_Enter";
