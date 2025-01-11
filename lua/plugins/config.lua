@@ -80,12 +80,18 @@ return {
     end,
   },
 
-  -- Blinck autocomplete settings, better keymaps
+  -- Blink autocomplete settings, better keymaps
   {
     "saghen/blink.cmp",
     opts = {
       keymap = {
         ["<C-e>"] = { "cancel" },
+      },
+      sources = {
+        default = { "lsp", "path", "snippets", "buffer", "dadbod" },
+        providers = {
+          dadbod = { name = "dadbod", module = "vim_dadbod_completion.blink" },
+        },
       },
     },
   },

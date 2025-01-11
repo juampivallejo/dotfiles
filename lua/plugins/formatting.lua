@@ -23,6 +23,7 @@ local opts = function()
       go = { "gofmt" },
       nix = { "nixfmt" },
       rust = { "rustfmt" },
+      sql = { "sleek" },
     },
     ---@type table<string, conform.FormatterConfigOverride|fun(bufnr: integer): nil|conform.FormatterConfigOverride>
     formatters = {
