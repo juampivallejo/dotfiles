@@ -55,6 +55,10 @@
     prettierd # Formatter
     shfmt # Shell formatter
     djlint # Django linter and formatter
+    # Neovim + SQL
+    postgresql # To have psql executable
+    sleek # SQL formatter
+    sqls # LSP
 
     # Reptrak
     aws-azure-login
