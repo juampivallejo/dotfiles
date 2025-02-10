@@ -28,6 +28,7 @@
         config.allowUnfree = true;
         overlays = [
           (final: prev: {
+            # Set XDG_CURRENT_DESKTOP to GNOME for MongoDB Compass to use gnome keyring
             mongodb-compass-overlay = prev.mongodb-compass.overrideAttrs
               (oldAttrs: {
                 buildInputs = oldAttrs.buildInputs or [ ]
@@ -38,6 +39,15 @@
                     --set XDG_CURRENT_DESKTOP GNOME
                 '';
               });
+          })
+          (final: prev: {
+            # TODO: Remove overlay after basedpyright is updated
+            basedpyright = prev.basedpyright.overrideAttrs (old: {
+              postInstall = old.postInstall + ''
+                # Remove dangling symlinks created during installation (remove -delete to just see the files, or -print '%l\n' to see the target
+                find -L $out -type l -print -delete
+              '';
+            });
           })
         ];
       };

@@ -1,8 +1,9 @@
 { lib, config, pkgs, ... }:
 let
   theme = {
-    name = "Nordic";
-    package = pkgs.nordic;
+    name = "Tokyonight-Dark";
+    package =
+      pkgs.tokyonight-gtk-theme.override { colorVariants = [ "dark" ]; };
   };
   font = {
     name = "0xProto Nerd Font";
@@ -33,6 +34,7 @@ in {
         papirus-icon-theme
       ];
       sessionVariables = {
+        GTK_THEME = theme.name;
         XCURSOR_THEME = cursorTheme.name;
         XCURSOR_SIZE = "${toString cursorTheme.size}";
       };
