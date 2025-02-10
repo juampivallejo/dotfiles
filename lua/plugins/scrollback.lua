@@ -1,4 +1,5 @@
 return {
+  -- TODO: Remove if Kitty not used
   "mikesmithgh/kitty-scrollback.nvim",
   enabled = true,
   lazy = true,
