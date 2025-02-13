@@ -40,15 +40,6 @@
                 '';
               });
           })
-          (final: prev: {
-            # TODO: Remove overlay after basedpyright is updated
-            basedpyright = prev.basedpyright.overrideAttrs (old: {
-              postInstall = old.postInstall + ''
-                # Remove dangling symlinks created during installation (remove -delete to just see the files, or -print '%l\n' to see the target
-                find -L $out -type l -print -delete
-              '';
-            });
-          })
         ];
       };
       pkgs-old = import inputs.nixpkgs-old { inherit system; };
