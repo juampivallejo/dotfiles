@@ -40,6 +40,9 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.editor.snacks_picker" },
     { import = "lazyvim.plugins.extras.editor.snacks_explorer" },
 
+    -- Rust
+    { import = "lazyvim.plugins.extras.lang.rust" },
+
     -- import/override with your plugins
     { import = "plugins" },
   },
