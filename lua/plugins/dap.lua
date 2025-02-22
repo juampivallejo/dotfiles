@@ -80,12 +80,12 @@ return {
     "mfussenegger/nvim-dap",
     dependencies = {
       "mfussenegger/nvim-dap-python",
-    -- stylua: ignore
-    keys = {
-      { "<leader>dPt", function() require('dap-python').test_method() end, desc = "Debug Method", ft = "python" },
-      { "<leader>dPc", function() require('dap-python').test_class() end, desc = "Debug Class", ft = "python" },
-      { "<leader>dPs", function() require('dap-python').debug_selection() end, desc = "Debug Selection", ft = "python" },
-    },
+      -- stylua: ignore
+      keys = {
+        { "<leader>dPt", function() require('dap-python').test_method() end, desc = "Debug Method", ft = "python" },
+        { "<leader>dPc", function() require('dap-python').test_class() end, desc = "Debug Class", ft = "python" },
+        { "<leader>dPs", function() require('dap-python').debug_selection() end, desc = "Debug Selection", ft = "python" },
+      },
       config = function()
         require("dap-python").setup("python")
         require("dap-python").test_runner = "pytest"

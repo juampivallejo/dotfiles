@@ -11,7 +11,7 @@ return {
       gopls = {},
       lua_ls = {},
       nil_ls = {},
-      rust_analyzer = {},
+      -- rust_analyzer = {},
       sqls = {},
     },
   },
