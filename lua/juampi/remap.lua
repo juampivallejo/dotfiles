@@ -1,8 +1,3 @@
-local fzf_lua = require("fzf-lua")
-
-vim.keymap.set("n", "<C-p>", fzf_lua.files, { desc = "Fzf Files" })
-vim.keymap.set("n", "<leader>r", fzf_lua.resume, { desc = "Resume Fzf" })
-
 -- Keep buffer after pasting and replacing something
 vim.keymap.set("n", "<leader>p", '"_dP', { desc = "Paste special" })
 vim.keymap.set("v", "<leader>p", '"_dP', { desc = "Paste special" })
