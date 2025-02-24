@@ -5,16 +5,16 @@
 -- * disable/enabled LazyVim plugins
 -- * override the configuration of LazyVim plugins
 return {
-  {
-    "ellisonleao/gruvbox.nvim",
-    opts = {
-      transparent_mode = true,
-      styles = {
-        sidebars = "transparent",
-        floats = "transparent",
-      },
-    },
-  },
+  -- {
+  --   "ellisonleao/gruvbox.nvim",
+  --   opts = {
+  --     transparent_mode = true,
+  --     styles = {
+  --       sidebars = "transparent",
+  --       floats = "transparent",
+  --     },
+  --   },
+  -- },
   {
     "folke/tokyonight.nvim",
     lazy = true,
