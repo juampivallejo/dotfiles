@@ -1,9 +1,8 @@
-
 -- Config for LazyVim Extras neotest code
 return {
   { "nvim-neotest/neotest-python" },
   {
-  "nvim-neotest/neotest",
+    "nvim-neotest/neotest",
     optional = true,
     dependencies = {
       "nvim-neotest/neotest-python",
@@ -15,6 +14,9 @@ return {
           runner = "pytest",
         },
       },
+      summary = {
+        open = "topleft vsplit | vertical resize 50",
+      },
     },
-  }
+  },
 }

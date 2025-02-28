@@ -14,6 +14,7 @@
     rq
     fd
     zip
+    yazi # file explorer
     dig # DNS tool
     nh # Nix cli tool
   ];
