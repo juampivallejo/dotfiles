@@ -14,9 +14,6 @@ return {
           runner = "pytest",
         },
       },
-      summary = {
-        open = "topleft vsplit | vertical resize 50",
-      },
     },
   },
 }
