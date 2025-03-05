@@ -14,23 +14,24 @@
       tmuxPlugins.sensible
       tmuxPlugins.vim-tmux-navigator
       {
-        plugin = tmuxPlugins.catppuccin;
+        plugin = tmuxPlugins.tokyo-night-tmux;
         extraConfig = ''
-          set -g @catppuccin_window_right_separator "█ "
-          set -g @catppuccin_window_number_position "right"
-          set -g @catppuccin_window_middle_separator " | "
+          set -g @tokyo-night-tmux_transparent 1
 
-          set -g @catppuccin_window_default_fill "none"
+          # Number styles
+          set -g @tokyo-night-tmux_window_id_style fsquare
+          set -g @tokyo-night-tmux_pane_id_style hsquare
+          set -g @tokyo-night-tmux_zoom_id_style dsquare
 
-          set -g @catppuccin_window_current_fill "all"
+          # Icon styles
+          # set -g @tokyo-night-tmux_terminal_icon 
+          # set -g @tokyo-night-tmux_active_terminal_icon 
 
-          set -g @catppuccin_status_modules_right "session directory user"
-          set -g @catppuccin_status_left_separator "█"
-          set -g @catppuccin_status_right_separator "█"
+          # Window Styles
+          set -g @tokyo-night-tmux_show_datetime 1
+          set -g @tokyo-night-tmux_date_format DMY
+          set -g @tokyo-night-tmux_time_format 24H
 
-          set -g @catppuccin_window_current_text "#W"
-          set -g @catppuccin_window_default_text "#W"
-          set -g @catppuccin_directory_text "#{pane_current_path}"
         '';
       }
       tmuxPlugins.yank
