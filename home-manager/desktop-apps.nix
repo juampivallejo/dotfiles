@@ -17,7 +17,7 @@
       vlc
       spotify
       discord
-      postman # mostly for reptrak
+      postman # mostly for work
       inputs.zen-browser.packages."${system}".default
     ];
   };

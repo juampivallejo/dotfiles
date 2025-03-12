@@ -8,8 +8,8 @@
 
   # services.openvpn.servers = {
   #   # Not working for now at least with SSO: docs in https://nixos.wiki/wiki/OpenVPN
-  #   reptrakVPN = {
-  #     config = "config /home/juampi/.config/openvpn/reptrakDevelop.conf";
+  #   workVPN = {
+  #     config = "config /home/juampi/.config/openvpn/workDevelop.conf";
   #   };
   # };
 }

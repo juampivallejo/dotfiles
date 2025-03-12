@@ -28,7 +28,7 @@
   # Set Hardware clock to use local time for dual boot compatibility
   time.hardwareClockInLocalTime = true;
 
-  # Allow running reptrak docker-compose host binded to port 80
+  # Allow running docker-compose host binded to port 80
   boot.kernel.sysctl."net.ipv4.ip_unprivileged_port_start" = 0;
 
   networking.hostName = "desktop"; # Define your hostname.

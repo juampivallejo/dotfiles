@@ -60,7 +60,7 @@
     sleek # SQL formatter
     sqls # LSP
 
-    # Reptrak
+    # Work
     aws-azure-login
   ];
 
