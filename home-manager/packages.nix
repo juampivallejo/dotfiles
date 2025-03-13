@@ -38,6 +38,7 @@
     rustc
     rust-analyzer
     rustfmt
+    clippy
 
     # Beanstalk CLI
     awsebcli
