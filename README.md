@@ -1,6 +1,13 @@
-# NeoVim Config
+# Neovim Config
 
-## 💤 LazyVim
+- Personal configuration for Neovim built on top of `LazyVim`
 
-A starter template for NeoVim: [LazyVim](https://github.com/LazyVim/LazyVim).
-Refer to the [documentation](https://lazyvim.github.io/installation) for more information
+- Additional plugins:
+  - Harpoon2
+  - Copilot-Chat
+  - cspell lnter
+  - none-ls
+  - kitty-scrollback
+  - dadbod
+  - vim-tmux
+  - yazi
