@@ -53,6 +53,10 @@
     in {
       # nix develop $FLAKE_PATH
       devShells = forAllSystems ({ pkgs, system }: {
+        python38 = mkPythonEnv {
+          inherit pkgs system;
+          pythonVersion = "3.8";
+        };
         python39 = mkPythonEnv {
           inherit pkgs system;
           pythonVersion = "3.9";
