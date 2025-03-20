@@ -11,11 +11,13 @@
   "reload_style_on_change": true,
 
   // Choose the order of the modules
-
   "modules-left": [
     "hyprland/workspaces",
     "hyprland/window",  // current window name by compositor
+    "custom/separator",
     "cava",
+    "custom/separator",
+    "custom/dolar",
   ],
 
   "modules-center": [
@@ -27,7 +29,7 @@
     "custom/separator",
     "group/monitoring",
     // "power-profiles-daemon",
-    "backlight",  // Not shown on destop / unavailable
+    // "backlight",
     "custom/separator",
     "wireplumber",
     "idle_inhibitor",
@@ -35,13 +37,6 @@
     "custom/separator",
     "custom/power",
   ],
-
-  // "group/custom-group": {
-  //   "orientation": "horizontal",
-  //   "modules": [
-  //     // "custom/kdeconnect",
-  //   ],
-  // },
 
   "group/monitoring": {
     "orientation": "horizontal",
@@ -161,12 +156,11 @@
     },
   },
 
-  // Not Available on desktop
-  // "backlight": {
-  //   // "device": "acpi_video1",
-  //   "format": "{icon} {percent:>2}%",
-  //   "format-icons": ["", "", "", "", "", "", "", "", ""],
-  // },
+  "custom/separator": {
+    "format": "{icon}",
+    "format-icons": "|",
+    "tooltip": false,
+  },
 
   "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface
@@ -179,26 +173,6 @@
     "format-linked": "{ifname} (No IP)  ",
     "format-disconnected": "󰀦 Disconnected", //Disconnected ⚠
     "format-alt": "{ifname}: {ipaddr}/{cidr}",
-  },
-
-  "pulseaudio": {
-    // "scroll-step": 1, // %, can be a float
-    "format": "{icon} {volume}%", //{format_source}",
-    "format-bluetooth": "{icon} {volume}% 󰂯", //{format_source}",
-    "format-bluetooth-muted": "󰖁 {icon} 󰂯", //{format_source}",
-    "format-muted": "󰖁 {volume}%",
-    // "format-source": " {volume}%",
-    // "format-source-muted": "",
-    "format-icons": {
-      "headphone": "󰋋",
-      "hands-free": "󱡒",
-      "headset": "󰋎",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": ["", "", ""],
-    },
-    "on-click": "pavucontrol",
   },
 
   "wireplumber": {
@@ -250,14 +224,6 @@
     "tooltip-format": "Power Menu",
   },
 
-  // "custom/kdeconnect": {
-  //   "format": "{icon}",
-  //   "format-icons": "",
-  //   "exec-on-event": "true",
-  //   "on-click": "kdeconnect-app",
-  //   "tooltip-format": "KDE Connect",
-  // },
-
   "bluetooth": {
     "format": "{icon}",
     "format-connected": "{icon}{num_connections}",
@@ -269,30 +235,7 @@
 	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
 	"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%"
   },
-  //
-  // "custom/wifi": {
-  //   "format": "{icon}",
-  //   "format-icons": "",
-  //   "exec-on-event": "true",
-  //   "on-click": "$HOME/scripts/rofi-wifi",
-  //   "tooltip-format": "Wifi Menu",
-  // },
-  //
-  "custom/separator": {
-    "format": "{icon}",
-    "format-icons": "|",
-    "tooltip": false,
-  },
-  //
-  // "custom/pacman": {
-  //   "format": "  {}",
-  //   "interval": 3600, // every hour
-  //   "exec": "checkupdates | wc -l", // # of updates
-  //   "exec-if": "exit 0", // always run; consider advanced run conditions
-  //   "on-click": "foot -e 'sudo pacman -Syu'; pkill -SIGRTMIN+8 waybar", // update system
-  //   "signal": 8,
-  // },
-  //
+
   "custom/notification": {
     "tooltip": false,
     "format": "{icon} {}",
@@ -314,24 +257,24 @@
     "escape": true,
   },
 
-  "keyboard-state": {
-    "numlock": true,
-    "capslock": true,
-    "format": "{name} {icon}",
-    "format-icons": {
-      "locked": "",
-      "unlocked": "",
-    },
+  "custom/dolar": {
+    "format": "💵 {}",
+    "interval": 3600, // every hour
+    "exec": "curl -s https://dolarapi.com/v1/dolares/blue | jq -r '(.compra|tostring) + \" \" + (.venta|tostring)'",
+    "exec-if": "exit 0", // always run; consider advanced run conditions
+    "exec-on-event": "true",
+    "signal": 8,
   },
 
-  "wlr/taskbar": {
-    "format": "{icon}",
-    "icon-size": 18,
-    "tooltip-format": "{title}",
-    "on-click": "activate",
-    "on-click-middle": "close",
-    "ignore-list": ["kitty", "wezterm", "foot", "footclient"],
-  },
+  // "keyboard-state": {
+  //   "numlock": true,
+  //   "capslock": true,
+  //   "format": "{name} {icon}",
+  //   "format-icons": {
+  //     "locked": "",
+  //     "unlocked": "",
+  //   },
+  // },
 
   // "battery": {
   //   "states": {
@@ -346,6 +289,21 @@
   //   // "format-good": "", // An empty format will hide the module
   //   // "format-full": "",
   //   "format-icons": ["", "", "", "", ""],
+  // },
+ 
+  // "custom/wifi": {
+  //   "format": "{icon}",
+  //   "format-icons": "",
+  //   "exec-on-event": "true",
+  //   "on-click": "$HOME/scripts/rofi-wifi",
+  //   "tooltip-format": "Wifi Menu",
+  // },
+
+  // Not Available on desktop
+  // "backlight": {
+  //   // "device": "acpi_video1",
+  //   "format": "{icon} {percent:>2}%",
+  //   "format-icons": ["", "", "", "", "", "", "", "", ""],
   // },
 
   // "backlight/slider": {
