@@ -13,6 +13,7 @@
     # -- IDE --
     neovim
     tmux
+    zellij
 
     # -- Python --
     python3Full

@@ -6,7 +6,6 @@
     htop
     eza
     bat
-    gnumake # for fzf-native
     fzf
     jq
     jqp # playground for jq
