@@ -43,8 +43,13 @@
           shellHook = ''
             export DIRENV=1
             source .env
-            source .venv/bin/activate
-            zsh
+            if [ -d ".venv" ]; then
+                source .venv/bin/activate
+            elif [ -d "venv" ]; then
+                source venv/bin/activate
+            else
+                echo "No virtual environment found. Please create either a 'venv' or '.venv' directory."
+            fi
           '';
         };
 
