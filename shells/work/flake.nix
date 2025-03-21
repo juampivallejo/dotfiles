@@ -37,6 +37,7 @@
                 ipdb
                 numpy
                 pandas
+                debugpy
               ]))
           ];
 

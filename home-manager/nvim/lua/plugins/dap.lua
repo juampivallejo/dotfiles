@@ -72,6 +72,21 @@ local nvim_dap = {
   end,
 }
 
+dap_python = require("dap-python")
+
+-- Define a custom pytest runner that includes --no-cov
+---@param classnames string[]
+---@param methodname string?
+dap_python.test_runners.pytest_no_cov = function(classnames, methodname)
+  local path = table.concat({
+    table.concat(classnames, ":"),
+    methodname,
+  }, "::")
+
+  -- Return 'pytest' as the module name, and include --no-cov in the arguments
+  return "pytest", { "--no-cov", path }
+end
+
 return {
   { "nvim-neotest/nvim-nio" },
   dap_ui,
@@ -82,15 +97,13 @@ return {
       "mfussenegger/nvim-dap-python",
       -- stylua: ignore
       keys = {
-        { "<leader>dPt", function() require('dap-python').test_method() end, desc = "Debug Method", ft = "python" },
-        { "<leader>dPc", function() require('dap-python').test_class() end, desc = "Debug Class", ft = "python" },
-        { "<leader>dPs", function() require('dap-python').debug_selection() end, desc = "Debug Selection", ft = "python" },
+        { "<leader>dPt", function() dap_python.test_method() end, desc = "Debug Method", ft = "python" },
+        { "<leader>dPc", function() dap_python.test_class() end, desc = "Debug Class", ft = "python" },
+        { "<leader>dPs", function() dap_python.debug_selection() end, desc = "Debug Selection", ft = "python" },
       },
       config = function()
-        require("dap-python").setup("python")
-        require("dap-python").test_runner = "pytest"
-        -- BUG: Important, DAP does not work if running with --cov (coverage report)
-        -- https://github.com/microsoft/debugpy/issues/863
+        dap_python.setup("python")
+        dap_python.test_runner = "pytest_no_cov" -- DAP does not work if running with --cov (coverage report) https://github.com/microsoft/debugpy/issues/863
       end,
     },
   },

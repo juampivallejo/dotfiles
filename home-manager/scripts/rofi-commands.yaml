@@ -33,7 +33,6 @@
 - name: "System: Toggle Mic"
   command: amixer set Capture toggle && notify-send "Microphone $(amixer get Capture | grep -m 1 -oE '\[on\]|\[off\]')"
 
-# FIXME: requires hyprland upgrade (at least 44)
 - name: "Keyboard: next layout"
   command: hyprctl switchxkblayout all next
 
