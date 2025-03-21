@@ -40,6 +40,7 @@
     rust-analyzer
     rustfmt
     clippy
+    vscode-extensions.vadimcn.vscode-lldb.adapter # For DAP
 
     # Beanstalk CLI
     awsebcli
