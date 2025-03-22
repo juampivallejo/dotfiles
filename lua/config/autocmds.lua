@@ -4,6 +4,7 @@
 --
 local autocmd_group = vim.api.nvim_create_augroup("Custom auto-commands", { clear = true })
 
+-- Use C-n and C-p for quickfix list navigation
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "qf",
   callback = function(event)
@@ -13,6 +14,7 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- Set commentstring for SQL files to make sure Dadbod plugin works correctly
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "sql", "dbout" },
   callback = function()
