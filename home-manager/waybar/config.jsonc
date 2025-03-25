@@ -26,6 +26,7 @@
 
   "modules-right": [
     "tray",
+    "hyprland/language",
     "custom/separator",
     "group/monitoring",
     // "power-profiles-daemon",
@@ -86,6 +87,13 @@
     "icon": true,
     "format": "{class}",
     "separate-outputs": true,
+  },
+
+  "hyprland/language": {
+      "format": "Lang: {}",
+      "format-en": "EN-US",
+      "format-": "INTL", // Since waybar hyprland/language does not support keyboard variant, empty string is my international variant
+      "keyboard-name": "kanata"
   },
 
   "tray": {
