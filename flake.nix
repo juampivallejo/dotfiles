@@ -42,7 +42,10 @@
           })
         ];
       };
-      pkgs-old = import inputs.nixpkgs-old { inherit system; };
+      pkgs-old = import inputs.nixpkgs-old {
+        inherit system;
+        config.allowUnfree = true;
+      };
     in {
       # NixOS Configs
       nixosConfigurations = {

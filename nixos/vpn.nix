@@ -1,4 +1,4 @@
-{ pkgs-old, ... }:
+{ pkgs, pkgs-old, ... }:
 
 {
   # Enable VPN
@@ -6,7 +6,15 @@
   programs.openvpn3.package =
     pkgs-old.openvpn3; # TODO: remove pkgs-old after openvpn3 works
 
-  services.cloudflare-warp = { enable = true; };
+  services.cloudflare-warp = {
+    enable = true;
+    openFirewall = true;
+    package = pkgs-old.cloudflare-warp;
+  };
+  # environment.systemPackages = [ pkgs.cloudflare-warp ]; # for warp-svc
+  # systemd.packages = [ pkgs.cloudflare-warp ]; # for warp-cli
+  # systemd.targets.multi-user.wants =
+  #   [ "warp-svc.service" ]; # causes warp-svc to be started automatically
 
   # services.openvpn.servers = {
   #   # Not working for now at least with SSO: docs in https://nixos.wiki/wiki/OpenVPN

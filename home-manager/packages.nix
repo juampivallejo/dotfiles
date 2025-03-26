@@ -64,7 +64,7 @@
     sqls # LSP
 
     # Work
-    cloudflare-warp
+    # cloudflare-warp
     aws-azure-login
   ];
 
