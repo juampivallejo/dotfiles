@@ -37,11 +37,11 @@
   xdg = {
     portal = {
       enable = true;
-      extraPortals = with pkgs; [
-        xdg-desktop-portal
-        xdg-desktop-portal-wlr
-        xdg-desktop-portal-hyprland
-      ];
+      extraPortals = with pkgs;
+        [
+          # xdg desktop portals enable apps to interact with Hyprland, e.g. Screenshare
+          xdg-desktop-portal-hyprland
+        ];
     };
   };
 

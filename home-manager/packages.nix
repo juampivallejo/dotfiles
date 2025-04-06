@@ -47,7 +47,6 @@
     ssm-session-manager-plugin # For ECS ssh
 
     # Neovim LSPs & Formatters
-    copilot-language-server
     pyright
     nodePackages.cspell # Spelling Linter
     lua-language-server # Lua LSP
@@ -63,6 +62,7 @@
     postgresql # To have psql executable
     sleek # SQL formatter
     sqls # LSP
+    copilot-language-server-fhs
 
     # Work
     # cloudflare-warp

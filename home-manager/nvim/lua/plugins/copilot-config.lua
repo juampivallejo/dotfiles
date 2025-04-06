@@ -1,7 +1,7 @@
 -- lua/plugins/copilot.lua
 return {
   "zbirenbaum/copilot.lua",
-  enabled = false,
+  enabled = true,
   keys = {
     {
       "<leader>at",
