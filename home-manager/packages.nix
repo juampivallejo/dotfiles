@@ -9,6 +9,7 @@
     awscli2
     cargo
     openssl
+    gnumake
 
     # -- IDE --
     neovim
