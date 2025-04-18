@@ -92,6 +92,9 @@ return {
         providers = {
           dadbod = { name = "dadbod", module = "vim_dadbod_completion.blink" },
         },
+        per_filetype = {
+          codecompanion = { "codecompanion" },
+        },
       },
     },
   },

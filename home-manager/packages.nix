@@ -2,6 +2,7 @@
   home.packages = with pkgs; [
 
     # -- General Development --
+    devenv
     git
     gh
     docker
@@ -30,11 +31,12 @@
     nodejs_22 # Required for Copilot.lua
     kubectl
     k9s
+    croc # File & folder transfer with relay server
 
     # Golang Dev
-    go
-    gopls
-    sqlc
+    # go
+    # gopls
+    # sqlc
 
     # Rust Dev
     rustc
