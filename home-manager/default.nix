@@ -5,7 +5,7 @@
     ./fastfetch.nix
     ./git.nix
     ./hyprland.nix
-    ./kitty.nix
+    ./terminal.nix
     ./nvim.nix
     ./packages.nix
     ./rofi.nix

@@ -1,6 +1,12 @@
 { pkgs, lib, config, inputs, ... }: {
 
-  options = { desktopApps.enable = lib.mkEnableOption "Enables desktop Apps"; };
+  options = {
+    desktopApps = {
+      enable = lib.mkEnableOption "Enables desktop Apps";
+      kitty = lib.mkEnableOption "Enables kitty terminal";
+      ghostty = lib.mkEnableOption "Enables ghostty terminal";
+    };
+  };
 
   config = lib.mkIf config.desktopApps.enable {
     home.packages = with pkgs; [
@@ -13,7 +19,6 @@
       dbeaver-bin # DB connections
       mongodb-compass-overlay
       google-chrome
-      ghostty
       vlc
       spotify
       discord

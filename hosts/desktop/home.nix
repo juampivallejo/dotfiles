@@ -25,10 +25,12 @@ in {
     sessionPath = [ "$HOME/.local/bin" ];
   };
 
-  desktopApps.enable = true;
+  desktopApps = {
+    enable = true;
+    ghostty = true;
+  };
   hyprland.enable = true;
   fastfetch.enable = true;
-  kitty.transparency.enable = true;
 
   nixpkgs.config.allowUnfree = true;
 
