@@ -191,6 +191,7 @@ keybinds clear-defaults=true {
         bind "s" { SwitchToMode "scroll"; }
     }
     shared_among "normal" "resize" "tab" "scroll" "prompt" "tmux" {
+
         bind "p" { SwitchToMode "pane"; }
     }
     shared_except "locked" "resize" "pane" "tab" "entersearch" "renametab" "renamepane" {

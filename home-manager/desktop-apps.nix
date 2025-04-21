@@ -1,13 +1,5 @@
 { pkgs, lib, config, inputs, ... }: {
 
-  options = {
-    desktopApps = {
-      enable = lib.mkEnableOption "Enables desktop Apps";
-      kitty = lib.mkEnableOption "Enables kitty terminal";
-      ghostty = lib.mkEnableOption "Enables ghostty terminal";
-    };
-  };
-
   config = lib.mkIf config.desktopApps.enable {
     home.packages = with pkgs; [
       slack # Messaging

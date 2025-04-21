@@ -11,8 +11,8 @@
   ];
 
   # Modules
-  hyprland.enable = true;
-  nvidia.enable = true;
+  enableHyprland = true;
+  nvidiaDrivers.enable = true;
 
   # Bootloader.
   boot.loader = {
@@ -115,7 +115,7 @@
   };
 
   # List services that you want to enable:
-  homeRowMod.enable = true; # Kanata Service
+  enableHomeRowMod = true; # Kanata Service
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;

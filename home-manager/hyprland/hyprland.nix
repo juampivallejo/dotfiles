@@ -1,8 +1,6 @@
 { pkgs, lib, config, ... }: {
 
-  options = { hyprland.enable = lib.mkEnableOption "Enables Hyprland config"; };
-
-  config = lib.mkIf config.hyprland.enable {
+  config = lib.mkIf config.enableHyprland {
 
     # Config Symlink
     xdg.configFile."hypr" = {
@@ -10,7 +8,7 @@
         "${config.xdg.configHome}/dotfiles/home-manager/hyprland/hypr";
       recursive = true;
     };
-    home.file."./.config/scripts/" = {
+    xdg.configFile."scripts" = {
       source = ./scripts;
       recursive = true;
       executable = true;

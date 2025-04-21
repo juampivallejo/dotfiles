@@ -1,12 +1,8 @@
 { pkgs, lib, config, ... }: {
 
-  options = { fastfetch.enable = lib.mkEnableOption "Enable fastfetch Apps"; };
-
   config = {
-    fastfetch.enable = lib.mkDefault true;
-
-    programs.fastfetch = lib.mkIf config.fastfetch.enable {
-      enable = config.fastfetch.enable;
+    programs.fastfetch = lib.mkIf config.enableFastFetch {
+      enable = config.enableFastFetch;
       package = pkgs.fastfetch;
       settings = {
         schema =

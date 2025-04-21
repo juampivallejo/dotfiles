@@ -26,7 +26,7 @@ in {
   };
 
   desktopApps.enable = false;
-  hyprland.enable = false;
+  enableHyprland = false;
 
   programs.home-manager.enable = true;
   home.stateVersion = "24.05";

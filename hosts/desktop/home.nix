@@ -29,8 +29,8 @@ in {
     enable = true;
     ghostty = true;
   };
-  hyprland.enable = true;
-  fastfetch.enable = true;
+  enableHyprland = true;
+  enableFastFetch = true;
 
   nixpkgs.config.allowUnfree = true;
 

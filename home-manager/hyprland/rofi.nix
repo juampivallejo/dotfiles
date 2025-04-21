@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }: {
 
-  config = lib.mkIf config.hyprland.enable { # Use rofi only on Wayland
+  config = lib.mkIf config.enableHyprland {
     # Rofi Themes
     xdg.configFile."rofi" = {
       source = ./rofi-themes;

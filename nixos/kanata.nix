@@ -1,7 +1,5 @@
 { pkgs, lib, config, ... }: {
-  options = { homeRowMod.enable = lib.mkEnableOption "Enables Home Row Mods"; };
-
-  config = lib.mkIf config.homeRowMod.enable {
+  config = lib.mkIf config.enableHomeRowMod {
     # Remaps home rows to be modifiers when hold
     # Pressing a key twice fast (tap-time) makes it behave as normal key (spam key)
     # Holding a key press makes it behave like super key (met), alt, shift or control

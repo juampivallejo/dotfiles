@@ -25,8 +25,8 @@ in {
     sessionPath = [ "$HOME/.local/bin" ];
   };
 
-  desktopApps.enable = true;
-  hyprland.enable = false;
+  enableDesktopApps = true;
+  enableHyprland = false;
 
   nixpkgs.config.allowUnfree = true;
 
