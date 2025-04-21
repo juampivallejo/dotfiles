@@ -13,5 +13,6 @@
     ./tmux.nix
     ./utils.nix
     ./zsh.nix
+    ./zellij
   ];
 }

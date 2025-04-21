@@ -15,7 +15,6 @@
     # -- IDE --
     neovim
     tmux
-    zellij
 
     # -- Python --
     python3Full
@@ -44,6 +43,10 @@
     rustfmt
     clippy
     vscode-extensions.vadimcn.vscode-lldb.adapter # For DAP
+
+    # TypeScript Dev
+    vtsls
+    vscode-js-debug
 
     # Beanstalk CLI
     awsebcli
