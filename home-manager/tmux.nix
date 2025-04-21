@@ -1,6 +1,7 @@
-{ pkgs, ... }: {
-  home.file."./.config/tmux/" = {
-    source = ./tmux;
+{ config, pkgs, ... }: {
+  xdg.configFile."tmux/scripts" = {
+    source = config.lib.file.mkOutOfStoreSymlink
+      "${config.xdg.configHome}/dotfiles/home-manager/tmux-scripts";
     recursive = true;
   };
 
@@ -52,8 +53,8 @@
       bind X kill-pane
 
       # Key bindings
-      bind-key -r i run-shell "tmux neww ~/.config/tmux/tmux-cht.sh"
-      bind-key -r o run-shell "tmux neww ~/.config/tmux/sessionizer.sh"
+      bind-key -r i run-shell "tmux neww ~/.config/tmux/scripts/tmux-cht.sh"
+      bind-key -r o run-shell "tmux neww ~/.config/tmux/scripts/sessionizer.sh"
 
       # Enable scrolling
       set -g mouse
