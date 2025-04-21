@@ -2,7 +2,7 @@
 
   config = lib.mkIf config.hyprland.enable { # Use rofi only on Wayland
     # Rofi Themes
-    home.file."./.config/rofi" = {
+    xdg.configFile."rofi" = {
       source = ./rofi-themes;
       recursive = true;
     };

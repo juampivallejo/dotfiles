@@ -5,8 +5,9 @@
   config = lib.mkIf config.hyprland.enable {
 
     # Config Symlink
-    home.file."./.config/hypr/" = {
-      source = ./hypr;
+    xdg.configFile."hypr" = {
+      source = config.lib.file.mkOutOfStoreSymlink
+        "${config.xdg.configHome}/dotfiles/home-manager/hyprland/hypr";
       recursive = true;
     };
     home.file."./.config/scripts/" = {
@@ -14,12 +15,15 @@
       recursive = true;
       executable = true;
     };
-    home.file."./.config/waybar/" = {
-      source = ./waybar;
+
+    xdg.configFile."waybar" = {
+      source = config.lib.file.mkOutOfStoreSymlink
+        "${config.xdg.configHome}/dotfiles/home-manager/hyprland/waybar";
       recursive = true;
     };
-    home.file."./.config/dunst/" = {
-      source = ./dunst;
+    xdg.configFile."dunst" = {
+      source = config.lib.file.mkOutOfStoreSymlink
+        "${config.xdg.configHome}/dotfiles/home-manager/hyprland/dunst";
       recursive = true;
     };
 

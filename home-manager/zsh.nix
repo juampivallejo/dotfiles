@@ -84,16 +84,27 @@
 
       # Preview files depending on type
       zstyle ':fzf-tab:complete:*:*' fzf-preview 'less ''${(Q)realpath}'
-      export LESSOPEN='|~/.config/scripts/.lessfilter %s'
+      export LESSOPEN='|~/.config/.lessfilter %s'
     '';
 
     defaultKeymap = "viins";
   };
 
-  home.file."./.config/.lessfilter" = {
-    source = ./scripts/lessfilter.sh;
+  xdg.configFile.".lessfilter" = {
+    text = ''
+      #!/usr/bin/env bash
+      mime=$(file -bL --mime-type "$1")
+      category=''${mime%%/*}
+      if [ -d "$1" ]; then
+        eza -hl --color=always --icons "$1"
+      else
+        lesspipe.sh "$1" | bat --color=always -p
+      fi
+      # lesspipe.sh don't use eza, bat and chafa, it use ls and exiftool. so we create a lessfilter.
+    '';
     executable = true;
   };
+
   home.packages = with pkgs; [
     file # Required for lessfilter
     lesspipe # Required for lessfilter

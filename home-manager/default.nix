@@ -4,15 +4,14 @@
     ./direnv.nix
     ./fastfetch.nix
     ./git.nix
-    ./hyprland.nix
-    ./terminal.nix
+    ./hyprland
     ./nvim.nix
     ./packages.nix
-    ./rofi.nix
+    ./terminal.nix
     ./theme.nix
     ./tmux.nix
     ./utils.nix
-    ./zsh.nix
     ./zellij
+    ./zsh.nix
   ];
 }
