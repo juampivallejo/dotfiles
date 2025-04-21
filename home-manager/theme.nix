@@ -36,7 +36,7 @@ in {
       sessionVariables = {
         GTK_THEME = theme.name;
         XCURSOR_THEME = cursorTheme.name;
-        XCURSOR_SIZE = "${toString cursorTheme.size}";
+        XCURSOR_SIZE = "${builtins.toString cursorTheme.size}";
       };
       pointerCursor = {
         name = cursorTheme.name;
@@ -56,7 +56,7 @@ in {
         extraConfig = {
           gtk-cursor-theme-name = cursorTheme.name;
           gtk-cursor-theme-size = cursorTheme.size;
-          gtk-font-name = "${font.name} ${toString font.size}";
+          gtk-font-name = "${font.name} ${builtins.toString font.size}";
           gtk-icon-theme-name = iconTheme.name;
           gtk-theme-name = theme.name;
           gtk-application-prefer-dark-theme = 1;
@@ -65,7 +65,7 @@ in {
       gtk4.extraConfig = {
         gtk-cursor-theme-name = cursorTheme.name;
         gtk-cursor-theme-size = cursorTheme.size;
-        gtk-font-name = "${font.name} ${toString font.size}";
+        gtk-font-name = "${font.name} ${builtins.toString font.size}";
         gtk-icon-theme-name = iconTheme.name;
         gtk-theme-name = theme.name;
         gtk-application-prefer-dark-theme = 1;
