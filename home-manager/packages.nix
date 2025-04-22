@@ -31,6 +31,7 @@
     kubectl
     k9s
     croc # File & folder transfer with relay server
+    kubernetes-helm
 
     # Golang Dev
     # go
