@@ -124,16 +124,7 @@ keybinds clear-defaults=true {
             SwitchToMode "locked"
         }
         bind "d" { Detach; }
-        bind "o" {
-            LaunchOrFocusPlugin "sessionizer" {
-                floating true
-                move_to_focused_tab true
-                cwd "/"
-                root_dirs "/home/juampi/projects;/home/juampi/personal;/home/juampi/arion;/home/juampi/reptrak;/home/juampi/.config"
-            }
-            SwitchToMode "locked"
-        }
-        // bind "o" { SwitchToMode "normal"; }
+        bind "o" { SwitchToMode "normal"; }
         bind "p" {
             LaunchOrFocusPlugin "plugin-manager" {
                 floating true
@@ -150,27 +141,43 @@ keybinds clear-defaults=true {
         }
     }
     shared_among "normal" "locked" {
+        // New pane shortcut
+        bind "Alt n" { NewPane; }
+        // Floating pane
+        bind "Alt f" { ToggleFloatingPanes; }
+        // Layout change
+        bind "Alt [" { PreviousSwapLayout; }
+        bind "Alt ]" { NextSwapLayout; }
+        // Move Focus
         bind "Alt left" { MoveFocusOrTab "left"; }
         bind "Alt down" { MoveFocus "down"; }
         bind "Alt up" { MoveFocus "up"; }
         bind "Alt right" { MoveFocusOrTab "right"; }
-        bind "Alt +" { Resize "Increase"; }
-        bind "Alt -" { Resize "Decrease"; }
-        bind "Alt =" { Resize "Increase"; }
-        bind "Alt [" { PreviousSwapLayout; }
-        bind "Alt ]" { NextSwapLayout; }
-        bind "Alt f" { ToggleFloatingPanes; }
         bind "Alt h" { MoveFocusOrTab "left"; }
-        bind "Alt i" { MoveTab "left"; }
         bind "Alt j" { MoveFocus "down"; }
         bind "Alt k" { MoveFocus "up"; }
         bind "Alt l" { MoveFocusOrTab "right"; }
-        bind "Alt n" { NewPane; }
-        bind "Alt o" { MoveTab "right"; }
+        // Change Pane size
+        bind "Alt +" { Resize "Increase"; }
+        bind "Alt -" { Resize "Decrease"; }
+        bind "Alt =" { Resize "Increase"; }
+        // Move tabs
+        bind "Alt Shift l" { MoveTab "left"; }
+        bind "Alt Shift h" { MoveTab "right"; }
     }
     shared_except "locked" "renametab" "renamepane" {
         bind "Ctrl g" { SwitchToMode "locked"; }
         bind "Ctrl q" { Quit; }
+        // Sessionizer
+        bind "b" {
+            LaunchOrFocusPlugin "sessionizer" {
+                floating true
+                move_to_focused_tab true
+                cwd "/"
+                root_dirs "/home/juampi/projects;/home/juampi/personal;/home/juampi/arion;/home/juampi/reptrak;/home/juampi/.config"
+            }
+            SwitchToMode "locked"
+        }
     }
     shared_except "locked" "entersearch" {
         bind "enter" { SwitchToMode "locked"; }
