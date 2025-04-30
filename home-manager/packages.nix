@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, pkgs-old, ... }: {
   home.packages = with pkgs; [
 
     # -- General Development --
@@ -50,7 +50,7 @@
     vscode-js-debug
 
     # Beanstalk CLI
-    awsebcli
+    pkgs-old.awsebcli
     ssm-session-manager-plugin # For ECS ssh
 
     # Neovim LSPs & Formatters

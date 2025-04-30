@@ -81,7 +81,7 @@
         "juampi@desktop" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           modules = [ ./options.nix ./hosts/desktop/home.nix ./home-manager ];
-          extraSpecialArgs = { inherit username inputs; };
+          extraSpecialArgs = { inherit username inputs pkgs-old; };
         };
         "juampi@vm" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
