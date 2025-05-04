@@ -101,10 +101,10 @@
           };
         "jp@JPs-iMac-Pro" = home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs {
-            system = "x86_64-darwin"; # 👈 Use macOS here
+            system = "x86_64-darwin";
             config.allowUnfree = true;
           };
-          modules = [ ./hosts/macos/home.nix ];
+          modules = [ ./options.nix ./hosts/macos/home.nix ./home-manager ];
           extraSpecialArgs = { username = "jp"; };
         };
       };
