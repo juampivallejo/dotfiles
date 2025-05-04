@@ -16,6 +16,5 @@
     yazi # file explorer
     dig # DNS tool
     nh # Nix cli tool
-    bluetui # Bluetooth TUI
   ];
 }
