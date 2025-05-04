@@ -99,10 +99,13 @@
             modules = [ ./options.nix ./hosts/wsl/home.nix ./home-manager ];
             extraSpecialArgs = { inherit username; };
           };
-        "jp@JPs-iMac-Pro" = inputs.home-manager.lib.homeManagerConfiguration {
-          pkgs = pkgs; # Same as inherit pkgs;
+        "jp@JPs-iMac-Pro" = home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs {
+            system = "x86_64-darwin"; # 👈 Use macOS here
+            config.allowUnfree = true;
+          };
           modules = [ ./hosts/macos/home.nix ];
-          extraSpecialArgs = { inherit username; };
+          extraSpecialArgs = { username = "jp"; };
         };
       };
     };

@@ -31,3 +31,15 @@ nix-channel --update
 
 nix-shell '<home-manager>' -A install
 ```
+
+# Initialization
+
+```sh
+nix-shell -p nh
+nh home switch .
+```
+
+# Next Steps
+
+- Modularization of Home modules
+- Setup nix-darwin modules with homebrew etc
