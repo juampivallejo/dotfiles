@@ -1,7 +1,6 @@
 { config, pkgs, ... }: {
   home.packages = with pkgs;
     [
-      lazygit
       onefetch # git info
       nushell # testing out nu shell
       nodejs_22 # Required for Copilot.lua
@@ -13,4 +12,6 @@
       kubernetes-helm
     ] else
       [ ]);
+
+  programs.lazygit.enable = true;
 }

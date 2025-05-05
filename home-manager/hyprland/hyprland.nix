@@ -26,7 +26,6 @@
     };
 
     home.packages = with pkgs; [
-      waybar
       alsa-utils # amixer volume control
       killall # Used in some scripts
       pavucontrol # Audio control with waybar
@@ -41,5 +40,7 @@
       pulseaudio # installs pactl useful to swithc audio devices
       bluetui # Bluetooth TUI
     ];
+
+    programs.waybar.enable = true;
   };
 }

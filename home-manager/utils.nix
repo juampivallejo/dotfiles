@@ -13,8 +13,9 @@
     rq
     fd
     zip
-    yazi # file explorer
     dig # DNS tool
-    nh # Nix cli tool
   ];
+
+  programs.nh.enable = true;
+  programs.yazi.enable = true; # file explorer
 }

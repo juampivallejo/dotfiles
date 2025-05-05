@@ -7,6 +7,7 @@
     shell = pkgs.zsh;
   };
   system.stateVersion = 6;
+  isDarwin = true;
 
   # Enable useful macOS options
   programs.zsh.enable = true;

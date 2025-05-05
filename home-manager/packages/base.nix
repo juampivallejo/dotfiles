@@ -2,7 +2,6 @@
   home.packages = with pkgs;
     [
       # -- General Development Packages --
-      git
       lazygit
       gh
       awscli2

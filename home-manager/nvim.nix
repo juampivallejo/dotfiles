@@ -6,9 +6,6 @@
   };
 
   home.packages = with pkgs; [
-    # Neovim package
-    neovim
-
     # Neovim LSPs & Formatters
     pyright
     nodePackages.cspell # Spelling Linter
@@ -28,5 +25,8 @@
     copilot-language-server-fhs
   ];
 
-  programs.neovim.defaultEditor = true;
+  programs.neovim = {
+    enable = true;
+    defaultEditor = true;
+  };
 }

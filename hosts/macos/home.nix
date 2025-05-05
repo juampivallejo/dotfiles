@@ -18,6 +18,7 @@ in {
     };
   };
 
+  isDarwin = true;
   desktopApps = {
     enable = false;
     ghostty = false;
