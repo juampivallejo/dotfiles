@@ -27,4 +27,6 @@
     nerd-fonts.jetbrains-mono
     nerd-fonts.droid-sans-mono
   ];
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }
