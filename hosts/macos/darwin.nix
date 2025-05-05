@@ -15,7 +15,9 @@
   # networking.hostName = "JPs-iMac-Pro";
   homebrew = {
     enable = true;
-    casks = [ "ghostty" ];
+
+    onActivation = { autoUpdate = true; };
+    casks = [ "ghostty" "warp" "firefox" ];
     brews = [ ];
   };
 

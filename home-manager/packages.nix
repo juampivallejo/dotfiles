@@ -69,7 +69,7 @@
     postgresql # To have psql executable
     sleek # SQL formatter
     sqls # LSP
-    # copilot-language-server-fhs
+    copilot-language-server-fhs
 
     # Work
     # cloudflare-warp
