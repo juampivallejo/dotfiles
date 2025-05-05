@@ -14,6 +14,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Nix Darwin
+    nix-darwin.url = "github:lnl7/nix-darwin";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Extras
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
   };
@@ -73,6 +78,14 @@
             ./options.nix
             ./hosts/wsl/configuration.nix
           ];
+        };
+      };
+
+      darwinConfigurations = {
+        JPs-iMac-Pro = inputs.nix-darwin.lib.darwinSystem {
+          system = "x86_64-darwin"; # or "aarch64-darwin" for Apple Silicon
+          modules = [ ./options.nix ./hosts/macos/darwin.nix ];
+          specialArgs = { inherit inputs username; };
         };
       };
 

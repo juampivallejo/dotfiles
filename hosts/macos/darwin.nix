@@ -1,0 +1,24 @@
+{ pkgs, ... }:
+
+{
+  # Basic user setup
+  users.users.jp = {
+    home = "/Users/jp";
+    shell = pkgs.zsh;
+  };
+
+  # Enable useful macOS options
+  programs.zsh.enable = true;
+
+  # Optional: set your hostname
+  # networking.hostName = "JPs-iMac-Pro";
+
+  # Optional: fonts (for Nerd Fonts)
+  environment.systemPackages = with pkgs; [
+    nerd-fonts._0xproto
+    nerd-fonts.fira-code
+    nerd-fonts.fira-mono
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.droid-sans-mono
+  ];
+}
