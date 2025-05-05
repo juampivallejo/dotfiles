@@ -6,6 +6,7 @@
     home = "/Users/jp";
     shell = pkgs.zsh;
   };
+  system.stateVersion = 6;
 
   # Enable useful macOS options
   programs.zsh.enable = true;
