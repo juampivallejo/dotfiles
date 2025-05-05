@@ -39,6 +39,7 @@
       playerctl # Player control
       cava # Music visualizer
       pulseaudio # installs pactl useful to swithc audio devices
+      bluetui # Bluetooth TUI
     ];
   };
 }

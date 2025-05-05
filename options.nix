@@ -32,6 +32,12 @@ with lib;
       };
     };
 
+    isNixOS = mkOption {
+      type = types.bool;
+      default = false;
+      description = "Apply configuration tweaks for NixOS environments.";
+    };
+
     isWSL = mkOption {
       type = types.bool;
       default = false;

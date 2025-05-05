@@ -50,7 +50,7 @@
       }
     ];
 
-    initExtra = ''
+    initContent = ''
       # FZF-TAB Config
       source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
 

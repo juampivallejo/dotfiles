@@ -1,4 +1,4 @@
-{ ... }: {
+{ config, lib, ... }: {
   programs.git = {
     enable = true;
     userName = "Juan Pablo Vallejo";
@@ -13,5 +13,6 @@
     enable = true;
     addKeysToAgent = "yes";
   };
-  services.ssh-agent.enable = true;
+
+  services.ssh-agent = lib.mkIf config.isNixOS { enable = true; };
 }

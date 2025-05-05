@@ -1,7 +1,7 @@
 {
   description = "Home Manager and NixOS configuration of juampi";
-  ## Inputs = some git repositories
 
+  # Inputs = git repositories
   inputs = {
     nixpkgs.url =
       "nixpkgs/nixos-unstable"; # longer format is github:NixOS/nixpkgs/nixos-XX.XX
@@ -14,6 +14,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Nix Darwin
+    nix-darwin.url = "github:lnl7/nix-darwin";
+    nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+
+    # Extras
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
   };
@@ -26,21 +31,6 @@
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
-        overlays = [
-          (final: prev: {
-            # Set XDG_CURRENT_DESKTOP to GNOME for MongoDB Compass to use gnome keyring
-            mongodb-compass-overlay = prev.mongodb-compass.overrideAttrs
-              (oldAttrs: {
-                buildInputs = oldAttrs.buildInputs or [ ]
-                  ++ [ final.makeWrapper ];
-                buildCommand = ''
-                  ${oldAttrs.buildCommand or ""}
-                  wrapProgram $out/bin/mongodb-compass \
-                    --set XDG_CURRENT_DESKTOP GNOME
-                '';
-              });
-          })
-        ];
       };
       pkgs-old = import inputs.nixpkgs-old {
         inherit system;
@@ -76,6 +66,14 @@
         };
       };
 
+      darwinConfigurations = {
+        JPs-iMac-Pro = inputs.nix-darwin.lib.darwinSystem {
+          system = "x86_64-darwin"; # or "aarch64-darwin" for Apple Silicon
+          modules = [ ./options.nix ./hosts/macos/darwin.nix ];
+          specialArgs = { inherit inputs username; };
+        };
+      };
+
       # Home Manager Configs
       homeConfigurations = {
         "juampi@desktop" = home-manager.lib.homeManagerConfiguration {
@@ -99,6 +97,14 @@
             modules = [ ./options.nix ./hosts/wsl/home.nix ./home-manager ];
             extraSpecialArgs = { inherit username; };
           };
+        "jp@JPs-iMac-Pro" = home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs {
+            system = "x86_64-darwin";
+            config.allowUnfree = true;
+          };
+          modules = [ ./options.nix ./hosts/macos/home.nix ./home-manager ];
+          extraSpecialArgs = { username = "jp"; };
+        };
       };
     };
 }
