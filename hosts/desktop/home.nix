@@ -1,5 +1,7 @@
-{ pkgs, username, ... }:
-let homeDirectory = "/home/${username}";
+{ lib, config, pkgs, username, ... }:
+let
+  homeDirectory = "/home/${username}";
+  overlays = import ../../overlays { inherit config; };
 in {
   targets.genericLinux.enable = true;
 
@@ -32,7 +34,10 @@ in {
   enableHyprland = true;
   enableFastFetch = true;
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs = {
+    config.allowUnfree = true;
+    overlays = overlays;
+  };
 
   programs.home-manager.enable = true;
   home.stateVersion = "24.05";

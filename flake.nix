@@ -1,7 +1,7 @@
 {
   description = "Home Manager and NixOS configuration of juampi";
-  ## Inputs = some git repositories
 
+  # Inputs = git repositories
   inputs = {
     nixpkgs.url =
       "nixpkgs/nixos-unstable"; # longer format is github:NixOS/nixpkgs/nixos-XX.XX
@@ -31,21 +31,6 @@
       pkgs = import nixpkgs {
         inherit system;
         config.allowUnfree = true;
-        overlays = [
-          (final: prev: {
-            # Set XDG_CURRENT_DESKTOP to GNOME for MongoDB Compass to use gnome keyring
-            mongodb-compass-overlay = prev.mongodb-compass.overrideAttrs
-              (oldAttrs: {
-                buildInputs = oldAttrs.buildInputs or [ ]
-                  ++ [ final.makeWrapper ];
-                buildCommand = ''
-                  ${oldAttrs.buildCommand or ""}
-                  wrapProgram $out/bin/mongodb-compass \
-                    --set XDG_CURRENT_DESKTOP GNOME
-                '';
-              });
-          })
-        ];
       };
       pkgs-old = import inputs.nixpkgs-old {
         inherit system;

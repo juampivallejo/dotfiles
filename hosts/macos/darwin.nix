@@ -16,7 +16,7 @@
   homebrew = {
     enable = true;
     onActivation = { autoUpdate = true; };
-    taps = [ "homebrew/cask-fonts" ];
+    # taps = [ "homebrew/cask-fonts" ];
     casks = [
       # Fonts
       "font-0xproto-nerd-font"
