@@ -15,9 +15,19 @@
   # networking.hostName = "JPs-iMac-Pro";
   homebrew = {
     enable = true;
-
     onActivation = { autoUpdate = true; };
-    casks = [ "ghostty" "warp" "firefox" ];
+    taps = [ "homebrew/cask-fonts" ];
+    casks = [
+      # Fonts
+      "font-0xproto-nerd-font"
+      "font-fira-code-nerd-font"
+      "font-fira-mono-nerd-font"
+      "font-jetbrains-mono-nerd-font"
+      "font-droid-sans-mono-nerd-font"
+      # Apps
+      "ghostty"
+      "firefox"
+    ];
     brews = [ ];
   };
 
