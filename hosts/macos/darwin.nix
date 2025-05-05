@@ -13,6 +13,11 @@
 
   # Optional: set your hostname
   # networking.hostName = "JPs-iMac-Pro";
+  homebrew = {
+    enable = true;
+    casks = [ "ghostty" ];
+    brews = [ ];
+  };
 
   # Optional: fonts (for Nerd Fonts)
   environment.systemPackages = with pkgs; [
