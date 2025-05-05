@@ -5,12 +5,12 @@
     devenv
     git
     gh
-    docker
-    docker-compose
+    # docker
+    # docker-compose
     awscli2
     cargo
-    openssl
-    gnumake
+    # openssl
+    # gnumake
 
     # -- IDE --
     neovim
@@ -24,14 +24,14 @@
 
     # Dev Tools
     lazygit
-    lazydocker
-    onefetch # git info
-    nushell # testing out nu shell
-    nodejs_22 # Required for Copilot.lua
+    # lazydocker
+    # onefetch # git info
+    # nushell # testing out nu shell
+    # nodejs_22 # Required for Copilot.lua
     kubectl
     k9s
-    croc # File & folder transfer with relay server
-    kubernetes-helm
+    # croc # File & folder transfer with relay server
+    # kubernetes-helm
 
     # Golang Dev
     # go
@@ -50,12 +50,12 @@
     vscode-js-debug
 
     # Beanstalk CLI
-    awsebcli
-    ssm-session-manager-plugin # For ECS ssh
+    # awsebcli
+    # ssm-session-manager-plugin # For ECS ssh
 
     # Neovim LSPs & Formatters
     pyright
-    nodePackages.cspell # Spelling Linter
+    # nodePackages.cspell # Spelling Linter
     lua-language-server # Lua LSP
     stylua # Lua formatter
     ruff # Python formatter
@@ -69,11 +69,11 @@
     postgresql # To have psql executable
     sleek # SQL formatter
     sqls # LSP
-    copilot-language-server-fhs
+    # copilot-language-server-fhs
 
     # Work
     # cloudflare-warp
-    aws-azure-login
+    # aws-azure-login
   ];
 
   programs.neovim.defaultEditor = true;
