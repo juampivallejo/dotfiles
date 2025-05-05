@@ -43,3 +43,9 @@ nh home switch .
 
 - Modularization of Home modules
 - Setup nix-darwin modules with homebrew etc
+
+# Install homebrew
+
+```sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
