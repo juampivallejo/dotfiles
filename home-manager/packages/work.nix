@@ -5,7 +5,6 @@
     ssm-session-manager-plugin # For ECS ssh
 
     # Work
-    cloudflare-warp
     aws-azure-login
   ];
 }
