@@ -33,6 +33,7 @@ in {
   };
   enableHyprland = true;
   enableFastFetch = true;
+  isNixOS = true;
 
   nixpkgs = {
     config.allowUnfree = true;

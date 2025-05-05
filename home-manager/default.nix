@@ -6,7 +6,7 @@
     ./git.nix
     ./hyprland
     ./nvim.nix
-    ./packages.nix
+    ./packages
     ./terminal.nix
     ./theme.nix
     ./tmux.nix
