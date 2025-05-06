@@ -1,10 +1,14 @@
 { pkgs, ... }: {
-  home.packages = with pkgs; [
-    # Beanstalk CLI
-    awsebcli
-    ssm-session-manager-plugin # For ECS ssh
-
-    # Work
-    aws-azure-login
-  ];
+  home.packages = with pkgs;
+    [
+      # Beanstalk CLI
+      awsebcli
+      # Work
+      aws-azure-login
+    ] ++ (if config.isNixOS then
+      [
+        ssm-session-manager-plugin # For ECS ssh
+      ]
+    else
+      [ ]);
 }

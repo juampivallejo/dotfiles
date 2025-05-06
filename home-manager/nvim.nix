@@ -8,7 +8,7 @@
   home.packages = with pkgs; [
     # Neovim LSPs & Formatters
     pyright
-    nodePackages.cspell # Spelling Linter
+    # nodePackages.cspell # Spelling Linter
     lua-language-server # Lua LSP
     stylua # Lua formatter
     ruff # Python formatter
@@ -19,10 +19,10 @@
     shfmt # Shell formatter
     djlint # Django linter and formatter
     # Neovim + SQL
-    postgresql # To have psql executable
+    # postgresql # To have psql executable
     sleek # SQL formatter
     sqls # LSP
-    copilot-language-server-fhs
+    copilot-language-server
   ];
 
   programs.neovim = {

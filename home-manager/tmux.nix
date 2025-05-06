@@ -5,8 +5,6 @@
     recursive = true;
   };
 
-  home.packages = with pkgs; [ tmux ];
-
   programs.tmux = {
     enable = true;
     terminal = "tmux-256color";
