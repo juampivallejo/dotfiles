@@ -1,19 +1,20 @@
-{ config, pkgs, ... }: {
-  home.packages = with pkgs;
-    [
-      # -- General Development Packages --
-      lazygit
-      gh
-      awscli2
-      devenv
-    ] ++ (if config.isNixOS then [
+{ config, pkgs, ... }:
+let
+  devPackages = with pkgs; [
+    # -- General Development Packages --
+    lazygit
+    gh
+    awscli2
+    devenv
+  ];
+  extrasNixOS = with pkgs;
+    lib.optionals config.isNixOS [
       docker
       docker-compose
       kubectl
       k9s
       openssl
       gnumake
-    ] else
-      [ ]) ++ (if config.isDarwin then [ coreutils ] else [ ]);
-
-}
+    ];
+  extrasDarwin = with pkgs; lib.optionals config.isDarwin [ coreutils ];
+in { home.packages = devPackages ++ extrasNixOS ++ extrasDarwin; }
