@@ -1,9 +1,9 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, pkgs-old, ... }:
 let
   workPackages = with pkgs;
     [
       # Beanstalk CLI
-      awsebcli
+      pkgs-old.awsebcli
     ];
   extras = with pkgs;
     lib.optionals config.isNixOS [
