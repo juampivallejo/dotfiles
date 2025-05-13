@@ -8,6 +8,11 @@
       color.ui = true;
       core.editor = "nvim";
     };
+    difftastic = {
+      enable = true;
+      enableAsDifftool = true;
+      display = "side-by-side-show-both";
+    };
   };
   programs.ssh = {
     enable = true;
