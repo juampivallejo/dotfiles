@@ -78,8 +78,8 @@
     //   // "default": ""
     // },
     "persistent-workspaces": {
-      "DP-2": [ 1, 2, 3, 4, 5 ], // workspace 1 shown on DP-2 (main)
-      "DP-1": [ 6, 7, 8, 9, 10 ], // workspaces 2 and 3 shown on DP-1 (secondary)
+      "DP-1": [ 1, 2, 3, 4, 5 ], // workspace 1 shown on DP-1 (main)
+      "DP-2": [ 6, 7, 8, 9, 10 ], // workspaces 2 and 3 shown on DP-2 (secondary)
     }
   },
 

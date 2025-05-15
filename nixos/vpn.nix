@@ -7,7 +7,11 @@
     pkgs-old.openvpn3; # TODO: remove pkgs-old after openvpn3 works
 
   # Wifi Hotspot config
-  environment.systemPackages = with pkgs; [ linux-wifi-hotspot hostapd iw ];
+  # environment.systemPackages = with pkgs; [ linux-wifi-hotspot hostapd iw ];
+  # networking.firewall = {
+  #   enable = true;
+  #   allowedUDPPorts = [ 53 67 ];
+  # };
 
   services.cloudflare-warp = {
     enable = true;
