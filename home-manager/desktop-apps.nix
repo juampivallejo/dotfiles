@@ -7,7 +7,7 @@
       obsidian # Notes
       calibre # e-Books
       insomnia # Postman alternative
-      stremio # streaming
+      # stremio # streaming
       dbeaver-bin # DB connections
       mongodb-compass-overlay
       google-chrome
@@ -15,9 +15,9 @@
       spotify
       discord
       postman # mostly for work
-      windsurf # AI cursor editor
+      windsurf # AI editor
       inputs.zen-browser.packages."${system}".default
-      quickemu # QEMU VM easy
+      # quickemu # QEMU VM easy
     ];
   };
 }

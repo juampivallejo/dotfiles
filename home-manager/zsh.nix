@@ -10,6 +10,7 @@
     enableCompletion = true;
     syntaxHighlighting.enable = true;
     autosuggestion = { enable = true; };
+    sessionVariables = { MANPAGER = "nvim +Man!"; };
 
     shellAliases = {
       nix-rebuild = "sudo nixos-rebuild switch --flake .";
