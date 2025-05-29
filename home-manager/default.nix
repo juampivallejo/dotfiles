@@ -2,6 +2,7 @@
   imports = [
     ./desktop-apps.nix
     ./direnv.nix
+    ./fish.nix
     ./fastfetch.nix
     ./git.nix
     ./hyprland
