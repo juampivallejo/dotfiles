@@ -84,7 +84,7 @@
   ];
 
   programs.starship = {
-    enable = true;
+    enable = false;
     enableFishIntegration = true;
     enableTransience = true;
 

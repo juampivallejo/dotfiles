@@ -99,7 +99,7 @@
 
   programs.zsh.enable = true;
   # Fish as default user shell
-  users.defaultUserShell = pkgs.fish;
+  users.defaultUserShell = pkgs.zsh;
 
   # Docker
   # users.users.juampi.extraGroups = [ "docker" ];  # Already set above

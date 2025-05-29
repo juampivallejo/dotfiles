@@ -4,8 +4,8 @@
     "${config.xdg.configHome}/dotfiles/home-manager/zellij/config.kdl";
   programs.zellij = {
     enable = true;
-    enableZshIntegration = false;
-    enableFishIntegration = true;
+    enableZshIntegration = true;
+    enableFishIntegration = false;
   };
 }
 
