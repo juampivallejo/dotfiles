@@ -1,20 +1,44 @@
-{ pkgs, ... }: {
+{ lib, pkgs, ... }: {
   # Fish shell configuration
   programs.fish = {
-    # Your zsh config
     enable = true;
-    # oh-my-zsh = {
-    #   enable = true;
-    #   plugins = [ "git" "python" "docker" "vi-mode" "fzf" ];
-    # };
-    # enableCompletion = true;
-    # syntaxHighlighting.enable = true;
-    # autosuggestion = { enable = true; };
-    # sessionVariables = { MANPAGER = "nvim +Man!"; };
     interactiveShellInit = ''
       fish_vi_key_bindings
+      set -U __done_notification_command "notify-send \$title \$message"
     '';
 
+    plugins = [
+      {
+        name = "git-abbr";
+        src = pkgs.fishPlugins.git-abbr.src;
+      }
+      {
+        name = "fzf-fish";
+        src = pkgs.fishPlugins.fzf-fish.src;
+      }
+      {
+        name = "puffer";
+        src = pkgs.fishPlugins.puffer.src;
+      }
+      {
+        name = "sponge";
+        src = pkgs.fishPlugins.sponge.src;
+      }
+      {
+        name = "done";
+        src = pkgs.fishPlugins.done.src;
+      }
+      {
+        name = "autopair";
+        src = pkgs.fishPlugins.autopair.src;
+      }
+    ];
+
+    shellAbbrs = {
+      gst = "git status";
+      # Lazy
+      ld = "lazydocker";
+    };
     shellAliases = {
       nix-rebuild = "sudo nixos-rebuild switch --flake .";
       home-update = "home-manager switch --flake .";
@@ -35,7 +59,6 @@
       bat = "bat -p";
       cat = "bat -p";
       # Lazy
-      ld = "lazydocker";
       lg = "lazygit";
     };
   };
@@ -63,9 +86,48 @@
   programs.starship = {
     enable = true;
     enableFishIntegration = true;
+    enableTransience = true;
+
     settings = {
-      add_newline = true;
-      enable_transience = true;
+      scan_timeout = 10;
+      format = lib.concatStrings [
+        "$os"
+        "$directory"
+        "$vcsh"
+        "$git_branch"
+        "$git_state"
+        "$git_status"
+        "$git_metrics"
+        "$kubernetes"
+        "$fill"
+        "$nix_shell"
+        "$python"
+        "$rust"
+        "$time"
+        "$line_break" # new line before the character
+        "$character"
+      ];
+
+      fill = { symbol = "-"; };
+      git_metrics = { disabled = false; };
+      git_status = { format = "([$all_status$ahead_behind]($style) )"; };
+      os = {
+        disabled = false;
+        symbols = { NixOS = " "; };
+      };
+      python = {
+        disabled = false;
+        format = "[(\${version} )(($virtualenv) )]($style)";
+        version_format = "\${major}.\${minor}";
+      };
+      nix_shell = {
+        disabled = false;
+        format = "[ $state]($style) ";
+      };
+      time = {
+        disabled = false;
+        format = "[$time]($style) ";
+      };
     };
   };
 }
