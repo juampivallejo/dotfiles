@@ -8,6 +8,7 @@ return {
     ---@diagnostic disable-next-line: missing-fields
     servers = {
       basedpyright = { settings = { python = { analysis = { typeCheckingMode = "standard" } } } },
+      -- ty = {},
       gopls = {},
       lua_ls = {},
       nil_ls = {},
