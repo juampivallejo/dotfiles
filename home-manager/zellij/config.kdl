@@ -153,10 +153,44 @@ keybinds clear-defaults=true {
         bind "Alt down" { MoveFocus "down"; }
         bind "Alt up" { MoveFocus "up"; }
         bind "Alt right" { MoveFocusOrTab "right"; }
-        bind "Alt h" { MoveFocusOrTab "left"; }
-        bind "Alt j" { MoveFocus "down"; }
-        bind "Alt k" { MoveFocus "up"; }
-        bind "Alt l" { MoveFocusOrTab "right"; }
+        // bind "Alt h" { MoveFocusOrTab "left"; }
+        // bind "Alt j" { MoveFocus "down"; }
+        // bind "Alt k" { MoveFocus "up"; }
+        // bind "Alt l" { MoveFocusOrTab "right"; }
+        // Using the vim-zellij-navigator plugin
+        bind "Ctrl h" {
+            MessagePlugin "https://github.com/hiasr/vim-zellij-navigator/releases/download/0.2.1/vim-zellij-navigator.wasm" {
+                name "move_focus_or_tab";
+                payload "left";
+
+                // Plugin Configuration
+                move_mod "ctrl"; // Optional, should be added on every command if you want to use it
+            };
+        }
+        bind "Ctrl j" {
+            MessagePlugin "https://github.com/hiasr/vim-zellij-navigator/releases/download/0.2.1/vim-zellij-navigator.wasm" {
+                name "move_focus";
+                payload "down";
+
+                move_mod "ctrl";
+            };
+        }
+        bind "Ctrl k" {
+            MessagePlugin "https://github.com/hiasr/vim-zellij-navigator/releases/download/0.2.1/vim-zellij-navigator.wasm" {
+                name "move_focus";
+                payload "up";
+
+                move_mod "ctrl";
+            };
+        }
+        bind "Ctrl l" {
+            MessagePlugin "https://github.com/hiasr/vim-zellij-navigator/releases/download/0.2.1/vim-zellij-navigator.wasm" {
+                name "move_focus_or_tab";
+                payload "right";
+
+                move_mod "ctrl";
+            };
+        }
         // Change Pane size
         bind "Alt +" { Resize "Increase"; }
         bind "Alt -" { Resize "Decrease"; }
@@ -249,6 +283,7 @@ plugins {
     plugin-manager location="zellij:plugin-manager"
     session-manager location="zellij:session-manager"
     sessionizer location="https://github.com/laperlej/zellij-sessionizer/releases/latest/download/zellij-sessionizer.wasm"
+    vim-zellij-navigator location="https://github.com/hiasr/vim-zellij-navigator/releases/latest/download/vim-zellij-navigator.wasm"
     status-bar location="zellij:status-bar"
     strider location="zellij:strider"
     tab-bar location="zellij:tab-bar"
