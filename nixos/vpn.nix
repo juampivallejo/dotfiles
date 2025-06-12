@@ -13,11 +13,6 @@
   #   allowedUDPPorts = [ 53 67 ];
   # };
 
-  services.cloudflare-warp = {
-    enable = true;
-    openFirewall = true;
-    package = pkgs-old.cloudflare-warp;
-  };
   # environment.systemPackages = [ pkgs.cloudflare-warp ]; # for warp-svc
   # systemd.packages = [ pkgs.cloudflare-warp ]; # for warp-cli
   # systemd.targets.multi-user.wants =

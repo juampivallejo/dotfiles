@@ -11,7 +11,7 @@
     difftastic = {
       enable = true;
       enableAsDifftool = true;
-      display = "side-by-side-show-both";
+      display = "side-by-side";
     };
   };
   programs.ssh = {
