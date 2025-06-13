@@ -12,6 +12,7 @@ let
     prettierd # Formatter
     shfmt # Shell formatter
     djlint # Django linter and formatter
+    nodejs_22 # Required for Copilot.lua
     # Neovim + SQL
     sleek # SQL formatter
     sqls # LSP
@@ -19,7 +20,6 @@ let
   nixosPackages = with pkgs;
     lib.optionals config.isNixOS [
       copilot-language-server-fhs
-      postgresql
       nodePackages.cspell # Spelling Linter
     ];
   darwinPackages = with pkgs;

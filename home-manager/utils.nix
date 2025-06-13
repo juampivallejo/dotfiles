@@ -13,10 +13,10 @@
     rq
     fd
     zip
+    unzip
     dig # DNS tool
     dust # Faster du (disk usage)
     hyperfine # Benchmarking tool
-    just # Make alternative to run commands using justfile
   ];
 
   programs.nh.enable = true;
