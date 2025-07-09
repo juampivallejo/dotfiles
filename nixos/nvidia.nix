@@ -2,6 +2,7 @@
 
   config = lib.mkIf config.nvidiaDrivers.enable {
 
+    programs.steam.enable = true;
     services.xserver = { videoDrivers = [ "nvidia" ]; };
     environment.systemPackages = with pkgs;
       [
