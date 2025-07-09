@@ -2,18 +2,6 @@
 # Work Shortcuts
 #
 
-- name: "Reptrak VPN: Connect"
-  command: openvpn3 session-start --config /home/juampi/.config/openvpn/reptrakDevelop.ovpn || notify-send 'VPN Connected'
-
-- name: "Reptrak VPN: Disconnect"
-  command: openvpn3 sessions-list | grep "Path" | awk '{print $2}' | xargs -I {} openvpn3 session-manage -D --path {} || notify-send 'VPN Disconnected'
-
-- name: "Reptrak VPN: Restart"
-  command: |
-    openvpn3 sessions-list | grep "Path" | awk '{print $2}' | xargs -I {} openvpn3 session-manage -D --path {}
-    openvpn3 session-start --config /home/juampi/.config/openvpn/reptrakDevelop.ovpn
-    notify-send 'VPN Reloaded'
-
 #
 # External Devices Management
 #
