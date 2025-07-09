@@ -7,6 +7,20 @@
       systemd.enable = true; # Enable systemd integration for hyprland
     };
 
+    programs.waybar = {
+      enable = true;
+      systemd.enable = true;
+    };
+
+    services.swww.enable = true;
+    services.hyprpolkitagent.enable = true;
+    services.dunst = {
+      enable = true; # Notification service
+      configFile = ./dunst/dunstrc;
+    };
+    services.network-manager-applet.enable = true; # Network sys tray
+    services.cliphist.enable = true;
+
     # Config Symlink
     xdg.configFile."hypr" = {
       source = config.lib.file.mkOutOfStoreSymlink
@@ -24,19 +38,12 @@
         "${config.xdg.configHome}/dotfiles/home-manager/hyprland/waybar";
       recursive = true;
     };
-    xdg.configFile."dunst" = {
-      source = config.lib.file.mkOutOfStoreSymlink
-        "${config.xdg.configHome}/dotfiles/home-manager/hyprland/dunst";
-      recursive = true;
-    };
 
     home.packages = with pkgs; [
       alsa-utils # amixer volume control
       killall # Used in some scripts
       pavucontrol # Audio control with waybar
-      dunst # notifications
       dmenu # notification actions
-      networkmanagerapplet # (nm-applet) Network and wifi sys tray
       swww # Wallpapers
       libnotify
       slurp # for screenshots
@@ -45,12 +52,5 @@
       pulseaudio # installs pactl useful to swithc audio devices
       bluetui # Bluetooth TUI
     ];
-
-    programs.waybar = {
-      enable = true;
-      systemd.enable = true;
-    };
-
-    services.hyprpolkitagent.enable = true;
   };
 }

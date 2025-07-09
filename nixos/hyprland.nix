@@ -2,11 +2,16 @@
 
 {
   config = lib.mkIf config.enableHyprland {
-    # Enable Hyprland
 
+    # Login Screen
+    services.xserver.displayManager.lightdm.enable = false;
+
+    # Enable Hyprland
     programs.hyprland = {
       enable = true;
       xwayland.enable = true;
+      withUWSM = true; # FIXME: for proper systemd support
+      # Automatically starts targets like graphical-session.target
     };
     programs.hyprlock = {
       enable = true; # Enable Lock-screen for hyprland

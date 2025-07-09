@@ -2,9 +2,8 @@
 
 {
   # Enable Gnome
-  services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true; # GDM login screen
-  services.xserver.desktopManager.gnome.enable = true;
+  services.displayManager.gdm.enable = true; # GDM login screen
+  services.desktopManager.gnome.enable = true;
 
   # Enable Gnome Keyring
   services.gnome.gnome-keyring.enable = true;
