@@ -2,6 +2,11 @@
 
   config = lib.mkIf config.enableHyprland {
 
+    # Configure Hyprland to use Systemd
+    wayland.windowManager.hyprland = {
+      systemd.enable = true; # Enable systemd integration for hyprland
+    };
+
     # Config Symlink
     xdg.configFile."hypr" = {
       source = config.lib.file.mkOutOfStoreSymlink
@@ -41,6 +46,11 @@
       bluetui # Bluetooth TUI
     ];
 
-    programs.waybar.enable = true;
+    programs.waybar = {
+      enable = true;
+      systemd.enable = true;
+    };
+
+    services.hyprpolkitagent.enable = true;
   };
 }

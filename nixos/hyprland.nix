@@ -11,8 +11,9 @@
     programs.hyprlock = {
       enable = true; # Enable Lock-screen for hyprland
     };
-    services.hypridle.enable =
-      true; # Enable idle service to lock or turn off screen after timeout
+    services.hypridle = {
+      enable = true; # idle support
+    };
 
     environment.sessionVariables = {
       # If your cursor becomes invisible
