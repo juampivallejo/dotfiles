@@ -3,9 +3,6 @@
 {
   config = lib.mkIf config.enableHyprland {
 
-    # Login Screen
-    services.xserver.displayManager.lightdm.enable = false;
-
     # Enable Hyprland
     programs.hyprland = {
       enable = true;
@@ -55,7 +52,6 @@
       wayshot # screenshot CLI
       swappy # snapshot
       hyprlock # Lock screen
-      hyprdim # Automatically dims windows when switching between them
       hyprpicker # color picker
       gpu-screen-recorder-gtk # Screen recording
       inputs.rose-pine-hyprcursor.packages.${pkgs.system}.default # Cursor theme

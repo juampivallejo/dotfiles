@@ -5,6 +5,10 @@
     # Configure Hyprland to use Systemd
     wayland.windowManager.hyprland = {
       systemd.enable = true; # Enable systemd integration for hyprland
+      plugins = [
+        pkgs.hyprlandPlugins.csgo-vulkan-fix # fix csgo resolutions
+        pkgs.hyprdim # Automatically dim windows
+      ];
     };
 
     programs.waybar = {
