@@ -4,6 +4,9 @@
 -- * add extra plugins
 -- * disable/enabled LazyVim plugins
 -- * override the configuration of LazyVim plugins
+
+local env = require("utils.env")
+
 return {
   -- {
   --   "ellisonleao/gruvbox.nvim",
@@ -98,12 +101,11 @@ return {
       },
     },
   },
-
-  -- disable mason
-  -- { "williamboman/mason.nvim", enabled = false },
-  -- Replace to enable
   {
     "williamboman/mason.nvim",
+    enabled = function()
+      return env.is_mac()
+    end,
     opts = {
       ensure_installed = {
         "stylua",
@@ -114,7 +116,6 @@ return {
       },
     },
   },
-
   -- Use <tab> for completion and snippets (supertab)
   -- first: disable default <tab> and <s-tab> behavior in LuaSnip
   {

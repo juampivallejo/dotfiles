@@ -1,3 +1,5 @@
+local env = require("utils.env")
+
 local opts = function()
   ---@type conform.setupOpts
   local opts = {
@@ -11,7 +13,6 @@ local opts = function()
       lua = { "stylua" },
       sh = { "shfmt" },
       javascript = { "prettierd" },
-      typescript = { "prettierd" },
       css = { "prettierd" },
       html = { "prettierd" },
       htmldjango = { "djlint" },
@@ -41,6 +42,10 @@ local opts = function()
       },
     },
   }
+  -- add TypeScript formatter conditionally
+  if not env.is_host("juampi-desktop") then
+    opts.formatters_by_ft.typescript = { "prettierd" }
+  end
   return opts
 end
 
