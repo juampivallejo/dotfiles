@@ -1,4 +1,5 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local env = require("utils.env")
 
 if not vim.loop.fs_stat(lazypath) then
   -- bootstrap lazy.nvim
@@ -12,7 +13,7 @@ require("lazy").setup({
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     -- import any extras modules here
-    -- { import = "lazyvim.plugins.extras.lang.typescript" },
+    { import = "lazyvim.plugins.extras.lang.typescript" },
     -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
 
     -- add jsonls and schemastore packages, and setup treesitter for json, json5 and jsonc
@@ -33,8 +34,8 @@ require("lazy").setup({
     -- { import = "lazyvim.plugins.extras.dap.core" },
 
     -- Copilot and Chat
-    -- { import = "lazyvim.plugins.extras.ai.copilot" },
-    -- { import = "lazyvim.plugins.extras.ai.copilot-chat" },
+    { import = "lazyvim.plugins.extras.ai.copilot", cond = env.is_mac() },
+    { import = "lazyvim.plugins.extras.ai.copilot-chat", cond = env.is_mac() },
 
     -- Editor testing
     { import = "lazyvim.plugins.extras.editor.snacks_picker" },

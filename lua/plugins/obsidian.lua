@@ -1,3 +1,5 @@
+local env = require("utils.env")
+
 return {
   {
     "MeanderingProgrammer/render-markdown.nvim",
@@ -33,7 +35,7 @@ return {
       workspaces = {
         {
           name = "personal",
-          path = "~/Documents/obsidian",
+          path = env.is_mac() and "~/pers/obsidian" or "~/Documents/obsidian",
         },
       },
 
