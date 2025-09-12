@@ -15,8 +15,10 @@
     };
   };
   programs.ssh = {
-    enable = true;
-    addKeysToAgent = "yes";
+    matchBlocks."*" = {
+      enable = true;
+      addKeysToAgent = true;
+    };
   };
 
   services.ssh-agent = lib.mkIf config.isNixOS { enable = true; };

@@ -209,7 +209,7 @@ keybinds clear-defaults=true {
                 move_to_focused_tab true
                 cwd "/"
                 root_dirs "/home/juampi/projects;/home/juampi/personal;/home/juampi/arion;/home/juampi/reptrak;/home/juampi/.config"
-                session_layout "compact"
+                session_layout ":compact"
             }
             SwitchToMode "locked"
         }
