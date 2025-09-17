@@ -1,7 +1,7 @@
 return {
   -- From LazyVIM docs:
   {
-    "echasnovski/mini.surround",
+    "nvim-mini/mini.surround",
     opts = {
       mappings = {
         add = "gza", -- Add surrounding in Normal and Visual modes
