@@ -44,7 +44,7 @@ local opts = function()
   }
   -- add TypeScript formatter conditionally
   if not env.is_host("juampi-desktop") then
-    opts.formatters_by_ft.typescript = { "prettierd" }
+    opts.formatters_by_ft.typescript = { "prettier" }
   end
   return opts
 end

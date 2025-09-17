@@ -102,7 +102,7 @@ return {
     },
   },
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     enabled = function()
       return env.is_mac()
     end,
