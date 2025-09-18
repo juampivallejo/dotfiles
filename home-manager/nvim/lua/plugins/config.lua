@@ -116,6 +116,12 @@ return {
       },
     },
   },
+  {
+    "mason-org/mason-lspconfig.nvim",
+    enabled = function()
+      return env.is_mac()
+    end,
+  },
   -- Use <tab> for completion and snippets (supertab)
   -- first: disable default <tab> and <s-tab> behavior in LuaSnip
   {

@@ -23,26 +23,25 @@
     XCURSOR_SIZE = "24";
   };
   # Gnome Exclude Packages
-  # environment.gnome.excludePackages = (with pkgs; [
-  #   gnome-tour
-  #   # gnome-terminal
-  #   # gedit # text editor
-  #   epiphany # web browser
-  #   geary # email reader
-  #
-  #   gnome-user-docs
-  #   gnome-contacts
-  #   gnome-font-viewer
-  #   # gnome-logs
-  #   gnome-maps
-  #   gnome-music
-  #   gnome-weather
-  #   # loupe
-  #   # nautilus
-  #   gnome-connections
-  #   simple-scan
-  #   snapshot
-  #   totem
-  #   gnome-software
-  # ]);
+  environment.gnome.excludePackages = (with pkgs; [
+    nautilus
+    gnome-tour
+    gedit # text editor
+    geary # email reader
+    gnome-user-docs
+    gnome-contacts
+    gnome-font-viewer
+    gnome-maps
+    gnome-music
+    gnome-weather
+    loupe
+    gnome-connections
+    simple-scan
+    snapshot
+    totem
+    gnome-software
+    # gnome-logs
+    # gnome-terminal
+    # epiphany # web browser
+  ]);
 }

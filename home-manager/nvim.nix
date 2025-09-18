@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 let
   basePackages = with pkgs; [
+    tree-sitter
     # Neovim LSPs & Formatters
     pyright
     lua-language-server # Lua LSP

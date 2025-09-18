@@ -11,13 +11,8 @@
     programs.rofi = {
       enable = true;
       cycle = true;
-      package = pkgs.rofi-wayland;
-      plugins = with pkgs; [
-        rofi-emoji-wayland
-        (rofi-calc.override {
-          rofi-unwrapped = rofi-wayland-unwrapped;
-        }) # HACK: Temporary fix
-      ];
+      package = pkgs.rofi;
+      plugins = with pkgs; [ rofi-emoji rofi-calc ];
 
       extraConfig = {
         modi = "drun,calc,window,emoji";

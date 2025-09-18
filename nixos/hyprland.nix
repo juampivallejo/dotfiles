@@ -45,6 +45,7 @@
 
     environment.systemPackages = with pkgs; [
       # For Hyprland
+      kdePackages.dolphin # file explorer
       imv # Imdateage terminal viewer
       wf-recorder # Recorder screen
       wl-clipboard # Clipboard for wayland -> used with wl-copy & wl-paste cli
