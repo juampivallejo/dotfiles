@@ -50,7 +50,7 @@ let
         enable = true;
         enableZshIntegration = true;
         settings = {
-          theme = "tokyonight";
+          theme = "TokyoNight Night";
           font-size = 14;
           window-decoration = false;
           background-opacity = 0;

@@ -2,13 +2,13 @@
 
   config = lib.mkIf config.desktopApps.enable {
     home.packages = with pkgs; [
+      google-chrome
       slack # Messaging
       # thunderbird # Email client
       obsidian # Notes
       calibre # e-Books
       # insomnia # Postman alternative
       # stremio # streaming
-      # google-chrome
       # dbeaver-bin # DB connections
       # mongodb-compass-overlay
       vlc
