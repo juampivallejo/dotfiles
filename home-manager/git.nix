@@ -1,17 +1,14 @@
 { config, lib, ... }: {
   programs.git = {
     enable = true;
-    userName = "Juan Pablo Vallejo";
-    userEmail = "juampivallejo97@gmail.com";
-    extraConfig = {
+    settings = {
+      user = {
+        name = "Juan Pablo Vallejo";
+        email = "juampivallejo97@gmail.com";
+      };
       init.defaultBranch = "main";
       color.ui = true;
       core.editor = "nvim";
-    };
-    difftastic = {
-      enable = true;
-      enableAsDifftool = true;
-      display = "side-by-side";
     };
   };
   programs.ssh = {
@@ -19,6 +16,13 @@
       enable = true;
       addKeysToAgent = true;
     };
+  };
+  programs.difftastic = {
+    git = {
+      enable = true;
+      diffToolMode = true;
+    };
+    options = { display = "Side-by-side"; };
   };
 
   services.ssh-agent = lib.mkIf config.isNixOS { enable = true; };
