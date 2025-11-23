@@ -15,6 +15,7 @@
       croc # File & folder transfer with relay server
       kubernetes-helm
       zed-editor
+      gemini-cli
     ] else
       [ ]);
 

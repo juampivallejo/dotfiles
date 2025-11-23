@@ -1,8 +1,12 @@
 { ... }:
 
 {
-  # Enable Flatpak
-  services.flatpak.enable = true;
-
-  services.earlyoom.enable = true; # Prevent OOM freezing
+  services = {
+    # Enable Flatpak
+    flatpak.enable = true;
+    # Prevent OOM freezing
+    earlyoom.enable = true;
+    # Disable orca screen reader
+    orca.enable = false;
+  };
 }
