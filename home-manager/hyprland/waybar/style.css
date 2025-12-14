@@ -150,6 +150,10 @@ label:focus {
   background-color: @bg;
 }
 
+window#waybar.fullscreen {
+  color: #51a4e7;
+}
+
 #battery.critical:not(.charging) {
   background-color: @alert;
   color: @fg;
