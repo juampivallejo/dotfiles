@@ -20,7 +20,7 @@
 
     # Extras
     rose-pine-hyprcursor.url = "github:ndom91/rose-pine-hyprcursor";
-    zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    # zen-browser.url = "github:0xc000022070/zen-browser-flake";
   };
 
   ## Outputs = built and working system configuration

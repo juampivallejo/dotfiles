@@ -17,7 +17,7 @@
       # postman # mostly for work
       # windsurf # AI editor
       # quickemu # QEMU VM easy
-      inputs.zen-browser.packages."${system}".default
+      # inputs.zen-browser.packages."${system}".default
     ];
   };
 }
