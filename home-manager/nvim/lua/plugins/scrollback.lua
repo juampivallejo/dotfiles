@@ -1,7 +1,7 @@
 return {
   -- TODO: Remove if Kitty not used
   "mikesmithgh/kitty-scrollback.nvim",
-  enabled = true,
+  enabled = false,
   lazy = true,
   cmd = { "KittyScrollbackGenerateKittens", "KittyScrollbackCheckHealth", "KittyScrollbackGenerateCommandLineEditing" },
   event = { "User KittyScrollbackLaunch" },

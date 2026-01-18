@@ -7,7 +7,6 @@
   - Copilot-Chat
   - cspell lnter
   - none-ls
-  - kitty-scrollback
   - dadbod
   - vim-tmux
   - yazi
