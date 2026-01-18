@@ -1,6 +1,6 @@
 -- lua/plugins/copilot.lua
-
 local env = require("utils.env")
+
 return {
   "zbirenbaum/copilot.lua",
   enabled = function()
@@ -20,4 +20,16 @@ return {
       desc = "Toggle (Copilot)",
     },
   },
+  opts = function()
+    if env.is_mac() then
+      return {
+        -- only apply this on macOS
+        copilot_node_command = vim.fn.expand("~/.nvm/versions/node/v22.18.0/bin/node"),
+        suggestion = { enabled = true },
+        panel = { enabled = true },
+      }
+    end
+    -- otherwise, just skip setting opts
+    return {}
+  end,
 }
