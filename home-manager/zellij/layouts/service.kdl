@@ -1,0 +1,31 @@
+layout {
+    default_tab_template {
+        children
+        pane size=1 borderless=true {
+            plugin location="compact-bar"
+        }
+    }
+
+    tab name="Service" split_direction="Vertical" {
+        pane
+        pane stacked=true {
+            pane {
+                command "npm"
+                args "run" "test"
+            }
+            pane
+        }
+        floating_panes {
+            pane command="lazygit" x="10%" y="10%" width="70%" height="80%"
+        }
+    }
+
+}
+keybinds {
+  tmux {
+    // TODO: think
+    // bind "1" { Run "bdev" "k8s" "update-stack"; SwitchToMode "normal"; }
+    // bind "2" { Run "git" "diff"; SwitchToMode "normal"; }
+    // bind "3" { Run "bdev" "k8s" "end-day"; SwitchToMode "normal"; }
+  }
+}

@@ -1,0 +1,35 @@
+layout {
+    default_tab_template {
+        children
+        pane size=1 borderless=true {
+            plugin location="compact-bar"
+        }
+    }
+
+    tab name="config" cwd="~/.config" split_direction="Vertical" {
+        pane
+    }
+    tab name="zellij" cwd="~/.config/zellij" split_direction="Vertical" {
+        pane size="65%" {
+            edit "."
+        }
+        pane
+    }
+    tab name="aerospace" cwd="~/" split_direction="Vertical" {
+        pane {
+            edit ".aerospace.toml"
+        }
+        pane
+    }
+}
+keybinds {
+  tmux {
+    // second key after prefix
+    bind "1" { Run "git" "status"; SwitchToMode "normal"; }
+    bind "2" { Run "git" "diff"; SwitchToMode "normal"; }
+    bind "3" { Run "exa" "--color" "always"; SwitchToMode "normal"; }
+
+    // escape hatch
+    bind "Esc" { SwitchToMode "normal"; }
+  }
+}
