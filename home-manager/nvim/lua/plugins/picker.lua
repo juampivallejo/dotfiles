@@ -6,16 +6,26 @@ return {
       win = {
         input = {
           keys = {
-            ["<c-h>"] = { "toggle_hidden", mode = { "i", "n" } },
-            ["<c-i>"] = { "toggle_ignored", mode = { "i", "n" } },
-            ["<c-l>"] = { "toggle_live", mode = { "i", "n" } },
+            ["\\h"] = "toggle_hidden",
+            ["\\i"] = "toggle_ignored",
+            ["\\m"] = "toggle_maximize",
+            ["\\p"] = "toggle_preview",
+            ["\\f"] = "toggle_follow",
+            ["\\d"] = "inspect",
+            ["\\g"] = "print_path",
+            ["<c-w>w"] = "cycle_win",
           },
         },
         list = {
           keys = {
-            ["<c-h>"] = { "toggle_hidden", mode = { "i", "n" } },
-            ["<c-i>"] = { "toggle_ignored", mode = { "i", "n" } },
-            ["<c-l>"] = { "toggle_live", mode = { "i", "n" } },
+            ["\\h"] = "toggle_hidden",
+            ["\\i"] = "toggle_ignored",
+            ["\\m"] = "toggle_maximize",
+            ["\\p"] = "toggle_preview",
+            ["\\f"] = "toggle_follow",
+            ["\\d"] = "inspect",
+            ["\\g"] = "print_path",
+            ["<c-w>w"] = "cycle_win",
           },
         },
       },
