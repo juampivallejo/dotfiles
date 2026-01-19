@@ -6,16 +6,16 @@ return {
       win = {
         input = {
           keys = {
-            ["<a-.>"] = { "toggle_hidden", mode = { "i", "n" } },
-            ["<a-,>"] = { "toggle_ignored", mode = { "i", "n" } },
-            ["<a-g>"] = { "toggle_live", mode = { "i", "n" } },
+            ["<c-h>"] = { "toggle_hidden", mode = { "i", "n" } },
+            ["<c-i>"] = { "toggle_ignored", mode = { "i", "n" } },
+            ["<c-l>"] = { "toggle_live", mode = { "i", "n" } },
           },
         },
         list = {
           keys = {
-            ["<a-.>"] = { "toggle_hidden", mode = { "i", "n" } },
-            ["<a-,>"] = { "toggle_ignored", mode = { "i", "n" } },
-            ["<a-g>"] = { "toggle_live", mode = { "i", "n" } },
+            ["<c-h>"] = { "toggle_hidden", mode = { "i", "n" } },
+            ["<c-i>"] = { "toggle_ignored", mode = { "i", "n" } },
+            ["<c-l>"] = { "toggle_live", mode = { "i", "n" } },
           },
         },
       },
