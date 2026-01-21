@@ -1,0 +1,7 @@
+layout {
+    pane {
+        command "cursor"
+        args "."
+        close_on_exit true
+    }
+}

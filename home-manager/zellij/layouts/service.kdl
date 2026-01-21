@@ -22,9 +22,9 @@ layout {
 
 }
 keybinds {
-  tmux {
+  normal {
+    bind "1" { Run "npm" "run" "test"; SwitchToMode "locked"; }
     // TODO: think
-    // bind "1" { Run "bdev" "k8s" "update-stack"; SwitchToMode "normal"; }
     // bind "2" { Run "git" "diff"; SwitchToMode "normal"; }
     // bind "3" { Run "bdev" "k8s" "end-day"; SwitchToMode "normal"; }
   }

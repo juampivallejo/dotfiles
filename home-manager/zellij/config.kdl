@@ -265,6 +265,7 @@ keybinds clear-defaults=true {
         bind "d" { Detach; }
         bind "f" { ToggleFloatingPanes; SwitchToMode "locked"; }
         bind "enter" { ToggleFocusFullscreen; SwitchToMode "locked"; }
+        bind "e" { NewTab { layout "cursor"; }; SwitchToMode "locked"; }
         // Change Pane size
         bind "-" { Resize "Decrease"; }
         bind "=" { Resize "Increase"; }
