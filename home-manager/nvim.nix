@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   basePackages = with pkgs; [
     tree-sitter
@@ -18,20 +23,22 @@ let
     sleek # SQL formatter
     sqls # LSP
   ];
-  nixosPackages = with pkgs;
+  nixosPackages =
+    with pkgs;
     lib.optionals config.isNixOS [
       copilot-language-server
       nodePackages.cspell # Spelling Linter
     ];
-  darwinPackages = with pkgs;
+  darwinPackages =
+    with pkgs;
     lib.optionals config.isDarwin [
       copilot-language-server # install darwin
     ];
 
-in {
+in
+{
   xdg.configFile."nvim" = {
-    source = config.lib.file.mkOutOfStoreSymlink
-      "${config.xdg.configHome}/dotfiles/home-manager/nvim";
+    source = config.lib.file.mkOutOfStoreSymlink "${config.xdg.configHome}/dotfiles/home-manager/nvim";
     recursive = true;
   };
 

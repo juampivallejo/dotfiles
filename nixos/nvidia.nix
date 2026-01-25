@@ -1,4 +1,10 @@
-{ pkgs, lib, config, ... }: {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+{
 
   config = lib.mkIf config.nvidiaDrivers.enable {
 
@@ -6,11 +12,12 @@
     programs.gamemode.enable = true;
     programs.gamescope.enable = true;
 
-    services.xserver = { videoDrivers = [ "nvidia" ]; };
-    environment.systemPackages = with pkgs;
-      [
-        libva # Required for Nvidia
-      ];
+    services.xserver = {
+      videoDrivers = [ "nvidia" ];
+    };
+    environment.systemPackages = with pkgs; [
+      libva # Required for Nvidia
+    ];
 
     hardware = {
       nvidia = {

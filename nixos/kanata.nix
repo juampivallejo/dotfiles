@@ -1,4 +1,10 @@
-{ pkgs, lib, config, ... }: {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+{
   config = lib.mkIf config.enableHomeRowMod {
     # Remaps home rows to be modifiers when hold
     # Pressing a key twice fast (tap-time) makes it behave as normal key (spam key)

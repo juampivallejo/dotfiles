@@ -1,7 +1,7 @@
-{ config, pkgs, ... }: {
+{ config, pkgs, ... }:
+{
   xdg.configFile."tmux/scripts" = {
-    source = config.lib.file.mkOutOfStoreSymlink
-      "${config.xdg.configHome}/dotfiles/home-manager/tmux-scripts";
+    source = config.lib.file.mkOutOfStoreSymlink "${config.xdg.configHome}/dotfiles/home-manager/tmux-scripts";
     recursive = true;
   };
 

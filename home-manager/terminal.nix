@@ -1,4 +1,9 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 let
   terminalConfigs = {
@@ -12,8 +17,7 @@ let
       programs.kitty.keybindings = {
         "ctrl+c" = "copy_or_interrupt";
         "kitty_mod+h" = "kitty_scrollback_nvim";
-        "kitty_mod+g" =
-          "kitty_scrollback_nvim --config ksb_builtin_last_cmd_output";
+        "kitty_mod+g" = "kitty_scrollback_nvim --config ksb_builtin_last_cmd_output";
       };
 
       programs.kitty.settings = {
@@ -33,8 +37,7 @@ let
         listen_on = "unix:/tmp/kitty";
         shell_integration = "enabled";
         # kitty-scrollback.nvim Kitten alias
-        action_alias =
-          "kitty_scrollback_nvim kitten /home/juampi/.local/share/nvim/lazy/kitty-scrollback.nvim/python/kitty_scrollback_nvim.py";
+        action_alias = "kitty_scrollback_nvim kitten /home/juampi/.local/share/nvim/lazy/kitty-scrollback.nvim/python/kitty_scrollback_nvim.py";
       };
 
       programs.kitty.shellIntegration.enableZshIntegration = true;
@@ -60,9 +63,12 @@ let
       };
     };
   };
-in {
-  config = lib.mkIf config.desktopApps.enable (lib.mkMerge [
-    (lib.mkIf config.desktopApps.kitty terminalConfigs.kitty)
-    (lib.mkIf config.desktopApps.ghostty terminalConfigs.ghostty)
-  ]);
+in
+{
+  config = lib.mkIf config.desktopApps.enable (
+    lib.mkMerge [
+      (lib.mkIf config.desktopApps.kitty terminalConfigs.kitty)
+      (lib.mkIf config.desktopApps.ghostty terminalConfigs.ghostty)
+    ]
+  );
 }

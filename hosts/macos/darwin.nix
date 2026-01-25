@@ -16,7 +16,9 @@
   # networking.hostName = "JPs-iMac-Pro";
   homebrew = {
     enable = true;
-    onActivation = { autoUpdate = true; };
+    onActivation = {
+      autoUpdate = true;
+    };
     # taps = [ "homebrew/cask-fonts" ];
     casks = [
       # Fonts
@@ -41,5 +43,8 @@
     nerd-fonts.droid-sans-mono
   ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 }

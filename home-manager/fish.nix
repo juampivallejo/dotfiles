@@ -1,4 +1,5 @@
-{ lib, pkgs, ... }: {
+{ lib, pkgs, ... }:
+{
   # Fish shell configuration
   programs.fish = {
     enable = true;
@@ -108,12 +109,20 @@
         "$character"
       ];
 
-      fill = { symbol = "-"; };
-      git_metrics = { disabled = false; };
-      git_status = { format = "([$all_status$ahead_behind]($style) )"; };
+      fill = {
+        symbol = "-";
+      };
+      git_metrics = {
+        disabled = false;
+      };
+      git_status = {
+        format = "([$all_status$ahead_behind]($style) )";
+      };
       os = {
         disabled = false;
-        symbols = { NixOS = " "; };
+        symbols = {
+          NixOS = " ";
+        };
       };
       python = {
         disabled = false;

@@ -1,7 +1,10 @@
 { pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [ ly uwsm ];
+  environment.systemPackages = with pkgs; [
+    ly
+    uwsm
+  ];
 
   services.displayManager.sddm = {
     enable = false;

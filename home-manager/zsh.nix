@@ -1,16 +1,27 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   # Zsh
   programs.zsh = {
     # Your zsh config
     enable = true;
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "python" "docker" "vi-mode" "fzf" ];
+      plugins = [
+        "git"
+        "python"
+        "docker"
+        "vi-mode"
+        "fzf"
+      ];
     };
     enableCompletion = true;
     syntaxHighlighting.enable = true;
-    autosuggestion = { enable = true; };
-    sessionVariables = { MANPAGER = "nvim +Man!"; };
+    autosuggestion = {
+      enable = true;
+    };
+    sessionVariables = {
+      MANPAGER = "nvim +Man!";
+    };
 
     shellAliases = {
       nix-rebuild = "sudo nixos-rebuild switch --flake .";

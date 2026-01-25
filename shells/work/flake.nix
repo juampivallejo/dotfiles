@@ -6,39 +6,56 @@
     nixpkgs-python.url = "github:cachix/nixpkgs-python";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-python }:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixpkgs-python,
+    }:
     let
       allSystems = [
         "x86_64-linux" # 64bit AMD/Intel x86
         "aarch64-darwin" # 64bit ARM macOS
       ];
 
-      forAllSystems = fn:
-        nixpkgs.lib.genAttrs allSystems (system:
+      forAllSystems =
+        fn:
+        nixpkgs.lib.genAttrs allSystems (
+          system:
           fn {
             pkgs = import nixpkgs {
               inherit system;
-              config = { allowUnfree = true; };
+              config = {
+                allowUnfree = true;
+              };
             };
             inherit system;
-          });
+          }
+        );
 
-      mkPythonEnv = { pkgs, system, pythonVersion ? "python312" }:
+      mkPythonEnv =
+        {
+          pkgs,
+          system,
+          pythonVersion ? "python312",
+        }:
         let
           # Define the Python package to use
           python = pkgs.${pythonVersion};
-        in pkgs.mkShell {
+        in
+        pkgs.mkShell {
           name = "${pythonVersion} work shell";
           packages = [
             # Shell packages
-            (python.withPackages (p:
-              with p; [
+            (python.withPackages (
+              p: with p; [
                 # Add pre installed packages
                 ipdb
                 numpy
                 pandas
                 debugpy
-              ]))
+              ]
+            ))
           ];
 
           shellHook = ''
@@ -54,26 +71,29 @@
           '';
         };
 
-    in {
+    in
+    {
       # nix develop $FLAKE_PATH
-      devShells = forAllSystems ({ pkgs, system }: {
-        default = mkPythonEnv {
-          inherit pkgs system;
-          pythonVersion = "python312";
-        };
-        python311 = mkPythonEnv {
-          inherit pkgs system;
-          pythonVersion = "python311";
-        };
-        python312 = mkPythonEnv {
-          inherit pkgs system;
-          pythonVersion = "python312";
-        };
-        python313 = mkPythonEnv {
-          inherit pkgs system;
-          pythonVersion = "python313";
-        };
-      });
+      devShells = forAllSystems (
+        { pkgs, system }:
+        {
+          default = mkPythonEnv {
+            inherit pkgs system;
+            pythonVersion = "python312";
+          };
+          python311 = mkPythonEnv {
+            inherit pkgs system;
+            pythonVersion = "python311";
+          };
+          python312 = mkPythonEnv {
+            inherit pkgs system;
+            pythonVersion = "python312";
+          };
+          python313 = mkPythonEnv {
+            inherit pkgs system;
+            pythonVersion = "python313";
+          };
+        }
+      );
     };
 }
-

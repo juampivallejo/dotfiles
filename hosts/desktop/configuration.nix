@@ -22,7 +22,9 @@
       efiSupport = true;
       useOSProber = true;
     };
-    efi = { canTouchEfiVariables = true; };
+    efi = {
+      canTouchEfiVariables = true;
+    };
   };
 
   # Set Hardware clock to use local time for dual boot compatibility
@@ -37,11 +39,10 @@
   xdg = {
     portal = {
       enable = true;
-      extraPortals = with pkgs;
-        [
-          # xdg desktop portals enable apps to interact with Hyprland, e.g. Screenshare
-          xdg-desktop-portal-hyprland
-        ];
+      extraPortals = with pkgs; [
+        # xdg desktop portals enable apps to interact with Hyprland, e.g. Screenshare
+        xdg-desktop-portal-hyprland
+      ];
     };
   };
 
@@ -51,10 +52,15 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-  networking.nameservers = [ "1.1.1.1" "8.8.8.8" ];
+  networking.nameservers = [
+    "1.1.1.1"
+    "8.8.8.8"
+  ];
 
   # Enable the X11 windowing system.
-  services.xserver = { enable = true; };
+  services.xserver = {
+    enable = true;
+  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -66,12 +72,15 @@
   users.users.juampi = {
     isNormalUser = true;
     description = "juampi";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
-    packages = with pkgs;
-      [
-        firefox
-        #  thunderbird
-      ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+    ];
+    packages = with pkgs; [
+      firefox
+      #  thunderbird
+    ];
   };
 
   # Allow unfree packages
@@ -111,7 +120,9 @@
       enable = true;
       setSocketVariable = true;
     };
-    daemon.settings = { userland-proxy = false; };
+    daemon.settings = {
+      userland-proxy = false;
+    };
   };
 
   # List services that you want to enable:
@@ -135,6 +146,9 @@
   system.stateVersion = "25.11"; # Did you read the comment?
 
   # -- Custom Nix settings --
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
 }

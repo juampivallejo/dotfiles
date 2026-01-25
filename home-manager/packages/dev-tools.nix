@@ -1,5 +1,7 @@
-{ config, pkgs, ... }: {
-  home.packages = with pkgs;
+{ config, pkgs, ... }:
+{
+  home.packages =
+    with pkgs;
     [
       onefetch # git info
       nushell # testing out nu shell
@@ -10,14 +12,19 @@
       monitorets
       devtoolbox
       clapgrep
-    ] ++ (if config.isNixOS then [
-      lazydocker
-      croc # File & folder transfer with relay server
-      kubernetes-helm
-      zed-editor
-      gemini-cli
-    ] else
-      [ ]);
+    ]
+    ++ (
+      if config.isNixOS then
+        [
+          lazydocker
+          croc # File & folder transfer with relay server
+          kubernetes-helm
+          zed-editor
+          gemini-cli
+        ]
+      else
+        [ ]
+    );
 
   programs.lazygit.enable = true;
 }

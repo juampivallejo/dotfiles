@@ -1,14 +1,24 @@
-{ lib, config, pkgs, username, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  username,
+  ...
+}:
 let
   homeDirectory = "/home/${username}";
   overlays = import ../../overlays { inherit config; };
-in {
+in
+{
   targets.genericLinux.enable = true;
 
   nix = {
     package = pkgs.nix;
     settings = {
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       warn-dirty = false;
     };
   };

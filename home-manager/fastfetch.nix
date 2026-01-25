@@ -1,12 +1,17 @@
-{ pkgs, lib, config, ... }: {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+{
 
   config = {
     programs.fastfetch = lib.mkIf config.enableFastFetch {
       enable = config.enableFastFetch;
       package = pkgs.fastfetch;
       settings = {
-        schema =
-          "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json";
+        schema = "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json";
         # logo = {
         #   type = "iterm";
         #   source = "~/Desktop/apple1.png";
@@ -48,8 +53,7 @@
           {
             type = "title";
             keyIcon = "";
-            key =
-              "Title"; # Title module has no key by default, so that icon is not displayed
+            key = "Title"; # Title module has no key by default, so that icon is not displayed
             format = "{user-name}@{host-name}";
           }
           "os"

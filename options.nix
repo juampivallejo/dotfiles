@@ -1,4 +1,9 @@
-{ lib, config, pkgs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 
 with lib;
 
@@ -14,8 +19,7 @@ with lib;
     enableHyprland = mkOption {
       type = types.bool;
       default = false;
-      description =
-        "Enable the Hyprland window manager and related components.";
+      description = "Enable the Hyprland window manager and related components.";
     };
 
     desktopApps = {

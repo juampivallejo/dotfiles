@@ -1,4 +1,5 @@
-{ config, lib, ... }: {
+{ config, lib, ... }:
+{
   programs.git = {
     enable = true;
     settings = {
@@ -22,7 +23,9 @@
       enable = true;
       diffToolMode = true;
     };
-    options = { display = "Side-by-side"; };
+    options = {
+      display = "Side-by-side";
+    };
   };
 
   services.ssh-agent = lib.mkIf config.isNixOS { enable = true; };

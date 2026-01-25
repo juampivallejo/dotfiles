@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   imports = [
     ./desktop-apps.nix
     ./direnv.nix

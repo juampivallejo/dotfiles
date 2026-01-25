@@ -1,10 +1,15 @@
 { pkgs, username, ... }:
-let homeDirectory = "/Users/${username}";
-in {
+let
+  homeDirectory = "/Users/${username}";
+in
+{
   nix = {
     package = pkgs.nix;
     settings = {
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       warn-dirty = false;
     };
   };

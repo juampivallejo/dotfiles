@@ -1,4 +1,10 @@
-{ pkgs, lib, config, inputs, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  inputs,
+  ...
+}:
 
 {
   config = lib.mkIf config.enableHyprland {
@@ -24,7 +30,9 @@
       NIXOS_OZONE_WL = "1";
     };
 
-    security = { polkit.enable = true; };
+    security = {
+      polkit.enable = true;
+    };
 
     systemd = {
       user.services.polkit-gnome-authentication-agent-1 = {
@@ -34,8 +42,7 @@
         after = [ "graphical-session.target" ];
         serviceConfig = {
           Type = "simple";
-          ExecStart =
-            "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+          ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
           Restart = "on-failure";
           RestartSec = 1;
           TimeoutStopSec = 10;

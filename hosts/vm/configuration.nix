@@ -26,7 +26,9 @@
   networking.networkmanager.enable = true;
 
   # Enable the X11 windowing system.
-  services.xserver = { enable = true; };
+  services.xserver = {
+    enable = true;
+  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -38,12 +40,17 @@
   users.users.juampi = {
     isNormalUser = true;
     description = "juampi";
-    extraGroups = [ "networkmanager" "wheel" "docker" "input" "uinput" ];
-    packages = with pkgs;
-      [
-        firefox
-        #  thunderbird
-      ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+      "input"
+      "uinput"
+    ];
+    packages = with pkgs; [
+      firefox
+      #  thunderbird
+    ];
   };
 
   # Allow unfree packages
@@ -105,6 +112,9 @@
   system.stateVersion = "23.11"; # Did you read the comment?
 
   # -- Custom Nix settings --
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
 }

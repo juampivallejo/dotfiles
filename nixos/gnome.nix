@@ -7,8 +7,7 @@
 
   # Enable Gnome Keyring
   services.gnome.gnome-keyring.enable = true;
-  environment.systemPackages =
-    [ pkgs.libsecret ]; # libsecret API (use secret-tool from the cli)
+  environment.systemPackages = [ pkgs.libsecret ]; # libsecret API (use secret-tool from the cli)
   security = {
     pam.services.hyprland.enableGnomeKeyring = true;
     pam.services.gdm.enableGnomeKeyring = true;
@@ -23,25 +22,28 @@
     XCURSOR_SIZE = "24";
   };
   # Gnome Exclude Packages
-  environment.gnome.excludePackages = (with pkgs; [
-    nautilus
-    gnome-tour
-    gedit # text editor
-    geary # email reader
-    gnome-user-docs
-    gnome-contacts
-    gnome-font-viewer
-    gnome-maps
-    gnome-music
-    gnome-weather
-    loupe
-    gnome-connections
-    simple-scan
-    snapshot
-    totem
-    gnome-software
-    # gnome-logs
-    # gnome-terminal
-    # epiphany # web browser
-  ]);
+  environment.gnome.excludePackages = (
+    with pkgs;
+    [
+      nautilus
+      gnome-tour
+      gedit # text editor
+      geary # email reader
+      gnome-user-docs
+      gnome-contacts
+      gnome-font-viewer
+      gnome-maps
+      gnome-music
+      gnome-weather
+      loupe
+      gnome-connections
+      simple-scan
+      snapshot
+      totem
+      gnome-software
+      # gnome-logs
+      # gnome-terminal
+      # epiphany # web browser
+    ]
+  );
 }

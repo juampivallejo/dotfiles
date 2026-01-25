@@ -1,1 +1,7 @@
-{ ... }: { imports = [ ./hyprland.nix ./rofi.nix ]; }
+{ ... }:
+{
+  imports = [
+    ./hyprland.nix
+    ./rofi.nix
+  ];
+}

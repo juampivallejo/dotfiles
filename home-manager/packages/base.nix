@@ -7,7 +7,8 @@ let
     awscli2
     devenv
   ];
-  extrasNixOS = with pkgs;
+  extrasNixOS =
+    with pkgs;
     lib.optionals config.isNixOS [
       docker
       docker-compose
@@ -17,4 +18,7 @@ let
       gnumake
     ];
   extrasDarwin = with pkgs; lib.optionals config.isDarwin [ coreutils ];
-in { home.packages = devPackages ++ extrasNixOS ++ extrasDarwin; }
+in
+{
+  home.packages = devPackages ++ extrasNixOS ++ extrasDarwin;
+}

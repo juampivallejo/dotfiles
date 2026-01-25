@@ -10,5 +10,8 @@
     orca.enable = false;
   };
 
-  nix.settings.trusted-users = [ "root" "juampi" ]; # Allow devenv to use cachix
+  nix.settings.trusted-users = [
+    "root"
+    "juampi"
+  ]; # Allow devenv to use cachix
 }

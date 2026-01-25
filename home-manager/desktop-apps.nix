@@ -1,4 +1,11 @@
-{ pkgs, lib, config, inputs, ... }: {
+{
+  pkgs,
+  lib,
+  config,
+  inputs,
+  ...
+}:
+{
 
   config = lib.mkIf config.desktopApps.enable {
     home.packages = with pkgs; [

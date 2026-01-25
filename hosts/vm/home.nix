@@ -1,12 +1,17 @@
 { pkgs, username, ... }:
-let homeDirectory = "/home/${username}";
-in {
+let
+  homeDirectory = "/home/${username}";
+in
+{
   targets.genericLinux.enable = true;
 
   nix = {
     package = pkgs.nix;
     settings = {
-      experimental-features = [ "nix-command" "flakes" ];
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       warn-dirty = false;
     };
   };

@@ -6,26 +6,43 @@
     nixpkgs-python.url = "github:cachix/nixpkgs-python";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-python }:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nixpkgs-python,
+    }:
     let
       allSystems = [
         "x86_64-linux" # 64bit AMD/Intel x86
         "aarch64-darwin" # 64bit ARM macOS
       ];
 
-      forAllSystems = fn:
-        nixpkgs.lib.genAttrs allSystems (system:
+      forAllSystems =
+        fn:
+        nixpkgs.lib.genAttrs allSystems (
+          system:
           fn {
             pkgs = import nixpkgs {
               inherit system;
-              config = { allowUnfree = true; };
+              config = {
+                allowUnfree = true;
+              };
             };
             inherit system;
-          });
+          }
+        );
 
-      mkPythonEnv = { pkgs, system, pythonVersion ? "3.9" }:
-        let python = nixpkgs-python.packages.${system}."${pythonVersion}";
-        in pkgs.mkShell {
+      mkPythonEnv =
+        {
+          pkgs,
+          system,
+          pythonVersion ? "3.9",
+        }:
+        let
+          python = nixpkgs-python.packages.${system}."${pythonVersion}";
+        in
+        pkgs.mkShell {
           name = "${pythonVersion} shell";
           packages = [
             # Shell packages
@@ -50,22 +67,25 @@
           '';
         };
 
-    in {
+    in
+    {
       # nix develop $FLAKE_PATH
-      devShells = forAllSystems ({ pkgs, system }: {
-        python38 = mkPythonEnv {
-          inherit pkgs system;
-          pythonVersion = "3.8";
-        };
-        python39 = mkPythonEnv {
-          inherit pkgs system;
-          pythonVersion = "3.9";
-        };
-        python310 = mkPythonEnv {
-          inherit pkgs system;
-          pythonVersion = "3.10";
-        };
-      });
+      devShells = forAllSystems (
+        { pkgs, system }:
+        {
+          python38 = mkPythonEnv {
+            inherit pkgs system;
+            pythonVersion = "3.8";
+          };
+          python39 = mkPythonEnv {
+            inherit pkgs system;
+            pythonVersion = "3.9";
+          };
+          python310 = mkPythonEnv {
+            inherit pkgs system;
+            pythonVersion = "3.10";
+          };
+        }
+      );
     };
 }
-

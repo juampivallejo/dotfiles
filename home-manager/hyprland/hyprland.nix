@@ -1,10 +1,16 @@
-{ pkgs, lib, config, ... }: {
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
+{
 
   config = lib.mkIf config.enableHyprland {
 
     # Configure Hyprland to use Systemd
     wayland.windowManager.hyprland = {
-      systemd.enable = true; # Enable systemd integration for hyprland
+      systemd.enable = false; # Enable systemd integration for hyprland
       plugins = [
         pkgs.hyprlandPlugins.csgo-vulkan-fix # fix csgo resolutions
         pkgs.hyprdim # Automatically dim windows
@@ -27,8 +33,7 @@
 
     # Config Symlink
     xdg.configFile."hypr" = {
-      source = config.lib.file.mkOutOfStoreSymlink
-        "${config.xdg.configHome}/dotfiles/home-manager/hyprland/hypr";
+      source = config.lib.file.mkOutOfStoreSymlink "${config.xdg.configHome}/dotfiles/home-manager/hyprland/hypr";
       recursive = true;
     };
     xdg.configFile."scripts" = {
@@ -38,8 +43,7 @@
     };
 
     xdg.configFile."waybar" = {
-      source = config.lib.file.mkOutOfStoreSymlink
-        "${config.xdg.configHome}/dotfiles/home-manager/hyprland/waybar";
+      source = config.lib.file.mkOutOfStoreSymlink "${config.xdg.configHome}/dotfiles/home-manager/hyprland/waybar";
       recursive = true;
     };
 

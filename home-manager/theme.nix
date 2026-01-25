@@ -1,9 +1,13 @@
-{ lib, config, pkgs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 let
   theme = {
     name = "Tokyonight-Dark";
-    package =
-      pkgs.tokyonight-gtk-theme.override { colorVariants = [ "dark" ]; };
+    package = pkgs.tokyonight-gtk-theme.override { colorVariants = [ "dark" ]; };
   };
   font = {
     name = "0xProto Nerd Font";
@@ -19,7 +23,8 @@ let
     name = "MoreWaita";
     package = pkgs.morewaita-icon-theme;
   };
-in {
+in
+{
 
   config = lib.mkIf config.desktopApps.enable {
     home = {

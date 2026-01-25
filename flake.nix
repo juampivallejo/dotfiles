@@ -3,8 +3,7 @@
 
   # Inputs = git repositories
   inputs = {
-    nixpkgs.url =
-      "nixpkgs/nixos-unstable"; # longer format is github:NixOS/nixpkgs/nixos-XX.XX
+    nixpkgs.url = "nixpkgs/nixos-unstable"; # longer format is github:NixOS/nixpkgs/nixos-XX.XX
     nixpkgs-old.url = "nixpkgs/nixos-24.05";
     nixos-wsl.url = "github:nix-community/nixos-wsl";
 
@@ -24,7 +23,13 @@
   };
 
   ## Outputs = built and working system configuration
-  outputs = { home-manager, nixpkgs, nixos-wsl, ... }@inputs:
+  outputs =
+    {
+      home-manager,
+      nixpkgs,
+      nixos-wsl,
+      ...
+    }@inputs:
     let
       username = "juampi";
       system = "x86_64-linux";
@@ -36,17 +41,26 @@
         inherit system;
         config.allowUnfree = true;
       };
-    in {
+    in
+    {
       # NixOS Configs
       nixosConfigurations = {
         desktop = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          modules = [ ./options.nix ./hosts/desktop/configuration.nix ./nixos ];
+          modules = [
+            ./options.nix
+            ./hosts/desktop/configuration.nix
+            ./nixos
+          ];
           specialArgs = { inherit inputs pkgs-old; };
         };
         vm = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          modules = [ ./options.nix ./hosts/vm/configuration.nix ./nixos ];
+          modules = [
+            ./options.nix
+            ./hosts/vm/configuration.nix
+            ./nixos
+          ];
         };
         wsl = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
@@ -69,7 +83,10 @@
       darwinConfigurations = {
         JPs-iMac-Pro = inputs.nix-darwin.lib.darwinSystem {
           system = "x86_64-darwin"; # or "aarch64-darwin" for Apple Silicon
-          modules = [ ./options.nix ./hosts/macos/darwin.nix ];
+          modules = [
+            ./options.nix
+            ./hosts/macos/darwin.nix
+          ];
           specialArgs = { inherit inputs username; };
         };
       };
@@ -78,32 +95,53 @@
       homeConfigurations = {
         "juampi@desktop" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [ ./options.nix ./hosts/desktop/home.nix ./home-manager ];
+          modules = [
+            ./options.nix
+            ./hosts/desktop/home.nix
+            ./home-manager
+          ];
           extraSpecialArgs = { inherit username inputs pkgs-old; };
         };
         "juampi@vm" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [ ./options.nix ./hosts/vm/home.nix ./home-manager ];
+          modules = [
+            ./options.nix
+            ./hosts/vm/home.nix
+            ./home-manager
+          ];
           extraSpecialArgs = { inherit username; };
         };
         "juampi@wsl" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          modules = [ ./options.nix ./hosts/wsl/home.nix ./home-manager ];
+          modules = [
+            ./options.nix
+            ./hosts/wsl/home.nix
+            ./home-manager
+          ];
           extraSpecialArgs = { inherit username; };
         };
-        "juampi@wsl-desktop" =
-          inputs.home-manager.lib.homeManagerConfiguration {
-            pkgs = pkgs; # Same as inherit pkgs;
-            modules = [ ./options.nix ./hosts/wsl/home.nix ./home-manager ];
-            extraSpecialArgs = { inherit username; };
-          };
+        "juampi@wsl-desktop" = inputs.home-manager.lib.homeManagerConfiguration {
+          pkgs = pkgs; # Same as inherit pkgs;
+          modules = [
+            ./options.nix
+            ./hosts/wsl/home.nix
+            ./home-manager
+          ];
+          extraSpecialArgs = { inherit username; };
+        };
         "jp@JPs-iMac-Pro" = home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs {
             system = "x86_64-darwin";
             config.allowUnfree = true;
           };
-          modules = [ ./options.nix ./hosts/macos/home.nix ./home-manager ];
-          extraSpecialArgs = { username = "jp"; };
+          modules = [
+            ./options.nix
+            ./hosts/macos/home.nix
+            ./home-manager
+          ];
+          extraSpecialArgs = {
+            username = "jp";
+          };
         };
       };
     };
