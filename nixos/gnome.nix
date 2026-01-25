@@ -2,7 +2,7 @@
 
 {
   # Enable Gnome
-  services.displayManager.gdm.enable = true; # GDM login screen
+  services.displayManager.gdm.enable = false; # GDM login screen
   services.desktopManager.gnome.enable = true;
 
   # Enable Gnome Keyring

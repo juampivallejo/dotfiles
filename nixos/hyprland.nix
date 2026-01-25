@@ -45,6 +45,7 @@
 
     environment.systemPackages = with pkgs; [
       # For Hyprland
+      uwsm # for systemd startup
       kdePackages.dolphin # file explorer
       imv # Imdateage terminal viewer
       wf-recorder # Recorder screen

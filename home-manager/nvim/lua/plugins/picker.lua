@@ -6,6 +6,7 @@ return {
       win = {
         input = {
           keys = {
+            ["\\l"] = "toggle_live",
             ["\\h"] = "toggle_hidden",
             ["\\i"] = "toggle_ignored",
             ["\\m"] = "toggle_maximize",
@@ -18,6 +19,7 @@ return {
         },
         list = {
           keys = {
+            ["\\l"] = "toggle_live",
             ["\\h"] = "toggle_hidden",
             ["\\i"] = "toggle_ignored",
             ["\\m"] = "toggle_maximize",
