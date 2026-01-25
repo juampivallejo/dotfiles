@@ -13,8 +13,7 @@
     programs.hyprland = {
       enable = true;
       xwayland.enable = true;
-      withUWSM = true; # FIXME: for proper systemd support
-      # Automatically starts targets like graphical-session.target
+      withUWSM = true;
     };
     programs.hyprlock = {
       enable = true; # Enable Lock-screen for hyprland
@@ -52,7 +51,6 @@
 
     environment.systemPackages = with pkgs; [
       # For Hyprland
-      uwsm # for systemd startup
       kdePackages.dolphin # file explorer
       imv # Imdateage terminal viewer
       wf-recorder # Recorder screen

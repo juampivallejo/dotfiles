@@ -4,6 +4,7 @@
     # Include the results of the hardware scan.
     ./auto-upgrade.nix
     ./bluetooth.nix
+    ./display.nix
     ./fonts.nix
     ./gnome.nix
     ./hyprland.nix
