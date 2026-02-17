@@ -1,4 +1,4 @@
-{ }:
+{ ... }:
 {
   # SDDM Option
   services.displayManager = {
