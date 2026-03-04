@@ -1,3 +1,13 @@
+local function get_args(config)
+  local args = type(config.args) == "function" and (config.args() or {}) or config.args or {}
+  config = vim.deepcopy(config)
+  config.args = function()
+    local new_args = vim.fn.input("Run with args: ", table.concat(args, " "))
+    return vim.split(vim.fn.expand(new_args), " ")
+  end
+  return config
+end
+
 local dap_ui = {
   "rcarriga/nvim-dap-ui",
   dependencies = { "nvim-neotest/nvim-nio" },
@@ -72,29 +82,10 @@ local nvim_dap = {
   end,
 }
 
-dap_python = require("dap-python")
-
--- Flatten classnames and methodname to a single string
--- Copied from https://github.com/mfussenegger/nvim-dap-python/blob/34282820bb713b9a5fdb120ae8dd85c2b3f49b51/lua/dap-python.lua#L166
 ---@return string[]
 local function flatten(...)
   local values = { ... }
   return vim.iter(values):flatten(2):totable()
-end
-
--- Define a custom pytest runner that includes --no-cov
--- BUG: DAP does not work if running with --cov (coverage report) https://github.com/microsoft/debugpy/issues/863
-
----@param classnames string[]
----@param methodname string?
-dap_python.test_runners.pytest_no_cov = function(classnames, methodname)
-  -- Get current path and append classname and methodname
-  local path = vim.fn.expand("%:p")
-  local test_path = table.concat(flatten({ path, classnames, methodname }), "::")
-
-  -- -s "allow output to stdout of test"
-  local args = { "--no-cov", "-s", test_path }
-  return "pytest", args
 end
 
 return {
@@ -107,12 +98,24 @@ return {
       "mfussenegger/nvim-dap-python",
       -- stylua: ignore
       keys = {
-        { "<leader>dPt", function() dap_python.test_method() end, desc = "Debug Method", ft = "python" },
-        { "<leader>dPc", function() dap_python.test_class() end, desc = "Debug Class", ft = "python" },
-        { "<leader>dPs", function() dap_python.debug_selection() end, desc = "Debug Selection", ft = "python" },
+        { "<leader>dPt", function() require("dap-python").test_method() end, desc = "Debug Method", ft = "python" },
+        { "<leader>dPc", function() require("dap-python").test_class() end, desc = "Debug Class", ft = "python" },
+        { "<leader>dPs", function() require("dap-python").debug_selection() end, desc = "Debug Selection", ft = "python" },
       },
       config = function()
+        local dap_python = require("dap-python")
         dap_python.setup("python")
+
+        -- BUG: DAP does not work if running with --cov (coverage report) https://github.com/microsoft/debugpy/issues/863
+        ---@param classnames string[]
+        ---@param methodname string?
+        dap_python.test_runners.pytest_no_cov = function(classnames, methodname)
+          local path = vim.fn.expand("%:p")
+          local test_path = table.concat(flatten({ path, classnames, methodname }), "::")
+          local args = { "--no-cov", "-s", test_path }
+          return "pytest", args
+        end
+
         dap_python.test_runner = "pytest_no_cov"
       end,
     },

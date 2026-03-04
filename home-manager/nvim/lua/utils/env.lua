@@ -13,7 +13,7 @@ function M.hostname()
 end
 
 function M.is_mac()
-  return (vim.loop.os_uname().sysname == "Darwin")
+  return ((vim.uv or vim.loop).os_uname().sysname == "Darwin")
 end
 function M.is_host(pat)
   return M.hostname():match(pat) ~= nil

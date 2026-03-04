@@ -234,6 +234,13 @@ keybinds clear-defaults=true {
         bind "s" { SwitchToMode "scroll"; }
         bind "p" { SwitchToMode "pane"; }
         bind "r" { SwitchToMode "resize"; }
+        bind ";" {
+            LaunchOrFocusPlugin "zellij-favs" {
+                floating true
+                display_tab_panes true
+                cache_dir "/Users/juanpablo.vallejo/.config/zellij/fav_cache"
+            }
+        }
     }
     shared_among "scroll" "search" {
         bind "PageDown" { PageScrollDown; }
