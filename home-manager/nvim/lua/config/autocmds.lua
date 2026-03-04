@@ -21,3 +21,14 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.bo.commentstring = "-- %s"
   end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "typescript", "typescriptreact" },
+  callback = function()
+    vim.bo.indentexpr = "" -- disable the treesitter indentexpr in this buffer
+    vim.bo.expandtab = true
+    vim.bo.shiftwidth = 4
+    vim.bo.tabstop = 4
+    vim.bo.softtabstop = 4
+  end,
+})

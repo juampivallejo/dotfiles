@@ -35,7 +35,7 @@ require("lazy").setup({
 
     -- Copilot and Chat
     { import = "lazyvim.plugins.extras.ai.copilot", cond = env.is_mac() },
-    { import = "lazyvim.plugins.extras.ai.copilot-chat", cond = env.is_mac() },
+    -- { import = "lazyvim.plugins.extras.ai.copilot-chat", cond = env.is_mac() },
 
     -- Editor testing
     { import = "lazyvim.plugins.extras.editor.snacks_picker" },
