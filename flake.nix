@@ -4,7 +4,7 @@
   # Inputs = git repositories
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable"; # longer format is github:NixOS/nixpkgs/nixos-XX.XX
-    nixpkgs-old.url = "nixpkgs/nixos-24.05";
+    nixpkgs-unstable.url = "nixpkgs/nixpkgs-unstable";
     nixos-wsl.url = "github:nix-community/nixos-wsl";
 
     # Note: Used home-manager standalone install instructions (nix-shell '<home-manager>' -A install)
@@ -37,7 +37,7 @@
         inherit system;
         config.allowUnfree = true;
       };
-      pkgs-old = import inputs.nixpkgs-old {
+      pkgs-unstable = import inputs.nixpkgs-unstable {
         inherit system;
         config.allowUnfree = true;
       };
@@ -52,7 +52,7 @@
             ./hosts/desktop/configuration.nix
             ./nixos
           ];
-          specialArgs = { inherit inputs pkgs-old; };
+          specialArgs = { inherit inputs pkgs-unstable; };
         };
         vm = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
@@ -100,7 +100,7 @@
             ./hosts/desktop/home.nix
             ./home-manager
           ];
-          extraSpecialArgs = { inherit username inputs pkgs-old; };
+          extraSpecialArgs = { inherit username inputs pkgs-unstable; };
         };
         "juampi@vm" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;

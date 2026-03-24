@@ -1,9 +1,8 @@
-{ pkgs, pkgs-old, ... }:
+{ ... }:
 
 {
   # Enable VPN
   programs.openvpn3.enable = true;
-  programs.openvpn3.package = pkgs-old.openvpn3; # TODO: remove pkgs-old after openvpn3 works
 
   # Wifi Hotspot config
   # environment.systemPackages = with pkgs; [ linux-wifi-hotspot hostapd iw ];

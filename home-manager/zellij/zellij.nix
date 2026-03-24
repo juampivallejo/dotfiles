@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs-unstable, ... }:
 {
   xdg.configFile."zellij" = {
     source = config.lib.file.mkOutOfStoreSymlink "${config.xdg.configHome}/dotfiles/home-manager/zellij";
@@ -6,6 +6,7 @@
   };
   programs.zellij = {
     enable = true;
+    package = pkgs-unstable.zellij;
     enableZshIntegration = true;
     enableFishIntegration = false;
   };
