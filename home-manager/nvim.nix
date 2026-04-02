@@ -27,7 +27,7 @@ let
     with pkgs;
     lib.optionals config.isNixOS [
       copilot-language-server
-      nodePackages.cspell # Spelling Linter
+      cspell # Spelling Linter
     ];
   darwinPackages =
     with pkgs;
