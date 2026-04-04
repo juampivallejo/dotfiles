@@ -22,7 +22,7 @@
       systemd.enable = true;
     };
 
-    services.swww.enable = true;
+    services.awww.enable = true;
     services.hyprpolkitagent.enable = true;
     services.dunst = {
       enable = true; # Notification service
@@ -52,7 +52,7 @@
       killall # Used in some scripts
       pavucontrol # Audio control with waybar
       dmenu # notification actions
-      swww # Wallpapers
+      awww # Wallpapers
       libnotify
       slurp # for screenshots
       playerctl # Player control
